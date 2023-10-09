@@ -4,42 +4,94 @@
    <meta charset="UTF-8">
    <meta name="viewport">
    <title>centresInterets</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-   <nav class="menu">
-      <div>
-         <div><a href="index.html">Accueil</a></div>
-         <div><a href="cv.html">CV</a></div>
-         <div><a href="projets.html">Projets</a></div>
-         <div><a href="centresInterets.html">Centres d'Intérets</a></div>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Mon Site Pro</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html">Acceuil</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="cv.html">CV</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="projets.html">Projets</a>
+            </li>
+            <li class="nav-item active">
+               <a class="nav-link" href="centresInterets.html">Centres d'Intérets<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
       </div>
    </nav>
-
-   <div>
-      <h1>Centres Interets</h1>    
-      <div>
-         <h2><img src="soccer.png" alt="Compétences" width="70px" height="70px">Sport</h2>
-            <div>
-               <h3>Equipe de Football F - IMT Nord Europe</h3>
-               <p>Compétition FFSU, Coupe Saint-Gobain</p>
+   <main>
+      <div class="container">
+         <div class="row justify-content-center text-center">
+            <div class="col-12 text-center p-3">
+               <h1>
+                  <i class="fas fa-hand-peace"></i>
+                  Mes Centres d'Intérets
+               </h1>
             </div>
-            <div>
-               <h3>Aviron - Cercle Nautique de Versailles</h3>
-               <p>Championnat de France pendant 5 ans</p>
+         </div>
+         <div class="row justify-content-center text-center">
+            <div class="col-12">
+               <div class="row justify-content-center text-center">
+                  <div class="card w-100 h-100 mb-4">
+                     <div class="card-header justify-content-center">
+                        <h5>Equipe de Football F - IMT Nord Europe</h5>
+                     </div>
+                     <div class="card-body p-2">
+                        <p>
+                           Compétition FFSU, Coupe Saint-Gobain
+                        </p> 
+                     </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center text-center">
+                  <div class="card w-100 h-100 mb-4">
+                     <div class="card-header justify-content-center">
+                        <h5>Aviron - Cercle Nautique de Versailles</h5>
+                     </div>
+                     <div class="card-body p-2">
+                        <p>
+                           Championnat de France pendant 5 ans
+                        </p> 
+                     </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center text-center">
+                  <div class="card w-100 h-100 mb-4">
+                     <div class="card-header justify-content-center">
+                        <h5>Voyages</h5>
+                     </div>
+                     <div class="card-body p-2">
+                        <p>
+                           États-Unis, Angleterre, Vietnam <br>
+                           Thaïlande, Slovénie, Sri Lanka, la Réunion <br>
+                           Espagne, Portugal, Italie, Grèce, Allemagne
+                        </p> 
+                     </div>
+                  </div>
+               </div>
             </div>
-         <h2><img src="soccer.png" alt="Compétences" width="70px" height="70px">Voyages</h2>
-            <div>
-               <p>États-Unis, Angleterre, Vietnam
-                  Thaïlande, Slovénie, Sri Lanka, la Réunion
-                  Espagne, Portugal, Italie, Grèce, Allemagne</p>
-            </div>
-      </div>    
-   </div>
-
-   <footer>
-      <p> <strong>@Contact</strong></p>
-      <p>Adèle PATAROT</p>
-      <p>Etudiante à IMT NE</p>
+         </div>
+      </div>
+   </main>
+   <footer class="bg-light">
+      <div class="row text-center p-2">
+         <div class="col-12">
+            <p> <strong>@Contact</strong></p>
+            <p>Adèle PATAROT</p>
+            <p>adele.patarot@etu.imt-nord-europe.fr</p>
+         </div>
+      </div>
    </footer>
 </body>
 </html>
