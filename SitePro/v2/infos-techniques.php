@@ -4,6 +4,7 @@
 <body>
    <?php
       require_once('template_menu.php');
+      renderMenuToHTML("infos-techniques");
    ?>
    <main>
       <div class="row justify-content-center text-center">

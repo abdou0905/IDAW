@@ -3,8 +3,9 @@
 ?>
 
 <body>
-   <?php
+<?php
       require_once('template_menu.php');
+      renderMenuToHTML('centresInterets');
    ?>
    <main>
       <div class="container">

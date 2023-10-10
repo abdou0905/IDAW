@@ -2,8 +2,9 @@
    require_once('template_header.php');
 ?>
 <body>
-   <?php
+<?php
       require_once('template_menu.php');
+      renderMenuToHTML('projets');
    ?>
    <main>
       <div class="container">
