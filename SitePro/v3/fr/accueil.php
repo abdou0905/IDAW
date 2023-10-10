@@ -19,21 +19,21 @@
 <div class="container p-4">
    <div class="row mb-4">
       <div class="col-4">
-         <a href="cv.php">
+         <a href="http://localhost/IDAW/SitePro/v3/index.php?page=cv&lang=fr">
             <div class="btn btn-light w-100 p-4 border">
                <i class="fas fa-graduation-cap fa-lg"></i> Mon CV
             </div>
          </a>
       </div>
       <div class="col-4">
-         <a href="projets.php">
+         <a href="http://localhost/IDAW/SitePro/v3/index.php?page=projets&lang=fr">
             <div class="btn btn-light w-100 p-4 border">
                <i class="fas fa-lightbulb"></i> Mes Projets
             </div>
          </a>
       </div>
       <div class="col-4">
-         <a href="centresInterets.php">
+         <a href="http://localhost/IDAW/SitePro/v3/index.php?page=centresInterets&lang=fr">
             <div class="btn btn-light w-100 p-4 border">
                <i class="fas fa-hand-peace"></i> Mes Centres d'Intérets
             </div>
