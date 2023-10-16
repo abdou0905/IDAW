@@ -9,6 +9,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
+      <th>Actions</th>
    </tr>
    <?php foreach($users as $user) {
       echo
@@ -16,19 +17,25 @@
          <td>{$user->id}</td>
          <td>{$user->name}</td>
          <td>{$user->email}</td>
+         <td>
+            <form action='index.php' method='post' onsubmit='location.reload()'>
+               <input type='hidden' name='id' value='$user->id'></input>
+               <input type='submit' name='btnName' value='delete'></input>
+            </form>
+         </td>
       </tr>";
    } ?>
 </table>
 <h2>Add new user</h2>
-<form id="add_form" action="index.php" method="post">
+<form action="index.php" method="post" onsubmit="location.reload()">
    <label for="name">Name:</label>
    <input type="text" id="name" name="name">
    <label for="email">Email:</label>
    <input type="text" id="email" name="email">
    <input type="submit" value="add">
-
 </form>
 
+<!-- traitement formulaire add -->
 <?php
    if(isset($_POST['name']) && isset($_POST['email'])){
       // ajouter la condition qu'il n'y ait pas deux fois le meme email
@@ -39,9 +46,18 @@
       
    }
 ?>
+<!-- traitement formulaire delete -->
+<?php
+   if(isset($_POST['id']) && isset($_POST['btnName'])) {
+      $id=$_POST['id'];
+      $action=$_POST['btnName'];
+      if($action=='delete'){
+         $delete_request=$pdo->prepare('DELETE FROM users WHERE id=?');
+         $delete_request->execute([$id]);
+      }
+   }
+?>
 <?php
    /*** close the database connection ***/
-   $_POST['name']=NULL;
-   $_POST['email']=NULL;
    $pdo = null;
 ?>
