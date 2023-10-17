@@ -38,12 +38,18 @@
 <!-- traitement formulaire add -->
 <?php
    if(isset($_POST['name']) && isset($_POST['email'])){
-      // ajouter la condition qu'il n'y ait pas deux fois le meme email
+      // ajouter la condition qu'il n'y ait pas deux fois le meme email pour resoudre beug rfresh
       $add_request=$pdo->prepare('INSERT INTO users (name, email) VALUES (?,?)');
       $name=$_POST['name'];
       $email=$_POST['email'];
-      $add_request->execute([$name, $email]);
-      
+
+      // verification de redondance
+      $exist_already_request=$pdo->prepare('SELECT COUNT(*) FROM users WHERE email = ?');
+      $exist_already_request->execute([$email]);
+      $exit=$exist_already_request->fetchColumn();
+      if($exit==0) {
+         $add_request->execute([$name, $email]);
+      }
    }
 ?>
 <!-- traitement formulaire delete -->
