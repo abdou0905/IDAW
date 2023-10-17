@@ -17,6 +17,6 @@
    }
 
    //declaration et execution du code SQL
-   $sql = file_get_contents('sql/create_db.sql');
+   $sql = file_get_contents('data_base/create_db.sql');
    $pdo->exec($sql);
 ?>
