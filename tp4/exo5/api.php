@@ -15,12 +15,23 @@
    if($methode==='GET' && $uri==='/IDAW/tp4/exo5/index.php/api/userAll'){
       $users=userAll($pdo);
       echo $users;
-   } else if ($methode === 'GET' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/deleteUser/') === 0) {
+   } else if ($methode === 'GET' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/deleteUser') === 0) {
       // Extraire l'ID de l'URI
-      $id = (int) substr($uri, strlen('/IDAW/tp4/exo5/index.php/api/deleteUser/'));
+      $id = $_GET['id'];
       $result = deleteUser($pdo, $id);
       echo $result;
-  }
+   } else if ($methode === 'GET' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/modifyUser') === 0) {
+      echo 'prout';
+      if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['email']) ) {
+         $id = $_GET['id'];
+         $name = $_GET['name'];
+         $email = $_GET['email'];
+         $result = modifyUser($pdo,$id,$name,$email);
+      } else {
+         $result='erreur URL';
+      }
+      echo $result;
+   }
    
    else {
       http_response_code(404);
@@ -41,16 +52,29 @@
       }
    }
 
-   //Delete one user by ID
+   //Delete user by ID
    function deleteUser($pdo, $id) {
       //Preparation and execution of the delete request
       $delete_request=$pdo->prepare('DELETE FROM users WHERE id=?');
-      $succes=$delete_request->execute([$id]);
+      $sucess=$delete_request->execute([$id]);
 
-      if($succes === false) { //error
+      if($sucess === false) { //error
          return json_encode(['error'=>'Erreur SQl']);
       } else { // success
          return json_encode(['User deleted']);
+      }
+   }
+
+   //Modify user by ID 
+   function modifyUser($pdo, $id, $name,$email) {
+      //Preparation and execution of the modify request
+      $modify_request=$pdo->prepare("UPDATE users SET `name` = ?, `email` = ? WHERE `id`=?");
+      $sucess=$modify_request->execute([$name,$email,$id]);  
+
+      if($sucess === false ) { //error
+         return json_encode(['error'=>'Erreur SQl']);
+      } else { //sucess
+         return json_encode(['User modified']);
       }
    }
 
