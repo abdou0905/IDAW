@@ -10,32 +10,36 @@
    //On recupere l'uri de la requete
    $uri = $_SERVER['REQUEST_URI'];
    
-   print_r($methode);
-   //renvoyer le tableau des users
-   if($methode==='GET' && $uri==='/IDAW/tp4/exo5/index.php/api/userAll'){
+  
+   if($methode==='GET' && $uri==='/IDAW/tp4/exo5/index.php/api/userAll'){  //Send All Users
       $users=userAll($pdo);
-      echo $users;
-   } else if ($methode === 'GET' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/deleteUser') === 0) {
+      return $users;
+   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/deleteUser') === 0) { //Delete User by ID
       // Extraire l'ID de l'URI
-      $id = $_GET['id'];
+      $id = $_POST['id'];
       $result = deleteUser($pdo, $id);
       echo $result;
-   } else if ($methode === 'GET' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/modifyUser') === 0) {
-      echo 'prout';
-      if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['email']) ) {
-         $id = $_GET['id'];
-         $name = $_GET['name'];
-         $email = $_GET['email'];
+   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/modifyUser') === 0) { //Modify User by ID
+      if(isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) ) {
+         $id = $_POST['id'];
+         $name = $_POST['name'];
+         $email = $_POST['email'];
          $result = modifyUser($pdo,$id,$name,$email);
       } else {
-         $result='erreur URL';
+         $result='erreur Formulaire';
       }
       echo $result;
-   }
-   
-   else {
-      http_response_code(404);
-      echo json_encode(['error' => 'Route non trouvee']);
+   } else if($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/addUser') === 0) { //Add user 
+      if(isset($_POST['name']) && isset($_POST['email'])){
+         $name = $_POST['name'];
+         $email = $_POST['email'];
+         $result = addUser($pdo,$name,$email);
+      } else {
+         $result='erreur Formulaire';
+      }
+      echo $result;
+   } else { //URL Not Found
+      // http_response_code(404);
    }
 
    //Get all the users
@@ -59,8 +63,10 @@
       $sucess=$delete_request->execute([$id]);
 
       if($sucess === false) { //error
+         http_response_code(500);
          return json_encode(['error'=>'Erreur SQl']);
       } else { // success
+         http_response_code(200);
          return json_encode(['User deleted']);
       }
    }
@@ -72,9 +78,34 @@
       $sucess=$modify_request->execute([$name,$email,$id]);  
 
       if($sucess === false ) { //error
+         http_response_code(500);
          return json_encode(['error'=>'Erreur SQl']);
       } else { //sucess
+         http_response_code(200);
          return json_encode(['User modified']);
+      }
+   }
+
+   //Add user 
+   function addUser($pdo, $name, $email) {
+      // verification de redondance
+      $exist_already_request=$pdo->prepare('SELECT COUNT(*) FROM users WHERE email = ?');
+      $exist_already_request->execute([$email]);
+      $exit=$exist_already_request->fetchColumn();
+      
+      //Requete d'ajout
+      $add_request=$pdo->prepare('INSERT INTO users (name, email) VALUES (?,?)');
+      
+      if($exit==0) {
+         $sucess=$add_request->execute([$name, $email]);
+         if($sucess === false ) {
+            http_response_code(500);
+            return json_encode(['error'=>'Erreur SQl']);
+         } else {
+            http_response_code(201);
+            return json_encode(['User added']);
+         }
+         
       }
    }
 
