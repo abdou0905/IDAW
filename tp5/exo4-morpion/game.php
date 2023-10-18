@@ -18,15 +18,15 @@
    </div>
    <div class='container' >
       <div class="row row-cols-3" style="height: 500px">
-         <div class="col btn btn-light border" id="box1"></div>
-         <div class="col btn btn-light border" id="box2"></div>
-         <div class="col btn btn-light border" id="box3"></div>
-         <div class="col btn btn-light border" id="box4"></div>
-         <div class="col btn btn-light border" id="box5"></div>
-         <div class="col btn btn-light border" id="box6"></div>
-         <div class="col btn btn-light border" id="box7"></div>
-         <div class="col btn btn-light border" id="box8"></div>
-         <div class="col btn btn-light border" id="box9"></div>
+         <div class="col btn btn-light border" id="1"></div>
+         <div class="col btn btn-light border" id="2"></div>
+         <div class="col btn btn-light border" id="3"></div>
+         <div class="col btn btn-light border" id="4"></div>
+         <div class="col btn btn-light border" id="5"></div>
+         <div class="col btn btn-light border" id="6"></div>
+         <div class="col btn btn-light border" id="7"></div>
+         <div class="col btn btn-light border" id="8"></div>
+         <div class="col btn btn-light border" id="9"></div>
       </div>
    </div>
 </body>
