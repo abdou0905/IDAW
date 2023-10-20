@@ -1,13 +1,9 @@
-let nbUsers=3;
-//recuperation des boutons modify
-let titleAction=document.getElementById('titleAction');
-let modifyBtns = document.querySelectorAll('[id^="modify"]');
-
-//recuperation des boutons delete
-let deleteBtns = document.querySelectorAll('[id^="delete"]');
+//il y a 3 utilisateurs au départ
+let nbUsers=0;
 
 //recuperation du bouton add
 let addBtn = document.getElementById('addButton');
+let updateBtn = document.getElementById('updateButton');
 
 //recuperation des champs du formulaire d'ajout
 let nomInput = document.getElementById('nomInput');
@@ -16,81 +12,36 @@ let emailInput = document.getElementById('emailInput');
 
 let body=document.getElementById('data-users');
 
+addUser("durand", "bill12","ozef@zerf.com");
+addUser("bob", "bill13","ozef@zerf.com");
+addUser("sam", "bill14","ozef@zerf.com");
 
+//bouton ajout
 addBtn.addEventListener("click", function(){
-   if(addBtn.value=="add"){
-      addUser();
-   }
+   addUser(nomInput.value,prenomInput.value,emailInput.value);
+   cleanInput();
 });
 
+//recuperation des boutons modify
+let titleAction=document.getElementById('titleAction');
 
-modifyBtns.forEach(function(modifyBtn){
-   modifyBtn.addEventListener('click', function(){
-      idUser = modifyBtn.id.match(/\d+/);
-      //BUG ICI = modifie la mauvaise ligne 
-      //modifier le titre de add en modify
-      titleAction.textContent="Modify User";
-
-      //modifier le bouton add en modify
-      addBtn.textContent="MODIFY";
-      //modifier la value du bouton 
-      addBtn.value='modify';
-      //recup toutes les infos du user
-      let userNom=document.getElementById('nom'+idUser);
-      let userPrenom=document.getElementById('prenom'+idUser);
-      let userEmail=document.getElementById('email'+idUser);
-
-      //recup des inputs
-      let nomInput = document.getElementById('nomInput');
-      let prenomInput = document.getElementById('prenomInput');
-      let emailInput = document.getElementById('emailInput');
-      
-      //mettre les infos du user dans l'input
-      nomInput.value=userNom.textContent;
-      prenomInput.value=userPrenom.textContent;
-      emailInput.value=userEmail.textContent;
-
-      addBtn.addEventListener('click', function(){
-         if(addBtn.value=="modify"){
-            modifyUser(nomInput,prenomInput,emailInput,userNom,userPrenom,userEmail);
-         }
-      })
-   });
-});  
-
-deleteBtns.forEach(function(deleteBtn){
-   deleteBtn.addEventListener("click", function(){
-      //supprimer lelement
-      idUser=deleteBtn.id.match(/\d+/);
-      let tr=document.getElementById('row'+idUser);
-      tr.remove();
-      cleanInput();
-   })
-})
-
-
-function cleanInput(){
-   nomInput.value="";
-   prenomInput.value="";
-   emailInput.value="";
-}
-
-function addUser(){
-   if(nomInput.value != "" && prenomInput.value != "" && emailInput.value != ""){
-      //ajout d'un user
+function addUser(nom, prenom, email){
+   if(nom != "" && prenom != "" && email != ""){
       nbUsers++;
 
       let tr=document.createElement('tr');
       tr.id='row'+nbUsers;
 
       let tdNom=document.createElement('td');
-      tdNom.textContent=nomInput.value;
+      tdNom.textContent=nom;
       tdNom.id="nom"+nbUsers;
+
       let tdPrenom=document.createElement('td');
-      tdPrenom.textContent=prenomInput.value;
+      tdPrenom.textContent=prenom;
       tdPrenom.id="prenom"+nbUsers;
+
       let tdEmail=document.createElement('td');
-      tdEmail.textContent=emailInput.value;
+      tdEmail.textContent=email;
       tdEmail.id="email"+nbUsers;
 
       let tdBtn=document.createElement('td');
@@ -109,34 +60,65 @@ function addUser(){
       tdBtn.appendChild(modifyBtn);
       tdBtn.appendChild(deleteBtn);
 
-
       tr.appendChild(tdNom);
       tr.appendChild(tdPrenom);
       tr.appendChild(tdEmail);
       tr.appendChild(tdBtn);
 
       body.appendChild(tr);
-      //mise à jour des boutons
-      modifyBtns = document.querySelectorAll('[id^="modify"]');
-      deleteBtns = document.querySelectorAll('[id^="delete"]');
-      modifyBtnClick();
-      deleteBtnClick();
-      addBtnClick();
 
+      modifyBtn.addEventListener('click', function(){
+         addBtn.style.display='none';
+         updateBtn.style.display='inline';
+         let idToUpdate=modifyBtn.id.match(/\d+/);
+         updateFormForModify(idToUpdate);
+      })
+
+      deleteBtn.addEventListener('click', function(){
+         tr.remove();
+      })
+      
       cleanInput();
    };
+};
+
+function updateFormForModify(idToUpdate) {
+   titleAction.textContent='Modify User';
+   tdNom=document.getElementById('nom'+idToUpdate);
+   tdPrenom=document.getElementById('prenom'+idToUpdate);
+   tdEmail=document.getElementById('email'+idToUpdate);
+
+   //on preremplie les champs
+   nomInput.value=tdNom.textContent;
+   prenomInput.value=tdPrenom.textContent;
+   emailInput.value=tdEmail.textContent;
+   console.log('avant le clic');
+      console.log(tdNom, tdPrenom,tdEmail);
+
+   updateBtn.addEventListener("click", function(){
+      newNom=nomInput.value;
+      newPrenom=prenomInput.value;
+      newEmail=emailInput.value;
+      
+      //mettre les values des inputs dans le td des values 
+      console.log('apres le clic');
+      console.log(tdNom, tdPrenom,tdEmail);
+
+      tdNom.textContent=newNom;
+      tdPrenom.textContent=newPrenom;
+      tdEmail.textContent=newEmail;
+      
+      //On remodifie l'affichage
+      titleAction.textContent='Add User';
+      addBtn.style.display='inline';
+      updateBtn.style.display='none';
+      cleanInput();
+   })
 }
 
-function modifyUser(nomInput,prenomInput,emailInput,userNom,userPrenom,userEmail){  
-   //modification du btn et titre
-   titleAction.textContent='Add User';
-   addBtn.textContent='ADD';
-   addBtn.value="add";
-
-   //mettre les values des inputs dans le td des values 
-   userNom.textContent=nomInput.value;
-   userPrenom.textContent=prenomInput.value;
-   userEmail.textContent=emailInput.value;
-   
-   cleanInput();
+function cleanInput(){
+   nomInput.value="";
+   prenomInput.value="";
+   emailInput.value="";
 }
+

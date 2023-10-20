@@ -25,33 +25,6 @@
                </tr>
             </thead>
             <tbody class="text-center" id="data-users">
-               <tr id="row1">
-                  <td id="nom1">PATAROT</td>
-                  <td id="prenom1">Adele</td>
-                  <td id="email1">adele.patarot@gmail.com</td>
-                  <td>
-                     <button class="btn btn-primary" id="modify1">MODIFY</button>
-                     <button class="btn btn-primary" id="delete1">DELETE</button>
-                  </td>
-               </tr>
-               <tr id="row2">
-                  <td id="nom2">PATAROT</td>
-                  <td id="prenom2">Adele</td>
-                  <td id="email2">adele.patarot@gmail.com</td>
-                  <td>
-                     <button class="btn btn-primary" id="modify2">MODIFY</button>
-                     <button class="btn btn-primary" id="delete2">DELETE</button>
-                  </td>
-               </tr>
-               <tr id="row3">
-                  <td id="nom3">PATAROT</td>
-                  <td id="prenom3">Adele</td>
-                  <td id="email3">adele.patarot@gmail.com</td>
-                  <td>
-                     <button class="btn btn-primary" id="modify3">MODIFY</button>
-                     <button class="btn btn-primary" id="delete3">DELETE</button>
-                  </td>
-               </tr>
             </tbody>
          </table>
       </div>
@@ -73,7 +46,10 @@
                <input type="text" id="emailInput"> 
             </div>
             <div class="col-3 p-0 form-group">
-               <button class="btn btn-primary" id="addButton" type="button" value="add">ADD</button>
+               <button class="btn btn-primary" id="addButton" type="button">ADD</button>
+            </div>
+            <div class="col-3 p-0 form-group">
+               <button class="btn btn-primary" id="updateButton" type="button" style="display: none;">UPDATE</button>
             </div>
          </div>
       </form>
