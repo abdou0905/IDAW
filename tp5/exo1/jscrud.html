@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <title>MyCRUDJS</title>
+</head>
+<body>
+   <div class="container">
+      <div class="row justify-content-center">
+         <h1>MON CRUD EN JS</h1>
+      </div>
+      <div class="row">
+         <h2>My users</h2>
+      </div>
+      <div class="col-10">
+         <table class="table">
+            <thead class="text-center">
+               <tr>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+               </tr>
+            </thead>
+            <tbody class="text-center" id="data-users">
+               <tr id="row1">
+                  <td id="nom1">PATAROT</td>
+                  <td id="prenom1">Adele</td>
+                  <td id="email1">adele.patarot@gmail.com</td>
+                  <td>
+                     <button class="btn btn-primary" id="modify1">MODIFY</button>
+                     <button class="btn btn-primary" id="delete1">DELETE</button>
+                  </td>
+               </tr>
+               <tr id="row2">
+                  <td id="nom2">PATAROT</td>
+                  <td id="prenom2">Adele</td>
+                  <td id="email2">adele.patarot@gmail.com</td>
+                  <td>
+                     <button class="btn btn-primary" id="modify2">MODIFY</button>
+                     <button class="btn btn-primary" id="delete2">DELETE</button>
+                  </td>
+               </tr>
+               <tr id="row3">
+                  <td id="nom3">PATAROT</td>
+                  <td id="prenom3">Adele</td>
+                  <td id="email3">adele.patarot@gmail.com</td>
+                  <td>
+                     <button class="btn btn-primary" id="modify3">MODIFY</button>
+                     <button class="btn btn-primary" id="delete3">DELETE</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="row">
+         <h2 id="titleAction">Add User</h2>
+      </div>
+      <form>
+         <div class="row">
+            <div class=" col-3 p-0 form-group">
+               <label for="nomInput">NOM</label>
+               <input type="text" id="nomInput"> 
+            </div>
+            <div class=" col-3 p-0 form-group">
+               <label for="prenomInput">PRENOM</label>
+               <input type="text" id="prenomInput"> 
+            </div>
+            <div class=" col-3 p-0 form-group">
+               <label for="emailInput">EMAIL</label>
+               <input type="text" id="emailInput"> 
+            </div>
+            <div class="col-3 p-0 form-group">
+               <button class="btn btn-primary" id="addButton" type="button" value="add">ADD</button>
+            </div>
+         </div>
+      </form>
+
+   </div>
+   
+</body>
+<script src="jscrud.js"></script>
+</html>
