@@ -32,17 +32,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL,
   `email` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB ;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`) VALUES
-(1, 'adele', 'adele.patarot@gmail.com'),
-(2, 'toto', 'toto@imt.fr'),
-(3, 'anna', 'anna@orange.fr'),
-(4, 'mickey','mimi@disney.fr');
+INSERT INTO `users` (`name`, `email`) VALUES
+('adele', 'adele.patarot@gmail.com'),
+('toto', 'toto@imt.fr'),
+('anna', 'anna@orange.fr'),
+('mickey','mimi@disney.fr');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

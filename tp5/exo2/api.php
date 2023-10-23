@@ -1,4 +1,3 @@
-<!-- mettre les fonctions de l'api -->
 <?php
 
    //initialisation de la base de données
@@ -11,15 +10,19 @@
    $uri = $_SERVER['REQUEST_URI'];
    
   
-   if($methode==='GET' && $uri==='/IDAW/tp4/exo5/index.php/api/userAll'){  //Send All Users
+   if($methode==='GET'){  //Send All Users
       $users=userAll($pdo);
+      echo($users);
       return $users;
-   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/deleteUser') === 0) { //Delete User by ID
+   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp5/exo2/index.php/api/deleteUser') === 0) { //Delete User by ID
+      //changer mon code en n'utilisant plus l'uri
+      //utiliser PATH_INFO
+      //utiliser QUERY_STRING
       // Extraire l'ID de l'URI
       $id = $_POST['id'];
       $result = deleteUser($pdo, $id);
       echo $result;
-   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/modifyUser') === 0) { //Modify User by ID
+   } else if ($methode === 'POST' && strpos($uri, '/IDAW/tp5/exo2/index.php/api/modifyUser') === 0) { //Modify User by ID
       if(isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) ) {
          $id = $_POST['id'];
          $name = $_POST['name'];
@@ -29,7 +32,7 @@
          $result='erreur Formulaire';
       }
       echo $result;
-   } else if($methode === 'POST' && strpos($uri, '/IDAW/tp4/exo5/index.php/api/addUser') === 0) { //Add user 
+   } else if($methode === 'POST' && strpos($uri, '/IDAW/tp5/exo2/index.php/api/addUser') === 0) { //Add user 
       if(isset($_POST['name']) && isset($_POST['email'])){
          $name = $_POST['name'];
          $email = $_POST['email'];
@@ -49,10 +52,12 @@
       $statement = $pdo->query($sql_read);
     
       if ($statement === false) { //Error
-         return json_encode(['error' => 'Erreur SQL']);
+         http_response_code(500);
+         echo json_encode(['error' => 'Erreur SQL']);
       } else {
          $users = $statement->fetchAll(PDO::FETCH_OBJ);
-         return json_encode($users);
+         http_response_code(200);
+         echo json_encode($users);
       }
    }
 
