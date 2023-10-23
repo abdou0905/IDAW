@@ -3,6 +3,5 @@
    define('_MYSQL_PORT',3306);
    define('_MYSQL_DBNAME','dbtest');
    define('_MYSQL_USER','root');
-   define('_MYSQL_PASSWORD','');
+   define('_MYSQL_PASSWORD','5SN9Xu6GMRTVpThH');
 ?>
-<!-- 5SN9Xu6GMRTVpThH -->
