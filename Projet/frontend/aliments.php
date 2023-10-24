@@ -17,6 +17,22 @@
             </div>
          </div>
       </div>
+      <div class="row justify-content-center">
+         <div class="col-8">
+            <div class="row justify-content-center text-italic p-3">
+               <h3><em>La Rubrique Aliments? C'est par ici !</em></h3>
+            </div>   
+            <div class="row m-0 p- text-center" style="font-size: 20px;">
+               <p class="fs-14">
+                  La Rubrique Aliments présents tous les aliments disponibles sur notre application i Manger Mieux ! <br>
+                  Vous retrouverez également tous les apports nutrionnels utilisés <br>
+                  par nos experts pour étudier votre profil de consomation alimentaire. <br>
+                  Votre aliments preferé ne figure pas dans notre liste? Ajoutez le directement en renseignant ses informations !
+
+               </p>
+            </div>
+         </div>
+      </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
             <div class="card" style="width:700px; height:500px">
@@ -1258,7 +1274,7 @@
             <div class="card" style="width:700px; height:500px">
                <div class="card-header">
                   <h3 style="color:#00BF63">
-                     <i class="fas fa-cookie"></i>
+                     <i class="fas fa-ice-cream"></i>
                      Snacks Sucrés
                   </h3>
                   <table class="table m-0">
