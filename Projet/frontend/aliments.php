@@ -17,21 +17,23 @@
             </div>
          </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center pt-3">
          <div class="col-8">
             <div class="row justify-content-center text-italic p-3">
                <h3><em>La Rubrique Aliments? C'est par ici !</em></h3>
             </div>   
-            <div class="row m-0 p- text-center" style="font-size: 20px;">
+            <div class="row m-0 text-center" style="font-size: 20px;">
                <p class="fs-14">
                   La Rubrique Aliments présents tous les aliments disponibles sur notre application i Manger Mieux ! <br>
                   Vous retrouverez également tous les apports nutrionnels utilisés <br>
                   par nos experts pour étudier votre profil de consomation alimentaire. <br>
                   Votre aliments preferé ne figure pas dans notre liste? Ajoutez le directement en renseignant ses informations !
-
                </p>
             </div>
          </div>
+      </div>
+      <div class="row justify-content-center pt-3">
+         <div class="col-8 btn btn-secondary p-4"> <h5>Ajouter un Aliment</h5</div>
       </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
