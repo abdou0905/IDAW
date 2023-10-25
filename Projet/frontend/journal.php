@@ -26,10 +26,84 @@
             </div>
          </div>
       </div>
-      contenue
+      <div class="container" id="repas">
+         <div class="row justify-content-center">
+            <div class="col-9 justify-content-center p-4" id="titreRepas" style="font-size:30px"></div>
+         </div>
+         <div class="row align-items-center justify-content-center p-3">
+            <div class="col-3">
+               <h4>Nom repas</h4>
+            </div>
+            <div class="col-9">
+               <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+               </div>
+            </div>
+         </div>
+         <div class="row align-items-center justify-content-center p-3">
+            <div class="col-3">
+               <h4>Nom repas</h4>
+            </div>
+            <div class="col-9">
+               <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+               </div>
+            </div>
+         </div>
+         <div class="row align-items-center justify-content-center p-3">
+            <div class="col-3">
+               <h4>Nom repas</h4>
+            </div>
+            <div class="col-9">
+               <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+               </div>
+            </div>
+         </div>
+         <div class="row align-items-center justify-content-center p-3">
+            <div class="col-3">
+               <h4>Nom repas</h4>
+            </div>
+            <div class="col-9">
+               <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+               </div>
+            </div>
+         </div>
+         <div class="row align-items-center justify-content-center p-3">
+            <div class="col-3">
+               <h4>Nom repas</h4>
+            </div>
+            <div class="col-9">
+               <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row justify-content-center p-4" id="quotidien" style="display: none">
+         
+      </div>
+      <div class="row justify-content-center p-4" id="hebdomadaire" style="display: none">
+         Stats hebdo
+      </div>
+      <div class="row justify-content-center p-4" id="mensuel" style="display: none">
+         Stats mensuelle
+      </div>
    </main>
    <?php
       require_once('templates/template_footer.php')
    ?>
 </body>
-<script scr="journal.js"></script>
+<script src="js/journal.js"></script>
+<script src="js/repas.js"></script>
