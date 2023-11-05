@@ -6,7 +6,6 @@
       require_once('templates/template_menu.php');
       renderMenuToHTML('profil');
    ?>
-
    <?php
       require('../backend/utilisateurs.php');
       $utilisateur=getUtilisateurs($pdo);
@@ -20,7 +19,8 @@
          </h1>
       </div>
       <div class="row justify-content-center">
-         <form id="formModifier" method="post" action="../backend/utilisateurs.php">
+         <!-- <form id="formModifier" method="post" action="../backend/utilisateurs.php"> -->
+         <form id="formModifier" method="post" action="">
             <div class="card m-4" style="width:500px; height:320px">
                <div class="card-header">
                   <h3>Mes informations</h3>
@@ -60,7 +60,10 @@
                         </div>
                         <div class="col">
                            <p id="genre"></p>
-                           <input class="form-control" id="inputGenre" type="text">
+                           <select class="form-control" id="selectGenre" type="text">
+                              <option id="F">F</option>
+                              <option id="H">H</option>
+                           </select>   
                         </div>
                      </div>
                   </div>
@@ -92,6 +95,21 @@
                            <input class="form-control" id="inputTaille" type="text">
                         </div>
                      </div>
+                     <div class="row ">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">ACTIVITE</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="activite"></p>
+                           <select class="form-control" id="selectActivite" type="text">
+                              <option value="1">1 - Sédentaire</option>
+                              <option value="2">2 - Très peu actif</option>
+                              <option value="3">3 - Peu actif</option>
+                              <option value="4">4 - Actif</option>
+                              <option value="5">5 - Très Actif</option>
+                           </select>
+                        </div>
+                     </div>
                   </div>
                </div>
                <div class="card-footer">
@@ -110,14 +128,22 @@
             </div>
             <div class="card-body">
                <form action="get">
-                  <div class="form-group row">
-                     <label for="tailleInput" class="col-sm-2 col-form-label">Taille</label>
+                  <div class="form-group row mb-1">
+                     <label for="tailleInput" class="col-sm-2 col-form-label">
+                        <div class="col text-right p-0">
+                           <h5><span class="badge badge-light p-2">TAILLE</span></h5>
+                        </div>
+                     </label>
                      <div class="col-sm-10">
                         <input type="text" class="form-control" id="tailleInput" placeholder="Votre taille en cm">
                      </div>
                   </div>
-                  <div class="form-group row">
-                     <label for="poidsInput" class="col-sm-2 col-form-label">Poids</label>
+                  <div class="form-group row mb-0">
+                     <label for="poidsInput" class="col-sm-2 col-form-label">
+                        <div class="col text-right p-0">
+                           <h5><span class="badge badge-light p-2">POIDS</span></h5>
+                        </div>
+                     </label>
                      <div class="col-sm-10">
                         <input type="text" class="form-control" id="poidsInput" placeholder="Votre Poids en kg">
                      </div>
@@ -130,7 +156,7 @@
                   </div>
                </form>
             </div>
-            <div class="card-footer text-right">
+            <div class="card-footer text-left">
                <button id="calculerBtn"type="button" class="btn btn-dark">Calculer</button>
             </div>
          </div>

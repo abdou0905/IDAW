@@ -55,6 +55,6 @@
       } else {
          $result='erreur Formulaire';
       }
-
-
+   } else {
+      echo("pas de post");
    }

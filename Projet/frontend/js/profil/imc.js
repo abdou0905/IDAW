@@ -6,7 +6,7 @@ let indicationIMC = document.getElementById("indicationIMC");
 document.getElementById('tailleInput').value=utilisateur[0]['taille'];
 document.getElementById('poidsInput').value=utilisateur[0]['poids'];
 
-let IMC=[
+let IMC = [
    "Poids insuffisant",
    "Poids Normal",
    "Surpoids",

@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `aliments`
 --
 
--- DROP TABLE IF EXISTS `aliments`; 
+DROP TABLE IF EXISTS `aliments`; 
 CREATE TABLE IF NOT EXISTS `aliments` (
   `id_aliment` int NOT NULL AUTO_INCREMENT,
   `designation` varchar(30) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `aliments` (
   `sel` decimal(10,1) NOT NULL,
   `sucre` decimal(10,1) NOT NULL,
   PRIMARY KEY (`id_aliment`)
-) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `aliments`
@@ -166,7 +166,7 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 -- Structure de la table `repas`
 --
 
--- DROP TABLE IF EXISTS `repas`;
+DROP TABLE IF EXISTS `repas`;
 CREATE TABLE IF NOT EXISTS `repas` (
   `id_repas` int NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
@@ -186,9 +186,9 @@ CREATE TABLE IF NOT EXISTS `repas_aliment` (
   `id_aliment` int NOT NULL,
   `id_repas` int NOT NULL,
   `quantite` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_aliment` (`id_aliment`),
-  KEY `id_repas` (`id_repas`)
+  PRIMARY KEY (`id`)
+  -- KEY `id_aliment` (`id_aliment`),
+  -- KEY `id_repas` (`id_repas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, `sexe`, `sport`) VALUES
-('Patarot', 'Adele', 'ap@imt.fr', 22, 157, 60, 'F', 3);
+('Patarot', 'Adele', 'ap@imt.fr', 22, 157, 60, 'H', 3);
 
 --
 -- Contraintes pour les tables déchargées
@@ -225,10 +225,10 @@ INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, 
 --
 -- Contraintes pour la table `repas_aliment`
 --
-ALTER TABLE `repas_aliment`
-  ADD CONSTRAINT `repas_aliment_ibfk_1` FOREIGN KEY (`id_aliment`) REFERENCES `aliments` (`id_aliment`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `repas_aliment_ibfk_2` FOREIGN KEY (`id_repas`) REFERENCES `repas` (`id_repas`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
+-- ALTER TABLE `repas_aliment`
+--   ADD CONSTRAINT `repas_aliment_ibfk_1` FOREIGN KEY (`id_aliment`) REFERENCES `aliments` (`id_aliment`),
+--   ADD CONSTRAINT `repas_aliment_ibfk_2` FOREIGN KEY (`id_repas`) REFERENCES `repas` (`id_repas`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

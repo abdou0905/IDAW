@@ -6,6 +6,19 @@
       require_once('templates/template_menu.php');
       renderMenuToHTML('aliments');
    ?>
+   <?php
+      require('../backend/aliments.php');
+      $legumes = json_decode(getAlimentsByCategorie($pdo,'legume'),true);
+      $fruits = json_decode(getAlimentsByCategorie($pdo,'fruit'),true);
+      $feculents = json_decode(getAlimentsByCategorie($pdo,'feculent'),true);
+      $proteines = json_decode(getAlimentsByCategorie($pdo,'proteine'),true);
+      $laitiers = json_decode(getAlimentsByCategorie($pdo,'produit laitier'),true);
+      $boissons = json_decode(getAlimentsByCategorie($pdo,'boisson'),true);
+      $snackSales = json_decode(getAlimentsByCategorie($pdo,'snack sale'),true);
+      $snackSucres = json_decode(getAlimentsByCategorie($pdo,'snack sucre'),true);
+
+      // print_r($snackSucres);
+   ?>
    <main>
       <div class="row text-center pt-0">
          <div class="col-12">
