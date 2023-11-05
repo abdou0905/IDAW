@@ -20,78 +20,90 @@
          </h1>
       </div>
       <div class="row justify-content-center">
-         <div class="card m-4" style="width:500px; height:320px">
-            <div class="card-header">
-               <h3>Mes informations</h3>
-            </div>
-            <div class="card-body row">
-               <div class='col'>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">NOM</span></h5>
+         <form id="formModifier" method="post" action="../backend/utilisateurs.php">
+            <div class="card m-4" style="width:500px; height:320px">
+               <div class="card-header">
+                  <h3>Mes informations</h3>
+               </div>
+               <div class="card-body row">
+                  <div class='col'>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">NOM</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="nom"></p>
+                           <input class="form-control" id="inputNom" type="text">
+                        </div>
                      </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['nom'])?></p>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">PRENOM</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="prenom"></p>
+                           <input class="form-control" id="inputPrenom" type="text">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">EMAIL</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="email"></p>
+                           <input class="form-control" id="inputEmail" type="text">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">GENRE</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="genre"></p>
+                           <input class="form-control" id="inputGenre" type="text">
+                        </div>
                      </div>
                   </div>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">PRENOM</span></h5>
+                  <div class='col'>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">AGE</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="age"></p>
+                           <input class="form-control" id="inputAge" type="text">
+                        </div>
                      </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['prenom'])?></p>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">POIDS</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="poids"></p>
+                           <input class="form-control" id="inputPoids" type="text">
+                        </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">EMAIL</span></h5>
-                     </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['email'])?></p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">GENRE</span></h5>
-                     </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['sexe'])?></p>
+                     <div class="row">
+                        <div class="col text-right">
+                           <h5><span class="badge badge-light p-2">TAILLE</span></h5>
+                        </div>
+                        <div class="col">
+                           <p id="taille"></p>
+                           <input class="form-control" id="inputTaille" type="text">
+                        </div>
                      </div>
                   </div>
                </div>
-               <div class='col'>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">AGE</span></h5>
-                     </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['age'])?> ans</p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">POIDS</span></h5>
-                     </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['poids'])?> kg</p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col text-right">
-                        <h5><span class="badge badge-light p-2">TAILLE</span></h5>
-                     </div>
-                     <div class="col">
-                        <p><?php echo($utilisateur[0]['taille'])?> cm</p>
-                     </div>
-                  </div>
+               <div class="card-footer">
+                  <button class="btn btn-dark" type="button" id="btnModifier" style="display:block">
+                     Modifier mes informations
+                  </button>
+                  <button class="btn btn-dark" id="btnSauvegarder" style="display:none">
+                     Sauvergarder
+                  </button>   
                </div>
             </div>
-            <div class="card-footer text-right">
-               <div class="btn btn-dark" id="btnModalModifier">
-                  Modifier mes informations
-               </div>
-            </div>
-         </div>
+         </form>
          <div class="card m-4" style="width:500px; height:320px">
             <div class="card-header">
                <h3>Calculer mon IMC</h3>
