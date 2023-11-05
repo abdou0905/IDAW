@@ -6,6 +6,13 @@
       require_once('templates/template_menu.php');
       renderMenuToHTML('profil');
    ?>
+
+   <?php
+      require('../backend/utilisateurs.php');
+      $utilisateur=getUtilisateurs($pdo);
+      $utilisateur = json_decode($utilisateur,true);
+      // print_r($utilisateur);
+   ?>
    <main>
       <div class="row justify-content-center p-2" style="background-color:#00BF63"> 
          <h1 class="text-white">
@@ -14,46 +21,74 @@
          </h1>
       </div>
       <div class="row justify-content-center">
-         <div class="card m-4" style="width:500px; height:320px">
+         <div class="card m-4" style="width:500px; height:270px">
             <div class="card-header">
                <h3>Mes informations</h3>
             </div>
-            <div class="card-body">
-               <div class="row">
-                  <div class="col-3 text-right">
-                     <h5><span class="badge badge-secondary p-2">NOM</span></h5>
+            <div class="card-body row">
+               <div class='col'>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">NOM</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['nom'])?></p>
+                     </div>
                   </div>
-                  <div class="col-4">
-                     <p>Nom en base</p>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">PRENOM</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['prenom'])?></p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">EMAIL</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['email'])?></p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">GENRE</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['sexe'])?></p>
+                     </div>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-3 text-right">
-                     <h5><span class="badge badge-secondary p-2">PRENOM</span></h5>
+               <div class='col'>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">AGE</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['age'])?> ans</p>
+                     </div>
                   </div>
-                  <div class="col-4">
-                     <p>Prenom en base</p>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">POIDS</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['poids'])?> kg</p>
+                     </div>
                   </div>
-               </div>
-               <div class="row">
-                  <div class="col-3 text-right">
-                     <h5><span class="badge badge-secondary p-2">EMAIL</span></h5>
-                  </div>
-                  <div class="col-4">
-                     <p>Email en base</p>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-3 text-right">
-                     <h5><span class="badge badge-secondary p-2">GENRE</span></h5>
-                  </div>
-                  <div class="col-4">
-                     <p>Nom en base</p>
+                  <div class="row">
+                     <div class="col text-right">
+                        <h5><span class="badge badge-secondary p-2">TAILLE</span></h5>
+                     </div>
+                     <div class="col">
+                        <p><?php echo($utilisateur[0]['taille'])?> cm</p>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="card m-4" style="width:500px; height:320px">
+         <div class="card m-4" style="width:500px; height:270px">
             <div class="card-header">
                <h3>Calculer mon IMC</h3>
             </div>
@@ -96,5 +131,6 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script src="js/profil.js"></script>
+   <script src="js/profil/imc.js"></script>
+   <script src="js/profil/utilisateur.js"></script>
 </body>

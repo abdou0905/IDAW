@@ -197,12 +197,17 @@ CREATE TABLE IF NOT EXISTS `repas_aliment` (
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
+DROP TABLE IF EXISTS `utilisateurs`;
+CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_utilisateur` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `prenom` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `email` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `age` int NOT NULL,
+  `taille` int NOT NULL,
+  `poids` int NOT NULL,
+  `sexe` varchar(255) NOT NULL,
+  `sport` int NOT NULL,
   PRIMARY KEY (`id_utilisateur`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
@@ -210,8 +215,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `email`) VALUES
-(1, 'Patarot', 'Adèle', 'ap@imt.fr');
+INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, `sexe`, `sport`) VALUES
+('Patarot', 'Adele', 'ap@imt.fr', 22, 157, 60, 'F', 3);
 
 --
 -- Contraintes pour les tables déchargées
