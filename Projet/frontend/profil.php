@@ -21,7 +21,7 @@
          </h1>
       </div>
       <div class="row justify-content-center">
-         <div class="card m-4" style="width:500px; height:270px">
+         <div class="card m-4" style="width:500px; height:320px">
             <div class="card-header">
                <h3>Mes informations</h3>
             </div>
@@ -88,7 +88,7 @@
                </div>
             </div>
          </div>
-         <div class="card m-4" style="width:500px; height:270px">
+         <div class="card m-4" style="width:500px; height:320px">
             <div class="card-header">
                <h3>Calculer mon IMC</h3>
             </div>
@@ -131,6 +131,7 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
+   <script>var utilisateur = <?php echo json_encode($utilisateur); ?>;</script>
    <script src="js/profil/imc.js"></script>
    <script src="js/profil/utilisateur.js"></script>
 </body>

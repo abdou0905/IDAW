@@ -3,6 +3,8 @@ let resultIMC = document.getElementById("resultIMC");
 let scoreIMC = document.getElementById("scoreIMC");
 let indicationIMC = document.getElementById("indicationIMC");
 
+document.getElementById('tailleInput').value=utilisateur[0]['taille'];
+document.getElementById('poidsInput').value=utilisateur[0]['poids'];
 
 let IMC=[
    "Poids insuffisant",
