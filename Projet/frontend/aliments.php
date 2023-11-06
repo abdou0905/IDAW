@@ -53,22 +53,59 @@
                <div class="card-body" id="cardBodyAjout">
                   <form action="post">
                      <div class="form-group">
-                        <label for="designation">Nom aliment</label>
-                        <input type="text" id="designation" class="form-control" placeholder="Carotte">
+                        <label for="designation">Nom Aliment</label>
+                        <input type="text" id="designation" class="form-control" placeholder="Exemple: carotte">
                      </div>
                      <div class="form-group">
                         <label for="categorie">Categorie</label>
                         <select id="categorie" class="form-control">
-                           <option value="">Legume</option>
-                           <option value="">Fruit</option>
+                           <option>Légume</option>
+                           <option>Fruit</option>
+                           <option>Féculent</option>
+                           <option>Protéine</option>
+                           <option>Produit Laitier</option>
+                           <option>Boisson</option>
+                           <option>Snack Sucré</option>
+                           <option>Snack Salé</option>
                         </select>
                      </div>
-                     <div class="form-group">
-                        <label for="calories">Calories</label>
-                        <input type="text" id="calories" class="form-control" placeholder="100">
+                     <div class="row justify-content-center">
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label for="calories">Calories</label>
+                              <input type="text" id="calories" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">kcal pour 100g</small>
+                           </div>
+                           <div class="form-group">
+                              <label for="calories">Protéines</label>
+                              <input type="text" id="proteines" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">grammes pour 100g</small>
+                           </div>
+                           <div class="form-group">
+                              <label for="calories">Glucides</label>
+                              <input type="text" id="glucides" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">grammes pour 100g</small>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label for="calories">Lipides</label>
+                              <input type="text" id="lipides" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">grammes pour 100g</small>
+                           </div>
+                           <div class="form-group">
+                              <label for="calories">Sels</label>
+                              <input type="text" id="sels" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">grammes pour 100g</small>
+                           </div>
+                           <div class="form-group">
+                              <label for="calories">Sucres</label>
+                              <input type="text" id="sucres" class="form-control" placeholder="0">
+                              <small class="form-text text-muted">grammes pour 100g</small>
+                           </div>
+                        </div>
                      </div>
                   </form>
-                     
                </div>
                <!-- <div class="card-footer btn btn-dark" style="color:#00BF63" id="btnAjouter"> -->
                   <!-- <h5>Ajouter un Aliment</h5> -->
@@ -139,7 +176,6 @@
                      <tbody class="aliments" id="fruit">
                      </tbody>
                   </table>
-                  
                </div>
             </div>
          </div>
