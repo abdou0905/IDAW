@@ -7,8 +7,8 @@
       renderMenuToHTML('profil');
    ?>
    <?php
-      require('../backend/utilisateurs.php');
-      $utilisateur=getUtilisateurs($pdo);
+      require_once('../backend/utilisateurs.php');
+      $utilisateur = getUtilisateurs($pdo);
       $utilisateur = json_decode($utilisateur,true);
    ?>
    <main>
@@ -20,20 +20,21 @@
       </div>
       <div class="row justify-content-center">
          <!-- <form id="formModifier" method="post" action="../backend/utilisateurs.php"> -->
-         <form id="formModifier" method="post" action="">
+         <form id="formModifier" method="post" action="profil.php">
             <div class="card m-4" style="width:500px; height:320px">
                <div class="card-header">
                   <h3>Mes informations</h3>
                </div>
                <div class="card-body row">
                   <div class='col'>
+                     <input type="text" style="display:none" id="id_utilisateur" name="id_utilisateur">
                      <div class="row">
                         <div class="col text-right">
                            <h5><span class="badge badge-light p-2">NOM</span></h5>
                         </div>
                         <div class="col">
                            <p id="nom"></p>
-                           <input class="form-control" id="inputNom" type="text">
+                           <input class="form-control" id="inputNom" type="text" name="nom">
                         </div>
                      </div>
                      <div class="row">
@@ -42,7 +43,7 @@
                         </div>
                         <div class="col">
                            <p id="prenom"></p>
-                           <input class="form-control" id="inputPrenom" type="text">
+                           <input class="form-control" id="inputPrenom" type="text" name="prenom">
                         </div>
                      </div>
                      <div class="row">
@@ -51,7 +52,7 @@
                         </div>
                         <div class="col">
                            <p id="email"></p>
-                           <input class="form-control" id="inputEmail" type="text">
+                           <input class="form-control" id="inputEmail" type="text" name="email">
                         </div>
                      </div>
                      <div class="row">
@@ -60,7 +61,7 @@
                         </div>
                         <div class="col">
                            <p id="genre"></p>
-                           <select class="form-control" id="selectGenre" type="text">
+                           <select class="form-control" id="selectGenre" type="text" name="sexe">
                               <option id="F">F</option>
                               <option id="H">H</option>
                            </select>   
@@ -74,7 +75,7 @@
                         </div>
                         <div class="col">
                            <p id="age"></p>
-                           <input class="form-control" id="inputAge" type="text">
+                           <input class="form-control" id="inputAge" type="text" name="age">
                         </div>
                      </div>
                      <div class="row">
@@ -83,7 +84,7 @@
                         </div>
                         <div class="col">
                            <p id="poids"></p>
-                           <input class="form-control" id="inputPoids" type="text">
+                           <input class="form-control" id="inputPoids" type="text" name="poids">
                         </div>
                      </div>
                      <div class="row">
@@ -92,16 +93,16 @@
                         </div>
                         <div class="col">
                            <p id="taille"></p>
-                           <input class="form-control" id="inputTaille" type="text">
+                           <input class="form-control" id="inputTaille" type="text" name="taille">
                         </div>
                      </div>
-                     <div class="row ">
+                     <div class="row">
                         <div class="col text-right">
                            <h5><span class="badge badge-light p-2">ACTIVITE</span></h5>
                         </div>
                         <div class="col">
                            <p id="activite"></p>
-                           <select class="form-control" id="selectActivite" type="text">
+                           <select class="form-control" id="selectActivite" type="text" name="activite">
                               <option value="1">1 - Sédentaire</option>
                               <option value="2">2 - Très peu actif</option>
                               <option value="3">3 - Peu actif</option>
@@ -116,9 +117,10 @@
                   <button class="btn btn-dark" type="button" id="btnModifier" style="display:block">
                      Modifier mes informations
                   </button>
-                  <button class="btn btn-dark" id="btnSauvegarder" style="display:none">
+                  <!-- <button class="btn btn-dark" type="submit" id="btnSauvegarder" style="display:none">
                      Sauvergarder
-                  </button>   
+                  </button>    -->
+                  <input type="submit" id="btnSauvegarder" style="display:none" name="update">
                </div>
             </div>
          </form>

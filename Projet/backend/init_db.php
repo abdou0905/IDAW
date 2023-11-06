@@ -6,6 +6,6 @@
    $sql = file_get_contents('../backend/sql/create_db.sql');
    $pdo->exec($sql);
 
-   //Fermeture de la connexion avec le pdo
+   // Fermeture de la connexion avec le pdo
    // $pdo = null;
 ?>

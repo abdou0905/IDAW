@@ -32,7 +32,7 @@
             </div>
          </div>
       </div>
-      <div class="row justify-content-center pt-3">
+      <!-- <div class="row justify-content-center pt-3">
          <div class="col-8">
             <div class="row justify-content-center text-italic p-3">
                <h3><em>La Rubrique Aliments? C'est par ici !</em></h3>
@@ -46,31 +46,23 @@
                </p>
             </div>
          </div>
-      </div>
-      <div class="row justify-content-center pt-3">
-         <div class="col-8">
+      </div> -->
+      <div class="row justify-content-center pt-5">
+         <div class="col-6">
             <div class="card">
+               <div class="card-header text-center" style="background:#343a40">
+                  <div class="btn btn-dark p-2 text-center w-100" id="btnAjouter">
+                     <h5>Ajouter un Aliment</h5>
+                  </div>          
+               </div>
                <div class="card-body" id="cardBodyAjout">
                   <form action="post">
-                     <div class="form-group">
-                        <label for="designation">Nom Aliment</label>
-                        <input type="text" id="designation" class="form-control" placeholder="Exemple: carotte">
-                     </div>
-                     <div class="form-group">
-                        <label for="categorie">Categorie</label>
-                        <select id="categorie" class="form-control">
-                           <option>Légume</option>
-                           <option>Fruit</option>
-                           <option>Féculent</option>
-                           <option>Protéine</option>
-                           <option>Produit Laitier</option>
-                           <option>Boisson</option>
-                           <option>Snack Sucré</option>
-                           <option>Snack Salé</option>
-                        </select>
-                     </div>
                      <div class="row justify-content-center">
                         <div class="col-6">
+                           <div class="form-group">
+                              <label for="designation">Nom Aliment</label>
+                              <input type="text" id="designation" class="form-control" placeholder="Exemple: carotte">
+                           </div>
                            <div class="form-group">
                               <label for="calories">Calories</label>
                               <input type="text" id="calories" class="form-control" placeholder="0">
@@ -88,6 +80,19 @@
                            </div>
                         </div>
                         <div class="col-6">
+                           <div class="form-group">
+                              <label for="categorie">Categorie</label>
+                              <select id="categorie" class="form-control">
+                                 <option>Légume</option>
+                                 <option>Fruit</option>
+                                 <option>Féculent</option>
+                                 <option>Protéine</option>
+                                 <option>Produit Laitier</option>
+                                 <option>Boisson</option>
+                                 <option>Snack Sucré</option>
+                                 <option>Snack Salé</option>
+                              </select>
+                           </div>
                            <div class="form-group">
                               <label for="calories">Lipides</label>
                               <input type="text" id="lipides" class="form-control" placeholder="0">
@@ -107,14 +112,8 @@
                      </div>
                   </form>
                </div>
-               <!-- <div class="card-footer btn btn-dark" style="color:#00BF63" id="btnAjouter"> -->
-                  <!-- <h5>Ajouter un Aliment</h5> -->
-                  <!-- <div class="col-6 btn btn-dark p-4 text-center"> <h5>Ajouter un Aliment</h5></div>          -->
-               <!-- </div> -->
-               <div class="card-footer text-center" style="background:#343a40">
-                  <div class="btn btn-dark p-4 text-center w-100" id="btnAjouter">
-                     <h5>Ajouter un Aliment</h5>
-                  </div>          
+               <div class="card-footer" id="footer">
+                  <button  id="btnSubmit" class="btn btn-dark">AJOUTER</div>         
                </div>
             </div>
          </div>

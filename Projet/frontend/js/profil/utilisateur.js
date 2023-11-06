@@ -25,6 +25,7 @@ let taille = document.getElementById("taille");
 let activite = document.getElementById("activite");
 
 //Les champs du formulaire
+let id = document.getElementById('id_utilisateur');
 let nomInput = document.getElementById('inputNom');
 let prenomInput = document.getElementById('inputPrenom');
 let emailInput = document.getElementById('inputEmail');
@@ -36,6 +37,7 @@ let activiteSelect = document.getElementById('selectActivite');
 
 
 //Affichage des informations de l'utilisateur
+id.textContent=utilisateur[0]['id_utilisateur'];
 nom.textContent = utilisateur[0]['nom'];
 prenom.textContent = utilisateur[0]['prenom'];
 email.textContent = utilisateur[0]['email'];

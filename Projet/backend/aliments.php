@@ -1,6 +1,6 @@
 <?php 
    //Initialisation de la base de données
-   require_once('init_db.php');
+   require_once('init_pdo.php');
 
    //On recupere la methode de la requete
    $methode=$_SERVER['REQUEST_METHOD'];
@@ -22,5 +22,4 @@
          return json_encode($statement->fetchAll(PDO::FETCH_OBJ));
       }
    }
-
 ?>
