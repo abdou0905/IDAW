@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `aliments` (
 --
 
 INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
-('pomme', 'legume', '10.0', '1.0', '1.0', '1.0', '1.0', '1.0'),
 ('carotte', 'legume', '41.0', '0.9', '10.1', '0.2', '0.5', '4.7'),
 ('brocoli', 'legume', '34.0', '2.8', '7.0', '0.4', '0.7', '1.7'),
 ('tomate', 'legume', '18.0', '0.9', '3.9', '0.2', '0.0', '2.6'),

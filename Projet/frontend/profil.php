@@ -166,7 +166,9 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script>var utilisateur = <?php echo json_encode($utilisateur); ?>;</script>
+   <script>
+      let utilisateur = <?php echo json_encode($utilisateur);?> ;
+   </script>
    <script src="js/profil/imc.js"></script>
    <script src="js/profil/utilisateur.js"></script>
 </body>
