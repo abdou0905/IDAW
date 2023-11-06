@@ -1,6 +1,3 @@
-// console.log('je suis dans affiche aliments')
-// console.log(aliments);
-
 let tbodies = document.querySelectorAll("tbody[class='aliments']");
 let compteur=0;
 

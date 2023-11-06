@@ -50,10 +50,24 @@
       <div class="row justify-content-center pt-3">
          <div class="col-8">
             <div class="card">
-               <div class="card-header" style="display:none">
-                  
-               </div>
-               <div class="card-body" style="display:none">
+               <div class="card-body" id="cardBodyAjout">
+                  <form action="post">
+                     <div class="form-group">
+                        <label for="designation">Nom aliment</label>
+                        <input type="text" id="designation" class="form-control" placeholder="Carotte">
+                     </div>
+                     <div class="form-group">
+                        <label for="categorie">Categorie</label>
+                        <select id="categorie" class="form-control">
+                           <option value="">Legume</option>
+                           <option value="">Fruit</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label for="calories">Calories</label>
+                        <input type="text" id="calories" class="form-control" placeholder="100">
+                     </div>
+                  </form>
                      
                </div>
                <!-- <div class="card-footer btn btn-dark" style="color:#00BF63" id="btnAjouter"> -->
@@ -61,9 +75,9 @@
                   <!-- <div class="col-6 btn btn-dark p-4 text-center"> <h5>Ajouter un Aliment</h5></div>          -->
                <!-- </div> -->
                <div class="card-footer text-center" style="background:#343a40">
-                  <div class="btn btn-dark p-4 text-center w-100">
+                  <div class="btn btn-dark p-4 text-center w-100" id="btnAjouter">
                      <h5>Ajouter un Aliment</h5>
-                  </div>         
+                  </div>          
                </div>
             </div>
          </div>
@@ -322,5 +336,6 @@
    <script>
       let aliments = <?php echo json_encode($aliments);?> ;
    </script>
-   <script src="js/aliments/affichagealiments.js"></script>
+   <script src="js/aliments/affichageAliments.js"></script>
+   <script src="js/aliments/ajouterAliments.js"></script>
 </body>
