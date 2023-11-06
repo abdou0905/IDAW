@@ -22,6 +22,22 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Structure de la table `repas_aliment`
+--
+
+DROP TABLE IF EXISTS `repas_aliment`;
+CREATE TABLE IF NOT EXISTS `repas_aliment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_aliment` int NOT NULL,
+  `id_repas` int NOT NULL,
+  `quantite` int NOT NULL,
+  PRIMARY KEY (`id`)
+  -- KEY `id_aliment` (`id_aliment`),
+  -- KEY `id_repas` (`id_repas`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `aliments`
@@ -280,23 +296,6 @@ CREATE TABLE IF NOT EXISTS `repas` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `repas_aliment`
---
-
-DROP TABLE IF EXISTS `repas_aliment`;
-CREATE TABLE IF NOT EXISTS `repas_aliment` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_aliment` int NOT NULL,
-  `id_repas` int NOT NULL,
-  `quantite` int NOT NULL,
-  PRIMARY KEY (`id`)
-  -- KEY `id_aliment` (`id_aliment`),
-  -- KEY `id_repas` (`id_repas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `utilisateur`
 --
 
@@ -328,10 +327,10 @@ INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, 
 --
 -- Contraintes pour la table `repas_aliment`
 --
--- ALTER TABLE `repas_aliment`
---   ADD CONSTRAINT `repas_aliment_ibfk_1` FOREIGN KEY (`id_aliment`) REFERENCES `aliments` (`id_aliment`),
---   ADD CONSTRAINT `repas_aliment_ibfk_2` FOREIGN KEY (`id_repas`) REFERENCES `repas` (`id_repas`);
--- COMMIT;
+ALTER TABLE `repas_aliment`
+  ADD CONSTRAINT `repas_aliment_ibfk_1` FOREIGN KEY (`id_aliment`) REFERENCES `aliments` (`id_aliment`),
+  ADD CONSTRAINT `repas_aliment_ibfk_2` FOREIGN KEY (`id_repas`) REFERENCES `repas` (`id_repas`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

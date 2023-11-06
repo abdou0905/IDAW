@@ -5,7 +5,7 @@
    //On recupere la methode de la requete
    $methode=$_SERVER['REQUEST_METHOD'];
 
-   //Recuperation des Aliments par leur catégorie
+   /*****************************************************FONCTIONS*************************************************/
    function getAlimentsByCategorie($pdo, $categorie) {
       //Preparation et Execution de la requete
       $sql = 'SELECT * FROM aliments WHERE categorie = ? ORDER BY designation ASC';
@@ -22,7 +22,6 @@
       }
    }
 
-   //Ajout d'un aliment
    function ajouterAliment($pdo, $designation, $categorie, $calories, $proteine, $glucide, $lipide, $sel, $sucre) {
       //Verification de la redondance
       $sql_redondance = $pdo->prepare('SELECT COUNT(*) FROM aliments WHERE designation = ?');
@@ -39,12 +38,17 @@
             return json_encode(['Erreur SQL']);
          } else {
             http_response_code(201);
-            echo(json_encode(['Aliment ajoute avec Succes']));
-            return json_encode(['Aliment ajoute avec Succes']);
+            echo(json_encode(['Aliment ajoute avec succes']));
+            return json_encode(['Aliment ajoute avec succes']);
          }
+      } else {
+         echo(json_encode(['Aliment deja existant']));
+         return json_encode(['Aliment deja existant']);
       }
    }
 
+   /*****************************************************REQUETES*************************************************/
+   
    if($methode === 'GET') {
       if (isset($_GET['categorie'])) {
          $categorie = $_GET['categorie'];

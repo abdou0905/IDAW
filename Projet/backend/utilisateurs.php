@@ -9,7 +9,6 @@
    parse_str(file_get_contents("php://input"), $_PUT);
 
    /*****************************************************FONCTIONS*************************************************/
-   //Recuperation des utilisateurs
    function getUtilisateurs($pdo) {
       //Preparation et Execution de la requete
       $sql = 'SELECT * FROM utilisateurs';
@@ -23,7 +22,6 @@
       }
    }
 
-   //Modifier l'utilisateur par l'ID
    function modifierUtilisateur($pdo, $id, $nom, $prenom, $email, $sexe, $age, $poids, $taille, $sport) {
       //Preparation et Execution de la requete
       $sql=$pdo->prepare("UPDATE utilisateurs SET `nom` = ?, `prenom` = ?, `email` = ?, `age` = ?, `taille` = ?, `poids` = ?, `sexe` = ?, `sport` = ?  WHERE `id_utilisateur`=?");
