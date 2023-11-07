@@ -22,7 +22,7 @@
    function modifierUtilisateur($pdo, $id, $nom, $prenom, $email, $sexe, $age, $poids, $taille, $sport) {
       //Preparation et Execution de la requete
       $sql=$pdo->prepare("UPDATE utilisateurs SET `nom` = ?, `prenom` = ?, `email` = ?, `age` = ?, `taille` = ?, `poids` = ?, `sexe` = ?, `sport` = ?  WHERE `id_utilisateur`=?");
-      $sucess=$sql->execute([$nom, $prenom, $email, $age, $poids, $taille, $sexe, $sport, $id]);  
+      $sucess=$sql->execute([$nom, $prenom, $email, $age, $taille, $poids, $sexe, $sport, $id]);  
          
       if($sucess === false ) { //Erreur
          http_response_code(500);

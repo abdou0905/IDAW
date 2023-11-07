@@ -49,6 +49,20 @@ tailleInput.style.display="none";
 activiteSelect.style.display="none";
 
 
+//VARIABLES IMC
+let calculerBtn = document.getElementById("calculerBtn");
+let resultIMC = document.getElementById("resultIMC");
+let scoreIMC = document.getElementById("scoreIMC");
+let indicationIMC = document.getElementById("indicationIMC");
+
+let IMC = [
+   "Poids insuffisant",
+   "Poids Normal",
+   "Surpoids",
+   "Obesité"
+];
+
+
 /*****************************************************REQUETES AJAX*************************************************/
 
 $(document).ready(function(){
@@ -61,14 +75,16 @@ $(document).ready(function(){
       success: function(response) {         
          utilisateur = JSON.parse(response);
          afficherUtilisateur(utilisateur);
+         completionIMC(utilisateur);   
       },
      error: function(error) {
          console.error(error);
      }
    },) 
 
+
    //Demande de modification du formulaire
-   $('#btnModifier').click(function(){
+   $('#btnModifier').click(function(){      
       afficherFormulaire(utilisateur);
    })
 
@@ -88,8 +104,6 @@ $(document).ready(function(){
       let taille = tailleInput.value;
       let sexe = genreSelect.value;
       let activite = activiteSelect.value;
-      console.log(id_utilisateur);
-
 
       // Modification des données de l'utilisateur
       $.ajax({
@@ -103,6 +117,12 @@ $(document).ready(function(){
             console.error(error);
          }
       },)
+   })
+
+   //IMC
+   $('#calculerBtn').click(function(){
+      console.log('je souhaite calculer mon IMC');
+      faireIMC();
    })
 })
 
@@ -121,7 +141,7 @@ function afficherUtilisateur(utilisateur) {
    activite.textContent = activites[utilisateur[0]['sport']-1];
 }
 
-function afficherFormulaire(utilisateur) {
+function afficherFormulaire(utilisateur) {      
    //Cacher les champs textes
    btnModifier.style.display="none";
    btnSauvegarder.style.display="block";
@@ -160,3 +180,57 @@ function afficherFormulaire(utilisateur) {
    activiteSelect.style.display="block";
    activiteSelect.value=utilisateur[0]['sport'];
 }
+
+function completionIMC(utilisateur) {
+   document.getElementById('tailleInput').value=utilisateur[0]['taille'];
+   document.getElementById('poidsInput').value=utilisateur[0]['poids']
+}
+
+function calculIMC(poids, taille) {
+   if(Number.isInteger(poids) && Number.isInteger(taille)){
+      // Conversion en centimètres
+      taille = taille / 100; 
+      
+      // Calcul de l'IMC
+      var imc = poids / (taille * taille);
+   
+     return imc.toFixed(1);
+   }
+}
+
+function quelleIndicationIMC(imc) {
+   if(imc<18.5) {
+      return IMC[0];
+   } else if(imc>=18.5 && imc<24.9) {
+      return IMC[1];
+   } else if(imc>=24.9 && imc<29.9) {
+      return IMC[2];
+   } else if(imc>=30){
+      return IMC[3];
+   }
+}
+
+
+///IMC
+function faireIMC(){
+   // faire le calcul de l'imc
+   let poidsText = document.getElementById('poidsInput').value;
+   let tailleText = document.getElementById('tailleInput').value;
+
+   let poids = parseInt(poidsText);
+   let taille = parseInt(tailleText);
+
+   
+   let imc=calculIMC(poids,taille);
+   let indication=quelleIndicationIMC(imc);
+
+   if(Number.isInteger(poids) && Number.isInteger(taille)){
+      scoreIMC.textContent='Votre IMC: ' + imc;
+      indicationIMC.textContent='Indication:    ' + indication;
+   } else {
+      scoreIMC.textContent='ERREUR: Veuillez entrer des informations valides'
+   }
+
+   //apparition des resultats
+   resultIMC.style.display="block";
+};
