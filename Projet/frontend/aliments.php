@@ -373,4 +373,5 @@
    </script>
    <script src="js/aliments/affichageAliments.js"></script>
    <script src="js/aliments/ajouterAliments.js"></script>
+   <script src="js/aliments/alimentsAjax.js"></script>
 </body>

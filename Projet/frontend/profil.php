@@ -7,9 +7,9 @@
       renderMenuToHTML('profil');
    ?>
    <?php
-      require_once('../backend/utilisateurs.php');
-      $utilisateur = getUtilisateurs($pdo);
-      $utilisateur = json_decode($utilisateur,true);
+      // require_once('../backend/utilisateurs.php');
+      // $utilisateur = getUtilisateurs($pdo);
+      // $utilisateur = json_decode($utilisateur,true);
    ?>
    <main>
       <div class="row justify-content-center p-2" style="background-color:#00BF63"> 
@@ -117,10 +117,10 @@
                   <button class="btn btn-dark" type="button" id="btnModifier" style="display:block">
                      Modifier mes informations
                   </button>
-                  <!-- <button class="btn btn-dark" type="submit" id="btnSauvegarder" style="display:none">
+                  <button class="btn btn-dark" type="submit" id="btnSauvegarder" style="display:none">
                      Sauvergarder
-                  </button>    -->
-                  <input type="submit" id="btnSauvegarder" style="display:none" name="update">
+                  </button>   
+                  <!-- <input type="submit" id="btnSauvegarder" style="display:none" name="update"> -->
                </div>
             </div>
          </form>
@@ -168,10 +168,8 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script>
-      let utilisateur = <?php echo json_encode($utilisateur);?> ;
-   </script>
-   <script src="js/profil/imc.js"></script>
-   <script src="js/profil/utilisateur.js"></script>
+   <script src="js/profil/profilAjax.js"></script>
+   <!-- <script src="js/profil/imc.js"></script> -->
+   <!-- <script src="js/profil/utilisateur.js"></script> -->
 </body>
 

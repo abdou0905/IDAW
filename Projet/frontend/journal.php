@@ -105,5 +105,7 @@
       require_once('templates/template_footer.php')
    ?>
 </body>
-<script src="js/journal.js"></script>
-<script src="js/repas.js"></script>
+<script src="js/journal/journal.js"></script>
+<script src="js/journal/repas.js"></script>
+<script src="js/journal/journalAjax.js"></script>
+

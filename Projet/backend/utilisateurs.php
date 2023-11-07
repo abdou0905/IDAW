@@ -15,7 +15,7 @@
          return json_encode(['error' => 'Erreur SQL']);
       } else { //Succès
          $users = $statement->fetchAll(PDO::FETCH_OBJ);
-         return json_encode($users);
+         exit (json_encode($users));
       }
    }
 
