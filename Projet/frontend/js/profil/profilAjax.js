@@ -82,7 +82,6 @@ $(document).ready(function(){
      }
    },) 
 
-
    //Demande de modification du formulaire
    $('#btnModifier').click(function(){      
       afficherFormulaire(utilisateur);

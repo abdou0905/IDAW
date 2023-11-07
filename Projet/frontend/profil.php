@@ -6,11 +6,6 @@
       require_once('templates/template_menu.php');
       renderMenuToHTML('profil');
    ?>
-   <?php
-      // require_once('../backend/utilisateurs.php');
-      // $utilisateur = getUtilisateurs($pdo);
-      // $utilisateur = json_decode($utilisateur,true);
-   ?>
    <main>
       <div class="row justify-content-center p-2" style="background-color:#00BF63"> 
          <h1 class="text-white">
@@ -120,7 +115,6 @@
                   <button class="btn btn-dark" type="submit" id="btnSauvegarder" style="display:none">
                      Sauvergarder
                   </button>   
-                  <!-- <input type="submit" id="btnSauvegarder" style="display:none" name="update"> -->
                </div>
             </div>
          </form>

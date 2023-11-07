@@ -5,6 +5,9 @@
    //On recupere la methode de la requete
    $methode=$_SERVER['REQUEST_METHOD'];
 
+   //Variable categorie
+   $categories = array('legume', 'fruit', 'feculent','proteine','produitLaitier','boisson','snackSale','snackSucre');
+
    /*****************************************************FONCTIONS*************************************************/
    function getAlimentsByCategorie($pdo, $categorie) {
       //Preparation et Execution de la requete
@@ -50,14 +53,21 @@
    /*****************************************************REQUETES*************************************************/
    
    if($methode === 'GET') {
-      if (isset($_GET['categorie'])) {
-         $categorie = $_GET['categorie'];
-         // echo getAlimentsByCategorie($pdo, $categorie);
-         return getAlimentsByCategorie($pdo, $categorie);
-      } else {
-         http_response_code(500);
-         return json_encode(['Erreur Données']);
+      $compteur = 0;
+      foreach($categories as $categorie) {
+         $aliments[$categorie] = getAlimentsByCategorie($pdo,$categorie);
+         // $compteur++;
       }
+      // print_r($aliments);
+      exit (json_encode($aliments));
+      // if (isset($_GET['categorie'])) {
+      //    $categorie = $_GET['categorie'];
+      //    // echo getAlimentsByCategorie($pdo, $categorie);
+      //    return getAlimentsByCategorie($pdo, $categorie);
+      // } else {
+      //    http_response_code(500);
+      //    return json_encode(['Erreur Données']);
+      // }
    }
 
    if($methode ==="POST") {      

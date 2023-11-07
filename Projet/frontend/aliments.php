@@ -7,19 +7,18 @@
       renderMenuToHTML('aliments');
    ?>
    <?php
-      require('../backend/aliments.php');
-      $legumes = json_decode(getAlimentsByCategorie($pdo,'legume'),true);
-      $fruits = json_decode(getAlimentsByCategorie($pdo,'fruit'),true);
-      $feculents = json_decode(getAlimentsByCategorie($pdo,'feculent'),true);
-      $proteines = json_decode(getAlimentsByCategorie($pdo,'proteine'),true);
-      $laitiers = json_decode(getAlimentsByCategorie($pdo,'produit laitier'),true);
-      $boissons = json_decode(getAlimentsByCategorie($pdo,'boisson'),true);
-      $snackSales = json_decode(getAlimentsByCategorie($pdo,'snack sale'),true);
-      $snackSucres = json_decode(getAlimentsByCategorie($pdo,'snack sucre'),true);
+      // require('../backend/aliments.php');
+      // $legumes = json_decode(getAlimentsByCategorie($pdo,'legume'),true);
+      // $fruits = json_decode(getAlimentsByCategorie($pdo,'fruit'),true);
+      // $feculents = json_decode(getAlimentsByCategorie($pdo,'feculent'),true);
+      // $proteines = json_decode(getAlimentsByCategorie($pdo,'proteine'),true);
+      // $laitiers = json_decode(getAlimentsByCategorie($pdo,'produit laitier'),true);
+      // $boissons = json_decode(getAlimentsByCategorie($pdo,'boisson'),true);
+      // $snackSales = json_decode(getAlimentsByCategorie($pdo,'snack sale'),true);
+      // $snackSucres = json_decode(getAlimentsByCategorie($pdo,'snack sucre'),true);
 
-      $aliments = [$legumes, $fruits, $feculents, $proteines, $laitiers, $boissons, $snackSucres, $snackSales];
+      // $aliments = [$legumes, $fruits, $feculents, $proteines, $laitiers, $boissons, $snackSucres, $snackSales];
 
-      // print_r($snackSucres);
    ?>
    <main>
       <div class="row text-center pt-0">
@@ -56,7 +55,7 @@
                   </div>          
                </div>
                <div class="card-body" id="cardBodyAjout">
-                  <form action="post">
+                  <form method="post" id="formAjoutAliment">
                      <div class="row justify-content-center">
                         <div class="col-6">
                            <div class="form-group">
@@ -83,14 +82,14 @@
                            <div class="form-group">
                               <label for="categorie">Categorie</label>
                               <select id="categorie" class="form-control">
-                                 <option>Légume</option>
-                                 <option>Fruit</option>
-                                 <option>Féculent</option>
-                                 <option>Protéine</option>
-                                 <option>Produit Laitier</option>
-                                 <option>Boisson</option>
-                                 <option>Snack Sucré</option>
-                                 <option>Snack Salé</option>
+                                 <option value="legume">Légume</option>
+                                 <option value="fruit">Fruit</option>
+                                 <option value="feculent">Féculent</option>
+                                 <option value="proteine">Protéine</option>
+                                 <option value="produitLaitier">Produit Laitier</option>
+                                 <option value="boisson">Boisson</option>
+                                 <option value="snackSucre">Snack Sucré</option>
+                                 <option value="snackSale">Snack Salé</option>
                               </select>
                            </div>
                            <div class="form-group">
@@ -110,11 +109,11 @@
                            </div>
                         </div>
                      </div>
-                  </form>
                </div>
                <div class="card-footer" id="footer">
-                  <button  id="btnSubmit" class="btn btn-dark">AJOUTER</div>         
+                  <button type ="submit" id="btnSubmit" class="btn btn-dark">AJOUTER</div>         
                </div>
+               </form>
             </div>
          </div>
       </div>
@@ -368,10 +367,8 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script>
-      let aliments = <?php echo json_encode($aliments);?> ;
-   </script>
-   <script src="js/aliments/affichageAliments.js"></script>
-   <script src="js/aliments/ajouterAliments.js"></script>
+   
+   <!-- <script src="js/aliments/affichageAliments.js"></script>
+   <script src="js/aliments/ajouterAliments.js"></script> -->
    <script src="js/aliments/alimentsAjax.js"></script>
 </body>
