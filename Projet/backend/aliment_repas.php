@@ -9,7 +9,7 @@
 
    function ajouterAlimentRepas($pdo, $id_repas, $id_aliment, $quantite) {
 
-      //Verification de la redondance
+      //Verification de l'existence du lien repas-aliment
       $sql_redondance = $pdo->prepare('SELECT COUNT(*) FROM repas_aliment WHERE id_repas = ? AND id_aliment = ?');
       $sql_redondance->execute([$id_repas, $id_aliment]);
       $exist = $sql_redondance->fetchColumn();
@@ -23,13 +23,16 @@
          $sql_exist_repas->execute([$id_repas]);
          $existRepas = $sql_exist_repas->fetchColumn();
 
-         //TO DO verification existance aliment
+         //Verification existance de l'aliment
+         $sql_exist_aliment = $pdo->prepare('SELECT COUNT(*) FROM aliments WHERE id_aliment = ?');
+         $sql_exist_aliment->execute([$id_aliment]);
+         $existAliment = $sql_exist_aliment->fetchColumn();
 
-         if($existRepas == 0) { //Le repas n'existe pas dutout
+         if($existRepas == 0 || $existAliment == 0) { //Le repas ou l'aiment n'existe pas dutout
             http_response_code(500);
-            echo(json_encode(['Le repas nexiste pas']));
-            return json_encode(['Le repas nexiste pas']);
-         } else { //Le repas existe bien
+            echo(json_encode(['Le repas ou laliment nexiste pas']));
+            return json_encode(['Le repas ou laliment nexiste pas']);
+         } else { //Le repas et l'aliment existe bien
             $sucess=$add_request->execute([$id_repas, $id_aliment,$quantite]);
             if($sucess === false ) {
                http_response_code(500);
@@ -73,6 +76,32 @@
       }
    }
    
+   function getAlimentsFromRepasByRepasID($pdo, $id_repas) {
+      
+      $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
+      $sql_existance->execute([$id_repas]);
+      $exist = $sql_existance->fetchColumn();
+
+      
+      if($exist == 0){ //Le repas n'existe pas
+         http_response_code(500);
+         echo(json_encode(['Le repas nexiste pas']));
+         return json_encode(['Le repas nexiste pas']);
+      } else {
+         $sql = $pdo->prepare('SELECT * FROM repas_aliment WHERE id_repas = ?');
+         $sucess = $sql->execute([$id_repas]);      
+
+         if($sucess === false ) { //Erreur
+            http_response_code(500);
+            return json_encode(['Erreur SQL']);
+         } else {
+            http_response_code(200);
+            $alimentsRepas = $sql->fetchAll(PDO::FETCH_OBJ);
+            print_r($alimentsRepas);
+            return json_encode($alimentsRepas);
+         }
+      }
+   }
    /*****************************************************REQUETES*************************************************/
    if($methode ==="POST") {      
       if(isset($_POST['id_repas']) && isset($_POST['id_aliment']) && isset($_POST['quantite'])) {
@@ -94,6 +123,17 @@
          $id_repas = $_DELETE['id_repas'];
          $id_aliment = $_DELETE['id_aliment'];
          return supprimerAlimentRepas($pdo, $id_repas, $id_aliment);
+      } else {
+         http_response_code(500);
+         return json_encode(['Erreur Données']);
+      }
+   }
+
+   if ($methode === "GET") {
+      //Recuperation des aliments de 1 repas
+      if(isset($_GET['id_repas'])){
+         $id_repas = $_GET['id_repas'];
+         return getAlimentsFromRepasByRepasID($pdo, $id_repas);
       } else {
          http_response_code(500);
          return json_encode(['Erreur Données']);

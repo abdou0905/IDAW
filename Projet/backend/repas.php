@@ -69,22 +69,29 @@
       }
    }
 
-   function getRepas($pdo, $id_repas){
-      //TO DEBUG CETTE FONCTION: FAIRE LE COMPTE, VERIFIER LEXISTENCE ?
-      //Preparation et Execution de la requete
-      $sql = $pdo->prepare('SELECT * FROM repas WHERE id_repas = ?');
+   function getRepasById($pdo, $id_repas){
+      $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
+      $sql_existance->execute([$id_repas]);
+      $exist = $sql_existance->fetchColumn();
 
-      $sucess=$sql->execute([$id_repas]);
-
-
-      if($sucess === false ) {
+      
+      if($exist == 0){ //Le repas n'existe pas
          http_response_code(500);
-         return json_encode(['Erreur SQL']);
+         echo(json_encode(['Le repas nexiste pas']));
+         return json_encode(['Le repas nexiste pas']);
       } else {
-         http_response_code(200);
-         $repas = $sql->fetch(PDO::FETCH_OBJ);
-         echo($repas);
-         return json_encode($repas);
+         $sql = $pdo->prepare('SELECT * FROM repas WHERE id_repas = ?');
+         $sucess=$sql->execute([$id_repas]);      
+
+         if($sucess === false ) { //Erreur
+            http_response_code(500);
+            return json_encode(['Erreur SQL']);
+         } else {
+            http_response_code(200);
+            $repas = $sql->fetch(PDO::FETCH_OBJ);
+            print_r($repas);
+            return json_encode($repas);
+         }
       }
    }
 
@@ -116,7 +123,7 @@
    if($methode === "GET") {
       if(isset($_GET['id_repas'])){
          $id_repas = $_GET['id_repas'];
-         return getRepas($pdo, $id_repas);
+         return getRepasById($pdo, $id_repas);
       } else {
          http_response_code(500);
          return json_encode(['Erreur Données']);
