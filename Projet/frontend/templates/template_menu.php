@@ -4,11 +4,16 @@
       'index'=>"Accueil",
       'profil'=>"Profil",
       'aliments'=>"Aliments",
-      'journal'=>"Journal",
+      // 'journal'=>"Journal",
+      'repas' =>"Repas",
+      'quotidien' => "Stat Quotidien",
+      'hebdomadaire' => "Stat Hebdomadaire",
+      'mensuel' => "Stat Mensuel",
+
     );
 
     echo'<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php"> <img src="imgs/iMangerMieux_logorond.png" alt="logo_fondvert"  width="60px" height="60px"> </a>
+    <a class="navbar-brand" href="index.php"> <img src="imgs/iMangerMieux_logorond.png" alt="logo_fondvert" width="60px" height="60px"> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

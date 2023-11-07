@@ -111,7 +111,7 @@
                      </div>
                </div>
                <div class="card-footer" id="footer">
-                  <button type ="submit" id="btnSubmit" class="btn btn-dark">AJOUTER</div>         
+                  <button type ="submit" id="btnSubmit" class="btn btn-dark">AJOUTER</button>         
                </div>
                </form>
             </div>
@@ -144,7 +144,6 @@
                      <tbody class="aliments" id="legume">
                      </tbody>
                   </table>
-                  
                </div>
             </div>
          </div>

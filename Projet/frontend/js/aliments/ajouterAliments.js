@@ -1,7 +1,7 @@
 let btnAjouter = document.getElementById('btnAjouter');
 let cardBody = document.getElementById("cardBodyAjout");
 let footer = document.getElementById("footer");
-let btnSubmit = document.getElementById("btnSubmit");
+// let btnSubmit = document.getElementById("btnSubmit");
 
 cardBody.style.display="none";
 btnSubmit.style.display="none";

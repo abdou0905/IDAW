@@ -140,13 +140,11 @@ function afficherAliment(aliments){
 
 function cacherFormulaireAjoutAliment(){
    cardBody.style.display="none";
-   btnSubmit.style.display="none";
    footer.style.display="none"
 }
 
 function afficherFormulaireAjoutAliment(){
    cardBody.style.display="block";
-   btnSubmit.style.display="block";
    footer.style.display="block";
 }
 

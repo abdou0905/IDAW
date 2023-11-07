@@ -163,7 +163,5 @@
       require_once('templates/template_footer.php')
    ?>
    <script src="js/profil/profilAjax.js"></script>
-   <!-- <script src="js/profil/imc.js"></script> -->
-   <!-- <script src="js/profil/utilisateur.js"></script> -->
 </body>
 
