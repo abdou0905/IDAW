@@ -102,6 +102,7 @@
          }
       }
    }
+   
    /*****************************************************REQUETES*************************************************/
    if($methode ==="POST") {      
       if(isset($_POST['id_repas']) && isset($_POST['id_aliment']) && isset($_POST['quantite'])) {
