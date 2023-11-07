@@ -5,9 +5,6 @@
    //On recupere la methode de la requete
    $methode=$_SERVER['REQUEST_METHOD'];
 
-   //Definition de PUT
-   parse_str(file_get_contents("php://input"), $_PUT);
-
    /*****************************************************FONCTIONS*************************************************/
    function getUtilisateurs($pdo) {
       //Preparation et Execution de la requete
@@ -46,6 +43,7 @@
    
    //Requete de Mise à Jour d'un Utilisateur
    if($methode === 'PUT') {
+      parse_str(file_get_contents("php://input"), $_PUT);
       if(isset($_PUT["id_utilisateur"]) && isset($_PUT["nom"]) && isset($_PUT["prenom"]) && isset($_PUT["email"]) && isset($_PUT["sexe"]) && isset($_PUT["age"]) && isset($_PUT["poids"]) && isset($_PUT["taille"]) && isset($_PUT["activite"])){
          $id = $_PUT["id_utilisateur"];
          $nom = $_PUT["nom"];

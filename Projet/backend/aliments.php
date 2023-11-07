@@ -26,12 +26,12 @@
       //Verification de la redondance
       $sql_redondance = $pdo->prepare('SELECT COUNT(*) FROM aliments WHERE designation = ?');
       $sql_redondance->execute([$designation]);
-      $exit = $sql_redondance->fetchColumn();
+      $exist = $sql_redondance->fetchColumn();
       
       //Requete d'ajout
       $add_request=$pdo->prepare('INSERT INTO aliments (designation, categorie, calories, proteine, glucide, lipide, sel, sucre) VALUES (?,?,?,?,?,?,?,?)');
       
-      if($exit==0) {
+      if($exist==0) {
          $sucess=$add_request->execute([$designation, $categorie, $calories, $proteine, $glucide, $lipide, $sel, $sucre]);
          if($sucess === false ) {
             http_response_code(500);
