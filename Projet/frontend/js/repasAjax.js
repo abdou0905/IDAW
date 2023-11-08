@@ -106,15 +106,18 @@ $(document).ready(function(){
                      id_alimentsRepas[compteur]=alimentRepas.id_aliment;
                      compteur++;
                   })
+                  id_alimentsRepas = JSON.stringify(id_alimentsRepas);
                   console.log(id_alimentsRepas);
                   
-                  // faire une requete pour prendre les infos des aliments
+                  // faire une requete pour prendre les infos des aliments de ce repas
                   $.ajax({
                      url:'http://localhost/IDAW/projet/backend/aliments.php',
                      type: 'GET',
                      data: {id_aliments:id_alimentsRepas},
                      success:function(response){
-
+                        
+                        // let resultat = JSON.parse(response);
+                        // console.log(resultat);
                      },
                      error: function(error) {
                         console.error(error);

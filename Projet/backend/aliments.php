@@ -51,19 +51,23 @@
    }
 
    /*****************************************************REQUETES*************************************************/
-   if($methode ==="GET" && $_GET['id_aliments']){
-      // $idAliments = $GET_['id_aliments'];
-      // console.log(aliments)
-      // print_r($idAliments);
-      exit('je suis dans ma nouvelle fonction');
-   }
-   
+   //Ecrire autrement la condition ?
+   if($methode ==="GET" && isset($_GET['id_aliments']) && $_GET['id_aliments']!= NULL){
+      print_r("je suis dans le get des aliments du repas hehe");
+      $idAliments = json_decode($_GET['id_aliments']);
+      // print_r('api id aliments');
+      print_r($idAliments);
+      // print_r(json_encode($idAliments));
+      // exit(json_encode($idAliments));
+   } else if ()
+
    if($methode === 'GET') {
       foreach($categories as $categorie) {
          $aliments[$categorie] = getAlimentsByCategorie($pdo,$categorie);
       }
       exit (json_encode($aliments));
    }
+   
 
 
    if($methode ==="POST") {      
