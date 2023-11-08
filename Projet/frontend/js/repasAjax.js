@@ -23,7 +23,7 @@ $(document).ready(function(){
    console.log("repas ajax is ready");
    cacherFormulaireAjoutRepas();
    cacherFormulaireAjoutAliments();
-   cacherFormulaireModifierRepas();
+   cacherFormulaireSupprimerRepas();
    
    $('#btnNouveauRepas').click(function(){      
       gestionApparitionFormulaireAjoutRepas();
@@ -34,7 +34,7 @@ $(document).ready(function(){
    })
 
    $('#btnModification').click(function(){      
-      gestionApparitionFormulaireModification();
+      gestionApparitionFormulaireSuppression();
    })   
 
    // Récupération des aliments
@@ -112,6 +112,7 @@ $(document).ready(function(){
                            let elements = JSON.parse(response);
                            elements=JSON.parse(elements);                          
                            afficherAlimentRepas(elements, alimentsRepas);
+                           remplirSelectAlimentASupprimer(elements);
                         },
                         error: function(error) {
                            console.error(error);
@@ -187,19 +188,18 @@ $(document).ready(function(){
       //bloquer le formulaire
       event.preventDefault();
       console.log('je souhaite supprimer un aliment au repas');
-
+      
       //preparation des données
-      //fonctionnera mais faire la completion des options des aliments d'abord
-      // let id_aliment = $('#alimentASupprimer').val();
-      // let id_aliment=12; pour exemple
+      let id_aliment = $('#alimentASupprimer').val();
 
-      // Suppression de l'aliment de l'aliment
+      // Suppression de l'aliment du repas
       $.ajax({
          url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
          type: 'DELETE',
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte},
          success: function() {         
-            window.location.href = 'repas.php';
+            cacherFormulaireSupprimerRepas();
+            // window.location.href = 'repas.php';
          },
          error: function(error) {
             console.error(error);
@@ -248,21 +248,21 @@ function gestionApparitionFormulaireAjoutAliments(){
 }
 
 //Formulaire modifier
-function cacherFormulaireModifierRepas(){
+function cacherFormulaireSupprimerRepas(){
    cardBodyModifier.style.display="none";
    footerModifier.style.display="none"
 }
 
-function afficherFormulaireModifierRepas(){
+function afficherFormulaireSupprimerRepas(){
    cardBodyModifier.style.display="block";
    footerModifier.style.display="block";
 }
 
-function gestionApparitionFormulaireModification(){
+function gestionApparitionFormulaireSuppression(){
    if(cardBodyModifier.style.display === "none") {
-      afficherFormulaireModifierRepas();
+      afficherFormulaireSupprimerRepas();
    } else {
-      cacherFormulaireModifierRepas();
+      cacherFormulaireSupprimerRepas();
    }
 }
 
@@ -281,6 +281,19 @@ function remplirSelectAliment(alimentsParCategorie){
       option.textContent = aliment['designation'];
       alimentsSelect.appendChild(option);
    });
+}
+
+function remplirSelectAlimentASupprimer(alimentsDuRepas){
+   let select = document.getElementById('alimentASupprimer');
+   select.innerHTML="";//Efface toutes les options precedentes
+
+   //Ajoute toutes les options
+   alimentsDuRepas.forEach(elem=>{
+      let option = document.createElement("option");
+      option.value = elem['id_aliment'];
+      option.textContent = elem['designation'];
+      select.appendChild(option);
+   })
 }
 
 function cleanBodyRepas(params) {

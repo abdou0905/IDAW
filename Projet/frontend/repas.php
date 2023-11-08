@@ -28,7 +28,7 @@
                         <input type="date" id="dateAConsulter" class="form-control" style="background-color:#00BF63; color:white">
                      </div>
                      <div class="form-group mr-2">
-                        <button class="btn" type="submit">Consulter</button>
+                        <button class="btn btn-success" type="submit" style="background-color:#00BF63">CONSULTER</button>
                      </div>
                   </div>
                   </form>
@@ -40,7 +40,7 @@
          <div class="col-5">
             <div class="card" style="height:350px">
                <div class="card-header pb-0">
-                  <h5>Mon repas</h5>
+                  <h5>Mon Repas</h5>
                   <table class="table m-0 mb-2">
                      <thead>
                         <tr>
