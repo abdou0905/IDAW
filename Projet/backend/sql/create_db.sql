@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `repas_aliment` (
 -- Structure de la table `aliments`
 --
 
+
 DROP TABLE IF EXISTS `aliments`; 
 CREATE TABLE IF NOT EXISTS `aliments` (
   `id_aliment` int NOT NULL AUTO_INCREMENT,
@@ -67,7 +68,6 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('tomate', 'legume', '18.0', '0.9', '3.9', '0.2', '0.0', '2.6'),
 ('epinard', 'legume', '23.0', '2.9', '3.6', '0.4', '0.8', '0.4'),
 ('poivron', 'legume', '31.0', '1.3', '6.0', '0.3', '0.0', '3.3'),
-('pomme de terre', 'legume', '77.0', '2.0', '17.5', '0.2', '0.0', '0.8'),
 ('courgette', 'legume', '17.0', '1.2', '3.1', '0.3', '0.0', '1.7'),
 ('chou-fleur', 'legume', '25.0', '1.9', '4.9', '0.3', '0.3', '1.9'),
 ('aubergine', 'legume', '25.0', '1.0', '6.0', '0.2', '0.0', '2.3'),
@@ -292,6 +292,269 @@ CREATE TABLE IF NOT EXISTS `repas` (
   `type` varchar(30) NOT NULL,
   PRIMARY KEY (`id_repas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `aliments`
+--
+
+INSERT INTO `repas` (`date`, `type`) VALUES
+('2023-11-01', 'petitDejeuner'),
+('2023-11-01', 'dejeuner'),
+('2023-11-01', 'gouter'),
+('2023-11-01', 'diner'),
+('2023-11-02', 'petitDejeuner'),
+('2023-11-02', 'dejeuner'),
+('2023-11-02', 'gouter'),
+('2023-11-02', 'diner'),
+('2023-11-03', 'petitDejeuner'),
+('2023-11-03', 'dejeuner'),
+('2023-11-03', 'gouter'),
+('2023-11-03', 'diner'),
+('2023-11-04', 'petitDejeuner'),
+('2023-11-04', 'dejeuner'),
+('2023-11-04', 'gouter'),
+('2023-11-04', 'diner'),
+('2023-11-05', 'petitDejeuner'),
+('2023-11-05', 'dejeuner'),
+('2023-11-05', 'gouter'),
+('2023-11-05', 'diner'),
+('2023-11-06', 'petitDejeuner'),
+('2023-11-06', 'dejeuner'),
+('2023-11-06', 'gouter'),
+('2023-11-06', 'diner'),
+('2023-11-07', 'petitDejeuner'),
+('2023-11-07', 'dejeuner'),
+('2023-11-07', 'gouter'),
+('2023-11-07', 'diner');
+
+--
+-- Déchargement des données de la table `repas_aliment`
+--
+-- Petit déjeuner (ID repas 1)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite) VALUES
+-- 1 boisson (ID 163-176)
+(163, 1, 250),
+-- 1 fruit (ID 37-66)
+(37, 1, 150),
+-- 1 produit laitier (ID 132-162)
+(132, 1, 200);
+
+-- Déjeuner (ID repas 2)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite) VALUES
+-- 1 féculent (ID 67-101)
+(67, 2, 200),
+-- 1 légume (ID 1-36)
+(1, 2, 100),
+-- 1 protéine (ID 102-131)
+(102, 2, 150),
+-- 1 boisson (ID 163-176)
+(163, 2, 300);
+
+-- Goûter (ID repas 3)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 snack sucré ou snack salé (ID 177-205)
+-- Remplacez l'ID par un ID correspondant à un snack sucré ou salé
+(177, 3, 50);
+
+-- Dîner (ID repas 4)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 féculent (ID 67-101)
+(75, 4, 200), -- Par exemple, des pâtes
+-- 1 légume (ID 1-36)
+(15, 4, 150), -- Par exemple, des brocolis
+-- 1 protéine (ID 102-131)
+(110, 4, 200), -- Par exemple, du poulet
+-- 1 boisson (ID 163-176)
+(167, 4, 250); -- Par exemple, de l'eau
+
+
+-- Petit déjeuner (ID repas 5)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 boisson (ID 163-176)
+(164, 5, 250), -- Exemple : jus d'orange
+-- 1 fruit (ID 37-66)
+(42, 5, 150), -- Exemple : une pomme
+-- 1 produit laitier (ID 132-162)
+(160, 5, 200); -- Exemple : yaourt
+
+-- Déjeuner (ID repas 6)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 féculent (ID 67-101)
+(90, 6, 200), -- Exemple : riz
+-- 1 légume (ID 1-36)
+(30, 6, 100), -- Exemple : carottes
+-- 1 protéine (ID 102-131)
+(120, 6, 150), -- Exemple : saumon
+-- 1 boisson (ID 163-176)
+(167, 6, 300); -- Exemple : eau gazeuse
+
+-- Goûter (ID repas 7)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 snack sucré ou snack salé (ID 177-205)
+(195, 7, 50); -- Exemple : 
+
+-- Dîner (ID repas 8)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+-- 1 féculent (ID 67-101)
+(70, 8, 200), -- Exemple : purée de pommes de terre
+-- 1 légume (ID 1-36)
+(25, 8, 150), -- Exemple : haricots verts
+-- 1 protéine (ID 102-131)
+(109, 8, 200), -- Exemple : bœuf grillé
+-- 1 boisson (ID 163-176)
+(165, 8, 250); -- Exemple : vin rouge
+
+-- Petit déjeuner (ID repas 9)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(164, 9, 250), -- Exemple : jus d'orange
+(46, 9, 150), -- Exemple : abricot
+(145, 9, 200); -- Exemple : yaourt aux fruits
+
+-- Déjeuner (ID repas 10)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(72, 10, 200), -- Exemple : pâtes
+(6, 10, 100), -- Exemple : salade
+(128, 10, 150), -- Exemple : poulet grillé
+(170, 10, 300); -- Exemple : eau
+
+-- Goûter (ID repas 11)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(198, 11, 50); -- Exemple : barre chocolatée
+
+-- Dîner (ID repas 12)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(73, 12, 200), -- Exemple : riz
+(21, 12, 100), -- Exemple : brocoli
+(113, 12, 150), -- Exemple : saumon grillé
+(165, 12, 250); -- Exemple : eau gazeuse
+
+-- Petit déjeuner (ID repas 13)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(165, 13, 250), -- Exemple : café
+(50, 13, 150), -- Exemple : banane
+(151, 13, 200); -- Exemple : yaourt aux fruits
+
+-- Déjeuner (ID repas 14)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(71, 14, 200), -- Exemple : pommes de terre
+(5, 14, 100), -- Exemple : haricots verts
+(127, 14, 150), -- Exemple : steak
+(170, 14, 300); -- Exemple : eau
+
+-- Goûter (ID repas 15)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(191, 15, 50); -- Exemple : biscuit au chocolat
+
+-- Dîner (ID repas 16)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(76, 16, 200), -- Exemple : quinoa
+(12, 16, 100), -- Exemple : carottes
+(116, 16, 150), -- Exemple : saumon grillé
+(163, 16, 250); -- Exemple : eau
+
+-- Petit déjeuner (ID repas 17)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(166, 17, 250), -- Exemple : thé
+(57, 17, 150), -- Exemple : orange
+(154, 17, 200); -- Exemple : fromage blanc
+
+-- Déjeuner (ID repas 18)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(78, 18, 200), -- Exemple : pâtes
+(8, 18, 100), -- Exemple : courgettes
+(129, 18, 150), -- Exemple : escalope de dinde
+(173, 18, 300); -- Exemple : soda
+
+-- Goûter (ID repas 19)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(197, 19, 50); -- Exemple : muffin
+
+-- Dîner (ID repas 20)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(80, 20, 200), -- Exemple : riz brun
+(18, 20, 100), -- Exemple : asperges
+(122, 20, 150), -- Exemple : saumon poché
+(175, 20, 250); -- Exemple : jus de fruits
+
+-- Petit déjeuner (ID repas 21)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(168, 21, 250), -- Exemple : café au lait
+(62, 21, 150), -- Exemple : pomme
+(158, 21, 200); -- Exemple : yaourt nature
+
+-- Déjeuner (ID repas 22)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(85, 22, 200), -- Exemple : couscous
+(22, 22, 100), -- Exemple : haricots
+(123, 22, 150), -- Exemple : kebab
+(176, 22, 300); -- Exemple : soda
+
+-- Goûter (ID repas 23)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(199, 23, 50); -- Exemple : barre de céréales
+
+-- Dîner (ID repas 24)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(87, 24, 200), -- Exemple : lasagnes
+(29, 24, 100), -- Exemple : épinards
+(114, 24, 150), -- Exemple : poisson grillé
+(168, 24, 250); -- Exemple : café au lait
+
+-- Petit déjeuner (ID repas 25)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(170, 25, 250), -- Exemple : eau
+(68, 25, 150), -- Exemple : raisin
+(162, 25, 200); -- Exemple : yaourt aux fruits
+
+-- Déjeuner (ID repas 26)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(93, 26, 200), -- Exemple : quinoa
+(36, 26, 100), -- Exemple : chou-fleur
+(125, 26, 150), -- Exemple : steak haché
+(164, 26, 300); -- Exemple : jus d'orange
+
+-- Goûter (ID repas 27)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(194, 27, 50); -- Exemple : cookies
+
+-- Dîner (ID repas 28)
+INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
+VALUES
+(94, 28, 200), -- Exemple : riz complet
+(41, 28, 100), -- Exemple : patate douce
+(119, 28, 150), -- Exemple : steak de saumon
+(171, 28, 250); -- Exemple : soda
+
+
+
+
+
+
 
 -- --------------------------------------------------------
 
