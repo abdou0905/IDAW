@@ -28,7 +28,7 @@
                         <input type="date" id="dateAConsulter" class="form-control" style="background-color:#00BF63; color:white">
                      </div>
                      <div class="form-group mr-2">
-                        <button class="btn btn-success" type="submit" style="background-color:#00BF63">CONSULTER</button>
+                        <button id="btnConsulter"class="btn btn-success" type="submit" style="background-color:#00BF63">CONSULTER</button>
                      </div>
                   </div>
                   </form>

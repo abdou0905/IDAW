@@ -151,7 +151,10 @@ $(document).ready(function(){
          type: 'POST',
          data: {date:date, type:type},
          success: function() {         
-            window.location.href = 'repas.php';
+            $('#typeRepasAConsulter').val(type);
+            $('#dateAConsulter').val(date);
+            $('#btnConsulter').click();
+            cacherFormulaireAjoutRepas();
          },
          error: function(error) {
             console.error(error);
@@ -176,6 +179,7 @@ $(document).ready(function(){
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte, quantite:quantite},
          success: function() {         
             cacherFormulaireAjoutAliments();
+            $('#btnConsulter').click();
          },
          error: function(error) {
             console.error(error);
@@ -200,6 +204,7 @@ $(document).ready(function(){
          success: function() {         
             cacherFormulaireSupprimerRepas();
             // window.location.href = 'repas.php';
+            $('#btnConsulter').click();
          },
          error: function(error) {
             console.error(error);
