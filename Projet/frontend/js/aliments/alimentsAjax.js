@@ -33,12 +33,8 @@ $(document).ready(function(){
             JSON.parse(aliments.snackSale),
             JSON.parse(aliments.snackSucre),
          ];
-         // console.log(aliments);
-         
-         // let legumes = JSON.parse(aliments.legume);
-         // console.log(legumes);
+   
          afficherAliment(aliments);
-
       },
      error: function(error) {
          console.error(error);

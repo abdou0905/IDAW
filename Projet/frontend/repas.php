@@ -39,7 +39,7 @@
          <div class="col-5">
             <div class="card" style="height:350px">
                <div class="card-header pb-0">
-                  <h5>Le repas</h5>
+                  <h5>Mon repas</h5>
                   <table class="table m-0 mb-2">
                      <thead>
                         <tr>
@@ -52,10 +52,10 @@
                </div>
                <div class="card-body pt-2 p-4" style="overflow-y: auto">
                   <table class="table">
-                     <tbody class="repas" id="dejeuner"></tbody>
+                     <tbody class="repas" id="repas_body"></tbody>
                   </table>
                </div>
-               <div class="card-footer">Calories: </div>
+               <div class="card-footer" id="caloriesTotRepas"></div>
             </div>
          </div>
          <div class="col-5">
@@ -154,7 +154,7 @@
                            <h5>Nouveau Repas</h5>
                         </div>          
                      </div>
-                     <form action="" method="post" id="formNewRepas">
+                     <form action="repas.php" method="post" id="formNewRepas">
                         <div class="card-body" id="cardBodyNouveauRepas">
                            <div class="form-group">
                               <label for="date">Date Repas</label>
