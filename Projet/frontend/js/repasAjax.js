@@ -42,9 +42,7 @@ $(document).ready(function(){
       url:'http://localhost/IDAW/Projet/backend/aliments.php',
       type: 'GET',
       success: function(response) {         
-         // console.log(response);
          aliments = JSON.parse(response);
-         // console.log(aliments);
          aliments = [
             JSON.parse(aliments.legume),
             JSON.parse(aliments.fruit),
@@ -55,7 +53,6 @@ $(document).ready(function(){
             JSON.parse(aliments.snackSale),
             JSON.parse(aliments.snackSucre),
          ];
-         console.log(aliments);
       },
      error: function(error) {
          console.error(error);
@@ -92,20 +89,19 @@ $(document).ready(function(){
                type: 'GET',
                data: {id_repas:id_repas_consulte},
                success: function(response) {         
-                  console.log("je suis sucess pour get les aliemnts du repas");
-                  // console.log(response);
                   alimentsRepas = JSON.parse(response);
-                  // console.log(alimentsRepas);
-
+               
                   //Array contenant les ID des aliments du repas
                   let id_alimentsRepas = [];
                   let compteur=0;
+
                   alimentsRepas.forEach(alimentRepas =>{
                      id_alimentsRepas[compteur]=alimentRepas.id_aliment;
                      compteur++;
                   })
+
                   id_alimentsRepas = JSON.stringify(id_alimentsRepas);
-                  console.log(id_alimentsRepas);
+
                   if(id_alimentsRepas!=='[]'){
                      // faire une requete pour prendre les infos des aliments de ce repas
                      $.ajax({
@@ -114,30 +110,27 @@ $(document).ready(function(){
                         data: {id_aliments:id_alimentsRepas},
                         success:function(response){
                            let elements = JSON.parse(response);
-                           elements=JSON.parse(elements);
-                           // console.log(elements);
-                           // console.log(elements[0]);
-                           
+                           elements=JSON.parse(elements);                          
                            afficherAlimentRepas(elements, alimentsRepas);
                         },
                         error: function(error) {
                            console.error(error);
                         }
                      })
-                  } else {
-                     cleanBodyRepas();
-                     console.log('pas encore daliments dans ce repas');
+                  } else { //Pas d'aliments dans ce repas
+                     cleanBodyRepas(0);
                   }
-                  
                },
                error: function(error) {
                   console.error(error);
+                  cleanBodyRepas(0);
                }
             },)  
          },
-        error: function(error) {
+         error: function(error) {
             console.error(error);
-        }
+            cleanBodyRepas(0);
+         }
       },)
    })
 
@@ -150,8 +143,6 @@ $(document).ready(function(){
       //preparation des données
       let date = $('#date').val();
       let type = $('#type').val();
-      // console.log(type);
-      // console.log(date);
 
       // Ajout du Repas
       $.ajax({
@@ -160,7 +151,6 @@ $(document).ready(function(){
          data: {date:date, type:type},
          success: function() {         
             window.location.href = 'repas.php';
-            // console.log('prout');
          },
          error: function(error) {
             console.error(error);
@@ -177,9 +167,6 @@ $(document).ready(function(){
       //preparation des données
       let id_aliment = $('#alimentsAjoutSelect').val();
       let quantite = $('#quantite').val();
-      // console.log('aliment'+id_aliment);
-      // console.log('repas'+id_repas_consulte);
-      // console.log('qte'+quantite);
 
       // Ajout de l'aliment
       $.ajax({
@@ -188,8 +175,6 @@ $(document).ready(function(){
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte, quantite:quantite},
          success: function() {         
             cacherFormulaireAjoutAliments();
-            //reload la page? 
-            // window.location.href = 'repas.php'; //peut etre ici le pb de l'ajout ! 
          },
          error: function(error) {
             console.error(error);
@@ -221,9 +206,6 @@ $(document).ready(function(){
          }
       },)
    }) 
-
-   
-
 })
 
 /*****************************************************FONCTIONS*************************************************/
@@ -291,49 +273,38 @@ function remplirSelectAliment(alimentsParCategorie){
        
    let selectedType = categorieSelect.value;
    let aliments = alimentsParCategorie[selectedType];
-   // console.log(selectedType);
-   // console.log(alimentsParCategorie);
-   // console.log(aliments);
    alimentsSelect.innerHTML = ""; // Efface toutes les options actuelles
 
    aliments.forEach(function (aliment) {
       let option = document.createElement("option");
       option.value = aliment['id_aliment'];
       option.textContent = aliment['designation'];
-      // console.log(alimentsSelect);
       alimentsSelect.appendChild(option);
-      // console.log(option);
    });
 }
 
-function cleanBodyRepas() {
+function cleanBodyRepas(params) {
    let tbody = document.getElementById('repas_body');
    
    // Supprimez tous les éléments enfants du tbody (pour vider le contenu)
    while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
    }
+
+   if(params==0) {
+      tbody.textContent="Pas d'aliments dans ce repas ou repas non existant";
+   }
 }
+
 function afficherAlimentRepas(elements, alimentsRepas) {
    let compteur = 0;
    let caloriesTotalesRepas = 0;
-
    let tbody = document.getElementById('repas_body');
 
-   cleanBodyRepas();
-   
-   console.log('elements:');
-   elements.forEach(element=>{
-      console.log(element)
-   })
-
-   console.log('aliments:');
-   alimentsRepas.forEach(aliment=>{
-      console.log(aliment)
-   })
+   //Nettoyer les données précedentes
+   cleanBodyRepas(1);
 
    //construction du tableau
-
    let resultArray = elements.map(function(element) {
       // Recherchez l'élément correspondant dans alimentsRepas en fonction de id_aliment
       let matchingAliment = alimentsRepas.find(function(aliment) {
@@ -349,11 +320,7 @@ function afficherAlimentRepas(elements, alimentsRepas) {
       };
    });
 
-   console.log('jolie tableau');
-   console.log(resultArray);
-   
    resultArray.forEach(row => {
-
       let tr=document.createElement('tr');
       tr.scope='row';      
       
@@ -380,5 +347,5 @@ function afficherAlimentRepas(elements, alimentsRepas) {
    })
 
    //Afficher les calories totales
-   document.getElementById("caloriesTotRepas").textContent='Total Calories = '+caloriesTotalesRepas+ ' kcal';
+   document.getElementById("caloriesTotRepas").textContent='Total Calories = '+caloriesTotalesRepas.toFixed(2)+ ' kcal';
 }

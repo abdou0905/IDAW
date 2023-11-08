@@ -16,6 +16,7 @@
                      <p class="mr-2">Mon</p>
                      <div class="form-group mr-2">
                         <select class="text-center" id="typeRepasAConsulter" name="typeRepasAConsulter" style="background-color:#00BF63; color:white">
+                           <option> </option>
                            <option value="petitDejeuner">Petit Déjeuner</option>
                            <option value="dejeuner">Déjeuner</option>
                            <option value="gouter">Goûter</option>
