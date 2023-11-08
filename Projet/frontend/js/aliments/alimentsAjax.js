@@ -87,7 +87,6 @@ $(document).ready(function(){
 
 //Fonction afficher aliment
 function afficherAliment(aliments){
-   // console.log(aliments);
    aliments.forEach(categorie => {
       categorie.forEach(aliment =>{
          let tr=document.createElement('tr');

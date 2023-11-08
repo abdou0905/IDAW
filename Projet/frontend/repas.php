@@ -11,11 +11,11 @@
          <div class="col-12">
             <div class="row justify-content-center p-2" style="background-color:#00BF63"> 
                <h1 class="col-12 text-white text-center">
-                  <form action="" method="get">
+                  <form action="" method="GET" id="formConsultationRepas">
                   <div class="row justify-content-center align-items-center">
                      <p class="mr-2">Mon</p>
-                     <div class="form-group mr-2" >
-                        <select class="text-center"name="typeRepasAConsulter" style="background-color:#00BF63; color:white">
+                     <div class="form-group mr-2">
+                        <select class="text-center" id="typeRepasAConsulter" name="typeRepasAConsulter" style="background-color:#00BF63; color:white">
                            <option value="petitDejeuner">Petit Déjeuner</option>
                            <option value="dejeuner">Déjeuner</option>
                            <option value="gouter">Goûter</option>
@@ -67,30 +67,31 @@
                            <h5>Ajouter Aliments-Repas</h5>
                         </div>          
                      </div>
-                     <form action="" method="post" id="formNewAlimentRepas">
+                     <form action="" method="POST" id="formNewAlimentRepas">
                         <div class="card-body" id="cardBodyNewAlimentRepas">
                            <div class="row justify-content-center">
                               <div class="col-5">
-                                 <div class="form-group">
+                                 <!-- <div class="form-group">
                                     <label for="dateAjoutAliment">Date Repas</label>
                                     <input type="date" id="dateAjoutAliment" class="form-control">
-                                 </div>
+                                 </div> -->
                                  <div class="form-group">
                                     <label for="categorie">Categorie Aliment</label>
                                     <select id="categorie" class="form-control">
-                                       <option value="legume">Légume</option>
-                                       <option value="fruit">Fruit</option>
-                                       <option value="feculent">Féculent</option>
-                                       <option value="proteine">Protéine</option>
-                                       <option value="produitLaitier">Produit Laitier</option>
-                                       <option value="boisson">Boisson</option>
-                                       <option value="snackSucre">Snack Sucré</option>
-                                       <option value="snackSale">Snack Salé</option>
+                                       <option></option>
+                                       <option value="0">Légume</option>
+                                       <option value="1">Fruit</option>
+                                       <option value="2">Féculent</option>
+                                       <option value="3">Protéine</option>
+                                       <option value="4">Produit Laitier</option>
+                                       <option value="5">Boisson</option>
+                                       <option value="6">Snack Sucré</option>
+                                       <option value="7">Snack Salé</option>
                                     </select>
                                  </div>
                               </div>
                               <div class="col-5">
-                                 <div class="form-group">
+                                 <!-- <div class="form-group">
                                     <label for="type">Type de Repas</label>
                                     <select id="type" class="form-control">
                                        <option value="petitDejeuner">Petit Déjeuner</option>
@@ -98,18 +99,10 @@
                                        <option value="gouter">Gouter</option>
                                        <option value="diner">Diner</option>
                                     </select>
-                                 </div>
+                                 </div> -->
                                  <div class="form-group">
-                                    <label for="categorie">Aliment</label>
-                                    <select id="categorie" class="form-control">
-                                       <option value="legume">aliment1</option>
-                                       <option value="fruit">aliment1</option>
-                                       <option value="feculent">aliment1</option>
-                                       <option value="proteine">aliment1</option>
-                                       <option value="produitLaitier">aliment1 Laitier</option>
-                                       <option value="boisson">aliment1</option>
-                                       <option value="snackSucre">aliment1 Sucré</option>
-                                       <option value="snackSale">aliment1 Salé</option>
+                                    <label for="alimentsAjoutSelect">Aliment</label>
+                                    <select id="alimentsAjoutSelect" class="form-control">
                                     </select>
                                  </div>
                               </div>
@@ -123,7 +116,7 @@
                            </div>
                         </div>
                         <div class="card-footer" id="footerAjouterAliments">
-                           <button type ="button" id="btnAjouterAliments" class="btn btn-dark">AJOUTER</button>         
+                           <button type ="submit" id="btnAjouterAliments" class="btn btn-dark">AJOUTER</button>         
                         </div>              
                      </form>              
                   </div> 
@@ -134,15 +127,22 @@
                   <div class="card" style="width:600px">
                      <div class="card-header text-center" style="background:#343a40">
                         <div class="btn btn-dark p-2 text-center w-100" id="btnModification">
-                           <h5>Modifier Repas</h5>
+                           <h5>Supprimer Aliment Repas</h5>
                         </div>          
                      </div>
-                     <div class="card-body" id="cardBodyModifier">
-                        <p>Form modifier repas</p>
-                     </div>
-                     <div class="card-footer" id="footerModifier">
-                        <button type ="button" id="btnSauvegarder" class="btn btn-dark">SAUVEGARDER</button>         
-                     </div>               
+                     <form action="" method="DELETE" id="formAlimentASupprimer">
+                        <div class="card-body" id="cardBodyModifier">
+                           <div class="form-group">
+                              <label for="alimentASupprimer">Aliment à Supprimer</label>
+                              <select class="form-control" name="alimentASupprimer" id="alimentASupprimer">
+
+                              </select>
+                           </div>
+                        </div>
+                        <div class="card-footer" id="footerModifier">
+                           <button type ="submit" id="btnSupprimer" class="btn btn-dark">SUPPRIMER</button>         
+                        </div>     
+                     </form>          
                   </div>
                </div>
             </div>

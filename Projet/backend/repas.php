@@ -69,31 +69,55 @@
       }
    }
 
-   function getRepasById($pdo, $id_repas){
-      $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
-      $sql_existance->execute([$id_repas]);
-      $exist = $sql_existance->fetchColumn();
+   // function getRepasById($pdo, $id_repas){
+   //    $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
+   //    $sql_existance->execute([$id_repas]);
+   //    $exist = $sql_existance->fetchColumn();
 
       
+   //    if($exist == 0){ //Le repas n'existe pas
+   //       http_response_code(500);
+   //       echo(json_encode(['Le repas nexiste pas']));
+   //       return json_encode(['Le repas nexiste pas']);
+   //    } else {
+   //       $sql = $pdo->prepare('SELECT * FROM repas WHERE id_repas = ?');
+   //       $sucess=$sql->execute([$id_repas]);      
+
+   //       if($sucess === false ) { //Erreur
+   //          http_response_code(500);
+   //          return json_encode(['Erreur SQL']);
+   //       } else {
+   //          http_response_code(200);
+   //          $repas = $sql->fetch(PDO::FETCH_OBJ);
+   //          print_r($repas);
+   //          return json_encode($repas);
+   //       }
+   //    }
+   // }
+
+   function getRepasByDateType($pdo, $date, $type) {
+      $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE date = ? AND type = ?');
+      $sql_existance->execute([$date,$type]);
+      $exist = $sql_existance->fetchColumn();
+
       if($exist == 0){ //Le repas n'existe pas
          http_response_code(500);
          echo(json_encode(['Le repas nexiste pas']));
          return json_encode(['Le repas nexiste pas']);
       } else {
-         $sql = $pdo->prepare('SELECT * FROM repas WHERE id_repas = ?');
-         $sucess=$sql->execute([$id_repas]);      
-
+         $sql = $pdo->prepare('SELECT * FROM repas WHERE date = ? AND type = ?');
+         $sucess=$sql->execute([$date,$type]);
          if($sucess === false ) { //Erreur
             http_response_code(500);
-            return json_encode(['Erreur SQL']);
+            exit(json_encode(['Erreur SQL']));
          } else {
             http_response_code(200);
             $repas = $sql->fetch(PDO::FETCH_OBJ);
-            print_r($repas);
-            return json_encode($repas);
+            exit(json_encode($repas)); 
          }
       }
    }
+      
 
    /*****************************************************REQUETES*************************************************/
    if($methode ==="POST") {      
@@ -120,13 +144,23 @@
       }
    }
 
+   // if($methode === "GET") {
+   //    if(isset($_GET['id_repas'])){
+   //       $id_repas = $_GET['id_repas'];
+   //       return getRepasById($pdo, $id_repas);
+   //    } else {
+   //       http_response_code(500);
+   //       return json_encode(['Erreur Données']);
+   //    }
+   // }
+   
    if($methode === "GET") {
-      if(isset($_GET['id_repas'])){
-         $id_repas = $_GET['id_repas'];
-         return getRepasById($pdo, $id_repas);
+      if(isset($_GET['date']) && isset($_GET['type'])){
+         $date = $_GET['date'];
+         $type = $_GET['type'];
+         return getRepasByDateType($pdo, $date, $type);
       } else {
          http_response_code(500);
          return json_encode(['Erreur Données']);
       }
    }
-

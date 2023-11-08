@@ -51,24 +51,20 @@
    }
 
    /*****************************************************REQUETES*************************************************/
+   if($methode ==="GET" && $_GET['id_aliments']){
+      // $idAliments = $GET_['id_aliments'];
+      // console.log(aliments)
+      // print_r($idAliments);
+      exit('je suis dans ma nouvelle fonction');
+   }
    
    if($methode === 'GET') {
-      $compteur = 0;
       foreach($categories as $categorie) {
          $aliments[$categorie] = getAlimentsByCategorie($pdo,$categorie);
-         // $compteur++;
       }
-      // print_r($aliments);
       exit (json_encode($aliments));
-      // if (isset($_GET['categorie'])) {
-      //    $categorie = $_GET['categorie'];
-      //    // echo getAlimentsByCategorie($pdo, $categorie);
-      //    return getAlimentsByCategorie($pdo, $categorie);
-      // } else {
-      //    http_response_code(500);
-      //    return json_encode(['Erreur Données']);
-      // }
    }
+
 
    if($methode ==="POST") {      
       if(isset($_POST['designation']) && isset($_POST['categorie']) && isset($_POST['calorie']) && isset($_POST['proteine']) && isset($_POST['glucide']) && isset($_POST['lipide']) && isset($_POST['sel'])&& isset($_POST['sucre'])) {

@@ -97,8 +97,8 @@
          } else {
             http_response_code(200);
             $alimentsRepas = $sql->fetchAll(PDO::FETCH_OBJ);
-            print_r($alimentsRepas);
-            return json_encode($alimentsRepas);
+            // print_r($alimentsRepas);
+            exit (json_encode($alimentsRepas));
          }
       }
    }
@@ -106,9 +106,11 @@
    /*****************************************************REQUETES*************************************************/
    if($methode ==="POST") {      
       if(isset($_POST['id_repas']) && isset($_POST['id_aliment']) && isset($_POST['quantite'])) {
+         
          $id_repas = $_POST['id_repas'];
          $id_aliment = $_POST['id_aliment'];
          $quantite = $_POST['quantite'];
+         print_r('je suis dans isset');
          return ajouterAlimentRepas($pdo, $id_repas, $id_aliment, $quantite);
       } else {
          http_response_code(500);
