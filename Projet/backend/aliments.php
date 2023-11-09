@@ -76,7 +76,6 @@
    /*****************************************************REQUETES*************************************************/
    //Ecrire autrement la condition ?
    if($methode ==="GET" && isset($_GET['id_aliments']) && $_GET['id_aliments']!= NULL){
-      
       $idAliments = json_decode($_GET['id_aliments']);
       exit (json_encode(getAlimentsById($pdo,$idAliments)));
       

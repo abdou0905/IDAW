@@ -40,17 +40,17 @@
                <tbody>
                   <tr>
                      <td>Petit Déjeuner</td>
-                     <td>nb calorie</td>
+                     <td id="nbCalPetitDej"></td>
                   </tr>
                   <tr>
-                     <td>Petit Déjeuner</td>
-                     <td>nb calorie</td>
+                     <td>Déjeuner</td>
+                     <td id="nbCalDej"></td>
                   </tr><tr>
-                     <td>Petit Déjeuner</td>
-                     <td>nb calorie</td>
+                     <td>Goûter</td>
+                     <td id="nbCalGouter"></td>
                   </tr><tr>
-                     <td>Petit Déjeuner</td>
-                     <td>nb calorie</td>
+                     <td>Diner</td>
+                     <td id="nbCalDiner"></td>
                   </tr>
                </tbody>
             </table>
@@ -110,6 +110,8 @@
       require_once('templates/template_footer.php')
    ?>
 </body>
-<script src="js/quotidienAjax.js"></script>
+<!-- <script src="js/quotidienAjax.js"></script> -->
+<script src="js/quotidien2Ajax.js"></script>
+
 
 
