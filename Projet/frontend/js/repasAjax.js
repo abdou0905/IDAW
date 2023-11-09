@@ -54,9 +54,9 @@ $(document).ready(function(){
             JSON.parse(aliments.snackSucre),
          ];
       },
-     error: function(error) {
-         console.error(error);
-     }
+      error: function(error) {
+            console.error(error);
+      }
    },)
 
    //Completion des aliments dispo pour l'ajout d'aliment
