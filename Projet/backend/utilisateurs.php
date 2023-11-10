@@ -6,8 +6,9 @@
    $methode=$_SERVER['REQUEST_METHOD'];
 
    /*****************************************************FONCTIONS*************************************************/
+
+   /*****************GET ALL USERS*************/
    function getUtilisateurs($pdo) {
-      //Preparation et Execution de la requete
       $sql = 'SELECT * FROM utilisateurs';
       $statement = $pdo->query($sql);
     
@@ -19,6 +20,7 @@
       }
    }
 
+   /*****************UPDATE USER BY ID*************/
    function modifierUtilisateur($pdo, $id, $nom, $prenom, $email, $sexe, $age, $poids, $taille, $sport) {
       //Preparation et Execution de la requete
       $sql=$pdo->prepare("UPDATE utilisateurs SET `nom` = ?, `prenom` = ?, `email` = ?, `age` = ?, `taille` = ?, `poids` = ?, `sexe` = ?, `sport` = ?  WHERE `id_utilisateur`=?");
@@ -34,14 +36,13 @@
    }
 
    /*****************************************************REQUETES*************************************************/
-   //Requete de d'obtention des Utilisateurs
+   
+   /*****************GET ALL USERS*************/
    if($methode === 'GET') {
       $utilisateurs = getUtilisateurs($pdo);
-      // echo($utilisateurs);
-      return $utilisateurs;
    }
    
-   //Requete de Mise à Jour d'un Utilisateur
+   /*****************UPDATE USER BY ID*************/
    if($methode === 'PUT') {
       parse_str(file_get_contents("php://input"), $_PUT);
       if(isset($_PUT["id_utilisateur"]) && isset($_PUT["nom"]) && isset($_PUT["prenom"]) && isset($_PUT["email"]) && isset($_PUT["sexe"]) && isset($_PUT["age"]) && isset($_PUT["poids"]) && isset($_PUT["taille"]) && isset($_PUT["activite"])){
@@ -59,6 +60,5 @@
          http_response_code(500);
          $resultat = json_encode(['Erreur Données']);
       }
-      // echo($resultat);
       return $resultat;
    }

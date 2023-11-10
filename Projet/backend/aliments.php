@@ -9,29 +9,28 @@
    $categories = array('legume', 'fruit', 'feculent','proteine','produitLaitier','boisson','snackSale','snackSucre');
 
    /*****************************************************FONCTIONS*************************************************/
+   
+   /*****************GET ALIMENTS BY ID*************/
    function getAlimentsById($pdo, $id_aliments) {
-      // Créez une chaîne de substitution "?" pour chaque ID d'aliment dans le tableau
+      // Chaîne de substitution pour chaque ID d'aliment dans le tableau
       $placeholders = implode(',', array_fill(0, count($id_aliments), '?'));
 
       // Créez la requête SQL en utilisant les substitutions
       $sql = "SELECT * FROM aliments WHERE id_aliment IN ($placeholders) ORDER BY designation ASC";
       
-      // Préparez la requête
       $statement = $pdo->prepare($sql);
-
-      // Exécutez la requête avec les ID d'aliments en tant que paramètres
       $success = $statement->execute($id_aliments);
+
       if ($success) {
          // Récupérez les résultats dans un tableau d'objets ou de tableaux associatifs
          $aliments = $statement->fetchAll(PDO::FETCH_ASSOC);
-         // print_r($aliments);
          return json_encode($aliments);
       } else {
-         // Gérez les erreurs ici
          return false;
       }
    }
-   
+
+   /*****************GET ALIMENTS BY CATEGORIE*************/
    function getAlimentsByCategorie($pdo, $categorie) {
       //Preparation et Execution de la requete
       $sql = 'SELECT * FROM aliments WHERE categorie = ? ORDER BY designation ASC';
@@ -48,6 +47,7 @@
       }
    }
 
+   /*****************AJOUTER UN NOUVEL ALIMENT*************/
    function ajouterAliment($pdo, $designation, $categorie, $calories, $proteine, $glucide, $lipide, $sel, $sucre) {
       //Verification de la redondance
       $sql_redondance = $pdo->prepare('SELECT COUNT(*) FROM aliments WHERE designation = ?');
@@ -64,28 +64,29 @@
             return json_encode(['Erreur SQL']);
          } else {
             http_response_code(201);
-            echo(json_encode(['Aliment ajoute avec succes']));
             return json_encode(['Aliment ajoute avec succes']);
          }
       } else {
-         echo(json_encode(['Aliment deja existant']));
          return json_encode(['Aliment deja existant']);
       }
    }
 
    /*****************************************************REQUETES*************************************************/
-   //Ecrire autrement la condition ?
+   
+   /*****************GET ALIMENTS BY ID*************/
    if($methode ==="GET" && isset($_GET['id_aliments']) && $_GET['id_aliments']!= NULL){
       $idAliments = json_decode($_GET['id_aliments']);
       exit (json_encode(getAlimentsById($pdo,$idAliments)));
-      
-   } else if ($methode === 'GET') {
+   } 
+   /*****************GET ALIMENTS BY CATEGORIE*************/
+   else if ($methode === 'GET') {
       foreach($categories as $categorie) {
          $aliments[$categorie] = getAlimentsByCategorie($pdo,$categorie);
       }
       exit (json_encode($aliments));
    } 
 
+   /*****************AJOUTER UN NOUVEL ALIMENT*************/
    if($methode ==="POST") {      
       if(isset($_POST['designation']) && isset($_POST['categorie']) && isset($_POST['calorie']) && isset($_POST['proteine']) && isset($_POST['glucide']) && isset($_POST['lipide']) && isset($_POST['sel'])&& isset($_POST['sucre'])) {
          $designation = $_POST['designation'];
@@ -102,5 +103,4 @@
          return json_encode(['Erreur Données']);
       }
    }
-
 ?>
