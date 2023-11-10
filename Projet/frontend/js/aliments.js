@@ -15,7 +15,7 @@ let btnSubmit = document.getElementById("btnSubmit");
 $(document).ready(function(){
    // Recuperation des aliments
    $.ajax({
-      url:'http://localhost/IDAW/Projet/backend/aliments.php',
+      url:url+'aliments.php',
       type: 'GET',
       success: function(response) {         
          aliments = JSON.parse(response);
@@ -61,7 +61,7 @@ $(document).ready(function(){
 
       // Ajout de l'aliment
       $.ajax({
-         url:'http://localhost/IDAW/Projet/backend/aliments.php',
+         url:url+'aliments.php',
          type: 'POST',
          data: {categorie:categorie, designation:designation, calorie:calorie,proteine:proteine,glucide:glucide,lipide:lipide,sel:sel,sucre:sucre},
          success: function() {         

@@ -38,7 +38,7 @@ $(document).ready(function(){
 
    // Récupération des aliments
    $.ajax({
-      url:'http://localhost/IDAW/Projet/backend/aliments.php',
+      url:url+'aliments.php',
       type: 'GET',
       success: function(response) {         
          aliments = JSON.parse(response);
@@ -74,7 +74,7 @@ $(document).ready(function(){
    
       //Recuperation du repas consulté
       $.ajax({
-         url:'http://localhost/IDAW/Projet/backend/repas.php',
+         url:url+'repas.php',
          type: 'GET',
          data: {date:date, type:type},
          
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
             //Récuperation des informations du repas
             $.ajax({
-               url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
+               url:url+'aliment_repas.php',
                type: 'GET',
                data: {id_repas:id_repas_consulte},
                success: function(response) {         
@@ -104,7 +104,7 @@ $(document).ready(function(){
                   if(id_alimentsRepas!=='[]'){
                      // faire une requete pour prendre les infos des aliments de ce repas
                      $.ajax({
-                        url:'http://localhost/IDAW/projet/backend/aliments.php',
+                        url:url+'aliments.php',
                         type: 'GET',
                         data: {id_aliments:id_alimentsRepas},
                         success:function(response){
@@ -147,7 +147,7 @@ $(document).ready(function(){
 
       // Ajout du Repas
       $.ajax({
-         url:'http://localhost/IDAW/projet/backend/repas.php',
+         url:url+'repas.php',
          type: 'POST',
          data: {date:date, type:type},
          success: function() {         
@@ -173,7 +173,7 @@ $(document).ready(function(){
 
       // Ajout de l'aliment
       $.ajax({
-         url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
+         url:url+'aliment_repas.php',
          type: 'POST',
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte, quantite:quantite},
          success: function() {         
@@ -197,7 +197,7 @@ $(document).ready(function(){
 
       // Suppression de l'aliment du repas
       $.ajax({
-         url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
+         url:url+'aliment_repas.php',
          type: 'DELETE',
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte},
          success: function() {         

@@ -67,7 +67,7 @@ let IMC = [
 $(document).ready(function(){   
    // Recuperation des utilisateurs
    $.ajax({
-      url:'http://localhost/IDAW/Projet/backend/utilisateurs.php',
+      url:url+'utilisateurs.php',
       type: 'GET',
       success: function(response) {         
          utilisateur = JSON.parse(response);
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
       // Modification des données de l'utilisateur
       $.ajax({
-         url:'http://localhost/IDAW/Projet/backend/utilisateurs.php',
+         url:url+'utilisateurs.php',
          type: 'PUT',
          data: {id_utilisateur:id_utilisateur, nom:nom, prenom:prenom,email:email,age:age,poids:poids,taille:taille,sexe:sexe,activite:activite},
          success: function() {         
@@ -191,8 +191,7 @@ function calculIMC(poids, taille) {
       
       // Calcul de l'IMC
       var imc = poids / (taille * taille);
-   
-     return imc.toFixed(1);
+      return imc.toFixed(1);
    }
 }
 

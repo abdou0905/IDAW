@@ -337,5 +337,5 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script src="js/aliments.js"></script>
 </body>
+<script src="js/aliments.js"></script>

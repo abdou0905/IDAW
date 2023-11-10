@@ -49,7 +49,7 @@ $(document).ready(function(){
 
    //Recuperation de l'utilisateur pour les Objectifs
    $.ajax({
-      url:'http://localhost/IDAW/Projet/backend/utilisateurs.php',
+      url:url+'utilisateurs.php',
       type: 'GET',
       success: function(response) {         
          utilisateur = JSON.parse(response); 
@@ -68,7 +68,7 @@ $(document).ready(function(){
    
       //Recuperation du repas consulté
       $.ajax({
-         url:'http://localhost/IDAW/Projet/backend/repas.php',
+         url:url+'repas.php',
          type: 'GET',
          data: {date:date, type:type},
          
@@ -95,7 +95,7 @@ $(document).ready(function(){
 
    function getRepasAlimentByIDRepas(id_repas,type){
       $.ajax({
-         url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
+         url:url+'aliment_repas.php',
          type: 'GET',
          data: {id_repas:id_repas},
          success: function(response) {         
@@ -123,7 +123,7 @@ $(document).ready(function(){
       if(id_alimentsRepas!=='[]'){
          // faire une requete pour prendre les infos des aliments de ce repas
          $.ajax({
-            url:'http://localhost/IDAW/projet/backend/aliments.php',
+            url:url+'aliments.php',
             type: 'GET',
             data: {id_aliments:id_alimentsRepas},
             success:function(response){
