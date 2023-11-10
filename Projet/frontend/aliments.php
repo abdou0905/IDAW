@@ -119,15 +119,15 @@
       </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-seedling"></i>
                      Légumes
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
