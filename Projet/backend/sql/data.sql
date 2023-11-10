@@ -377,8 +377,8 @@ VALUES
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
 (165, 13, 250), -- Exemple : café
-(50, 13, 150), -- Exemple : banane
-(151, 13, 200); -- Exemple : yaourt aux fruits
+(50, 13, 150); -- Exemple : banane
+-- (151, 13, 200); -- Exemple : yaourt aux fruits
 
 -- Déjeuner (ID repas 14)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)

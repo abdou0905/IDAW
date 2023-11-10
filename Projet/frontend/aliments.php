@@ -148,15 +148,15 @@
             </div>
          </div>
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-apple-alt"></i>
                      Fruits
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -179,15 +179,15 @@
       </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-bread-slice"></i>
                      Féculents
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -209,15 +209,15 @@
             </div>
          </div>
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-drumstick-bite"></i>
                      Protéines
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -241,15 +241,15 @@
       </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-bone"></i>
                      Produits laitiers
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -271,15 +271,15 @@
             </div>
          </div>
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-glass-whiskey"></i>
                      Boissons
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -303,15 +303,15 @@
       </div>
       <div class="row m-2 mt-5">
          <div class="col ml-3">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-ice-cream"></i>
                      Snacks Sucrés
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -333,15 +333,15 @@
             </div>
          </div>
          <div class="col ml-3 mb-5">
-            <div class="card" style="width:700px; height:500px">
-               <div class="card-header">
-                  <h3 style="color:#00BF63">
+            <div class="card border-secondary" style="width:700px; height:500px">
+               <div class="card-header bg-dark">
+                  <h3 style="color:white">
                      <i class="fas fa-pizza-slice"></i>
                      Snacks Salés
                   </h3>
                   <table class="table m-0">
                      <thead>
-                        <tr>
+                        <tr style="color:white">
                            <th class="p-0 col-3" scope="col">Nom</th>
                            <th class="p-0 col-2" scope="col">Calories</th>
                            <th class="p-0 col-2" scope="col">Protéine</th>
@@ -366,8 +366,5 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   
-   <!-- <script src="js/aliments/affichageAliments.js"></script>
-   <script src="js/aliments/ajouterAliments.js"></script> -->
-   <script src="js/aliments/alimentsAjax.js"></script>
+   <script src="js/alimentsAjax.js"></script>
 </body>

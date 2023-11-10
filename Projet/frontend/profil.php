@@ -14,7 +14,6 @@
          </h1>
       </div>
       <div class="row justify-content-center">
-         <!-- <form id="formModifier" method="post" action="../backend/utilisateurs.php"> -->
          <form id="formModifier" method="post" action="profil.php">
             <div class="card m-4" style="width:500px; height:320px">
                <div class="card-header">
@@ -157,8 +156,38 @@
             </div>
          </div>
       </div>   
+      <div class="row justify-content-center">
+         <div class="card m-4" style="width:1100px; height:150px">
+            <div class="card-header">
+               <h5>
+                  Mes Recommandations & Objectifs
+               </h5>
+            </div>
+            <div class="card-body">
+               <div class="row align-items-center">
+                  <h3 class="col">
+                     <span class="badge badge-primary p-2" id="objCalories"></span>
+                  </h3>
+                  <h3 class="col">
+                     <span class="badge badge-danger p-2" id="objGlu"></span>
+                  </h3>
+                  <h3 class="col">
+                     <span class="badge badge-warning p-2" id="objProt"></span>
+                  </h3>
+                  <h3 class="col">
+                     <span class="badge badge-success p-2" id="objLip"></span>
+                  </h3>
+                  <h3 class="col">
+                     <span class="badge badge-info p-2" id="objSucre"></span>
+                  </h3>
+                  <h3 class="col">
+                     <span class="badge badge-dark p-2">Sel: 2.3g</span>
+                  </h3>
+               </div>
+            </div>
+         </div>
+      </div>
    </main>
-
    <?php
       require_once('templates/template_footer.php')
    ?>

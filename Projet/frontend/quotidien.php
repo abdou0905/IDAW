@@ -33,7 +33,7 @@
       <div class="row justify-content-center">
          <div class="col-3">
             <h4>Mes Calories - Repas</h4>
-            <table class="table table-success">
+            <table id="tableCalorie" class="table">
                <thead>
                   <tr>
                      <th class="p-2">Repas</th>
@@ -59,111 +59,81 @@
             </table>
          </div>
          <div class="col-8 ml-4">
-            <div class="row mb-5">
-               <h4>
-                  Mes Calories Totales
-                  <span class="badge badge-success" id="caloriesTotScore"></span>
-                  <span class="badge badge-success" id="caloriesObjectif"></span>
-                  Mon Objectif
-               </h4>
+            <div class="row mb-3 ml-1">
+               <h4>Mes Nutriments - Recap</h4>
             </div>
-            <!-- <div class="row justify-content-center card">
-               <div class="col">
-                  <h4>
-                     Mes Calories Totales
-                     <span class="badge badge-success" id="caloriesTotScore"></span>
-                  </h4>
+            <div class="row align-items-center mb-3 ml-1">
+               <div class="col-3">
+                  <p class="m-0">Les Nutriments</p>
                </div>
-               <div class="col">
-                  <h4>
-                     Mon Objectif
-                     <span class="badge badge-dark">NB</span>
-                  </h4>
-               </div>
-            </div> -->
-            <!-- <div class="row"> -->
-               <div class="row">
-                  <h4>Mes Nutriments - Recap</h4>
-               </div>
-               <div class="row align-items-center mb-2">
-                  <div class="col-3">
-                     <p class="m-0">Les Nutriments</p>
+               <div class="col-8">
+                  <div class="progress" style="height: 20px;">
+                     <div class="progress-bar bg-danger" role="progressbar" style="width: 25%">Glucides</div>
+                     <div class="progress-bar bg-warning" role="progressbar" style="width: 25%">Protéines</div>
+                     <div class="progress-bar bg-success" role="progressbar" style="width: 25%">Lipides</div>
+                     <div class="progress-bar bg-info" role="progressbar" style="width: 25%">Sucres</div>
                   </div>
-                  <div class="col-8">
-                     <div class="progress" style="height: 20px;">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 25%">Glucides</div>
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 25%">Protéines</div>
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%">Lipides</div>
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%">Sucres</div>
+               </div>
+               <div class="col-1">
+                  <p class="m-0 badge badge-dark">Sel</p>
+               </div>
+            </div>
+            <div class="row align-items-center mb-4 ml-1">
+               <div class="col-3">
+                  <p class="m-0">Mes Scores</p>
+               </div>
+               <div class="col-8">
+                  <div class="progress" style="height: 20px;">
+                     <div id="gluJournee" class="progress-bar bg-danger" role="progressbar"></div>
+                     <div id="protJournee" class="progress-bar bg-warning" role="progressbar"></div>
+                     <div id="lipJournee" class="progress-bar bg-success" role="progressbar"></div>
+                     <div id="sucreJournee" class="progress-bar bg-info" role="progressbar"></div>
+                  </div>
+               </div>
+               <div class="col-1">
+                  <p class="m-0 badge" id="selJournee"></p>
+               </div>
+            </div>
+            <div class="row align-items-center mb-4 ml-1">
+               <div class="col-3">
+                  <p class="m-0">Mes Objectifs</p>
+               </div>
+               <div class="col-8">
+                  <div class="progress" style="height: 20px;">
+                     <div id="gluObj"class="progress-bar bg-danger" role="progressbar"></div>
+                     <div id="protObj"class="progress-bar bg-warning" role="progressbar"></div>
+                     <div id="lipObj"class="progress-bar bg-success" role="progressbar"></div>
+                     <div id="sucreObj"class="progress-bar bg-info" role="progressbar"></div>
+                  </div>
+               </div>
+               <div class="col-1">
+                  <p class="m-0 badge badge-dark" id="selObj"></p>
+               </div>
+            </div>
+            <div class="card bg-light mb-4" style="width:950px">
+               <div class="card-body p-2">
+                  <div class="row mb-2">
+                     <div class="col-3">
+                        <h4>Calories Totales</h4>
+                     </div>
+                     <div class="col-9">
+                        <h4>
+                           <span class="badge" id="caloriesTotScore"></span>
+                        </h4>
                      </div>
                   </div>
-                  <div class="col-1">
-                     <p class="m-0">Sel en g</p>
-                  </div>
-               </div>
-               <div class="row align-items-center mb-2">
-                  <div class="col-3">
-                     <p class="m-0">Mes Scores</p>
-                  </div>
-                  <div class="col-8">
-                     <div class="progress" style="height: 20px;">
-                        <div id="gluJournee" class="progress-bar bg-danger" role="progressbar"></div>
-                        <div id="protJournee" class="progress-bar bg-warning" role="progressbar"></div>
-                        <div id="lipJournee" class="progress-bar bg-success" role="progressbar"></div>
-                        <div id="sucreJournee" class="progress-bar bg-info" role="progressbar"></div>
+                  <div class="row mb-2">
+                     <div class="col-3">
+                        <h4>Mon Objectif</h4>
+                     </div>
+                     <div class="col-9">
+                        <h4>
+                           <span class="badge badge-dark" id="caloriesObj"></span>
+                        </h4>
                      </div>
                   </div>
-                  <div class="col-1">
-                     <p class="m-0" id="selJournee"></p>
-                  </div>
                </div>
-               <div class="row align-items-center mb-2">
-                  <div class="col-3">
-                     <p class="m-0">Mes Objectifs</p>
-                  </div>
-                  <div class="col-8">
-                     <div class="progress" style="height: 20px;">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 15%">15%</div>
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 15%">15%</div>
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%">30%</div>
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%">20%</div>
-                     </div>
-                  </div>
-                  <div class="col-1">
-                     <p class="m-0">Sel</p>
-                  </div>
-               </div>
-               <!-- <table class="table table-success">
-                  <thead>
-                     <tr>
-                        <th></th>
-                        <th class="p-2">Glucides</th>
-                        <th class="p-2">Protéines</th>
-                        <th class="p-2">Lipides</th>
-                        <th class="p-2">Sucres</th>
-                        <th class="p-2">Sels</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>Mon score</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                     </tr>
-                     <tr>
-                        <td>Mon objectif</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                        <td>NB</td>
-                     </tr>
-                  </tbody>
-               </table> -->
-            <!-- </div> -->
+            </div>
          </div>
       </div>
    </main>
@@ -171,7 +141,6 @@
       require_once('templates/template_footer.php')
    ?>
 </body>
-<!-- <script src="js/quotidienAjax.js"></script> -->
 <script src="js/quotidien2Ajax.js"></script>
 
 

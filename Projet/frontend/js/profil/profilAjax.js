@@ -76,6 +76,7 @@ $(document).ready(function(){
          utilisateur = JSON.parse(response);
          afficherUtilisateur(utilisateur);
          completionIMC(utilisateur);   
+         calculObjectif(utilisateur);
       },
      error: function(error) {
          console.error(error);
@@ -123,6 +124,8 @@ $(document).ready(function(){
       console.log('je souhaite calculer mon IMC');
       faireIMC();
    })
+   afficherNutriObjectif();
+
 })
 
 /*****************************************************FONCTIONS*************************************************/
@@ -209,7 +212,6 @@ function quelleIndicationIMC(imc) {
    }
 }
 
-
 ///IMC
 function faireIMC(){
    // faire le calcul de l'imc
@@ -233,3 +235,59 @@ function faireIMC(){
    //apparition des resultats
    resultIMC.style.display="block";
 };
+
+function calculObjectif(utilisateur) {
+   // console.log("je calcul les objectifs");
+   // console.log(utilisateur[0].sexe);
+   // console.log(utilisateur[0].poids);
+   // console.log(utilisateur[0].taille/100);
+   // console.log(utilisateur[0].age);
+   // console.log(utilisateur[0].sport);
+
+   //Calcul métabolisme
+   let coefPoids, coefTaille, coefAge, coefSport, bonus, MB;
+
+   if(utilisateur[0].sexe == 'H') {
+      coefPoids = 13.7516;
+      coefTaille = 500.33;
+      coefAge = 6.7550;
+      bonus = 66.479;
+   } else if (utilisateur[0].sexe == 'F') {
+      coefPoids = 9.740;
+      coefTaille = 184.96;
+      coefAge = 4.6756;
+      bonus = 655.0955;
+   }
+
+   switch (parseInt(utilisateur[0].sport)){
+      case 1:
+         coefSport = 1.2;
+         break;
+      case 2:
+         coefSport = 1.375;
+         break;
+      case 3:
+         coefSport = 1.55;
+         break;
+      case 4:
+         coefSport = 1.725;
+         break;
+      case 5:
+         coefSport = 1.9;
+         break;
+   }
+   console.log(coefSport);
+
+   MB = (coefPoids*utilisateur[0].poids + coefTaille*(utilisateur[0].taille/100) - (coefAge*utilisateur[0].age) + bonus)*coefSport;
+   
+   MB = MB.toFixed(0);
+   document.getElementById('objCalories').textContent = 'kCal/Jour: '+MB;
+}
+
+function afficherNutriObjectif(){
+   document.getElementById('objGlu').textContent = 'Glucides: 40%';
+   document.getElementById('objProt').textContent = 'Protéines: 20%';
+   document.getElementById('objLip').textContent = 'Lipides: 20%';
+   document.getElementById('objSucre').textContent = 'Sucres: 10%';
+
+}
