@@ -5,6 +5,14 @@ let repas1Jour = [
    'gouter',
    'diner',
 ]
+
+let divCaloriesRepas = {
+   'petitDejeuner': document.getElementById('nbCalPetitDej'),
+   'dejeuner': document.getElementById('nbCalDej'),
+   'gouter': document.getElementById('nbCalGouter'),
+   'diner': document.getElementById('nbCalDiner'),
+}
+
 let nutriJournee = {
    glucides: 0,
    proteines: 0,
@@ -13,22 +21,60 @@ let nutriJournee = {
    sel:0  
 }
 
+let ratiosNutri = {};
+
+let compteurfunction =0;
+
+// let finGetData =false;
+
 /*****************************************************REQUETES AJAX*************************************************/
 $(document).ready(function(){
    console.log('ajax 2 est ready');
+   document.getElementById("caloriesTotScore").textContent="";
+   
+   // document.getElementById('btnConsulter').addEventListener("click", function(){ 
+   //    console.log('btn consulter est clické')
+   //    initVar();
+   //    afficherCaloriesTotales();
+   //    calculFinalNutriment();
+   //    afficherNutrimentScore();
+   // })  
+console.log(divCaloriesRepas['dejeuner'].textContent == "");
+
       
    //Quand form Repas a consulter envoyé
    $('#formConsultationRepas').submit(function(event){
       //bloquer le formulaire
       event.preventDefault();
+      document.getElementById('messageErreur').style.display="none";
+      
 
+   
       for(let i=0;i<repas1Jour.length;i++){
          //Recuperation du repas
-         getRepasByDateType(repas1Jour[i]); 
+         getRepasByDateType(repas1Jour[i]);
       }
-      //Afficher les calories totales
-      //afficher les nutriments
+      // initVar();
+      // afficherCaloriesTotales();
+      // calculFinalNutriment();
+      // afficherNutrimentScore();
    })
+
+   //DIRE UNE FOIS QUE LES 4 CHAMPS DES CALORIES DES 4 REPAS SONT REMPLIS
+
+   //NOUVELLE IDEE FAIRE UNE REQUETE QUI DONNE LES CALORIES ET LES  NUTRIMENTS
+   // $.ajax({
+   //    url:'https://localhost/IDAW/Projet/backend/statistiques.php',
+   //    type:'POST',
+   //    data:{nutriments:nutriments, calories:calories},
+
+   //    success: function(response) {
+
+   //    },
+   //    error:function(error) {
+   //       console.error(error);
+   //    }
+   // })
 
    function getRepasByDateType(type){
       //Données du repas à consulter
@@ -43,14 +89,21 @@ $(document).ready(function(){
          success: function(response) {         
             let repas = JSON.parse(response);
             let id_repas =repas['id_repas'];
-      
+            
             //Recuperation du repas-aliment
             getRepasAlimentByIDRepas(id_repas,type);
 
          },
          error: function(error) {
+            document.getElementById('nbCalPetitDej').textContent=" ";
+            document.getElementById('nbCalDej').textContent=" ";
+            document.getElementById('nbCalGouter').textContent=" ";
+            document.getElementById('nbCalDiner').textContent=" ";
+            document.getElementById('caloriesTotScore').textContent="";
+            document.getElementById('messageErreur').style.display="block";
             console.error(error);
-            cleanBodyRepas(0);
+
+            //Mettre les barres de nutri out
          }
       })
    }
@@ -103,7 +156,7 @@ $(document).ready(function(){
       }
    }
 
-   function constructionData(repasAliments, infoAliments,type){
+   function constructionData(repasAliments,infoAliments,type){
       //construction du tableau
 
       let dataTab = infoAliments.map(function(infoAliment){
@@ -111,7 +164,7 @@ $(document).ready(function(){
          let matchingAliment = repasAliments.find(function(aliment) {
             return aliment.id_aliment === infoAliment.id_aliment;
          });
-
+         
          // Créez un nouvel objet avec les propriétés souhaitées
          return {
             id_aliment: infoAliment.id_aliment,
@@ -129,16 +182,16 @@ $(document).ready(function(){
    }
    
    function calculCaloriesRepas(dataTab,type){
-      // console.log("je suis dans calcul calories");
       let calorieRepas = 0;
       dataTab.forEach(data => {
          calorieRepas += data.calories*data.quantite/100;
       })
-      afficherCalorieRepas(calorieRepas);
+      afficherCalorieRepas(calorieRepas,type);
       calculNutrimentRepas(dataTab,type);
+      // console.log('maide maide: je suis dans')
    }
 
-   function calculNutrimentRepas(dataTab,type){
+   function calculNutrimentRepas(dataTab){
       let calorieGlucideRepas = 0;
       let calorieLipidesRepas = 0;
       let calorieProteineRepas =0;
@@ -153,47 +206,91 @@ $(document).ready(function(){
          selRepas += (data.sel*data.quantite)/100;
       })
 
-      let ratioGlucide = 0;
-      let ratioLipide = 0;
-      let ratioProteine = 0;
-      let ratioSucre = 0;
-
-      let sommeCalNutri = calorieGlucideRepas+calorieLipidesRepas+calorieProteineRepas+calorieSucreRepas;
-
-      ratioGlucide = (calorieGlucideRepas/sommeCalNutri)*100;
-      ratioLipide = (calorieLipidesRepas/sommeCalNutri)*100;
-      ratioProteine = (calorieProteineRepas/sommeCalNutri)*100;
-      ratioSucre = (calorieSucreRepas/sommeCalNutri)*100;
-
-      // console.log('ratio glu repas en cours'+ratioGlucide);
-      // console.log('glu journee avant'+nutriJournee.glucides);
-      nutriJournee.glucides+=ratioGlucide;
-      nutriJournee.lipides+=ratioLipide;
-      nutriJournee.proteines+=ratioProteine;
-      nutriJournee.sucres+=ratioSucre;
+      nutriJournee.glucides+=calorieGlucideRepas;
+      nutriJournee.lipides+=calorieLipidesRepas;
+      nutriJournee.proteines+=calorieProteineRepas;
+      nutriJournee.sucres+=calorieSucreRepas;
       nutriJournee.sel+=selRepas;
-
-
-      // console.log('glu journée apres'+nutriJournee.glucides);
-
-      //AFFICHER LES RATIOS
-
-      // console.log("je suis dans"+type);
-      // typeEnCours=null;
-      // console.log('tous mes ratios !');
-      // console.log('glu'+ratioGlucide.toFixed(2)+'%');
-      // console.log('lip'+ratioLipide.toFixed(2)+'%');
-      // console.log('prot'+ratioProteine.toFixed(2)+'%');
-      // console.log('su'+ratioSucre.toFixed(2)+'%');
-      // console.log('sel'+selRepas+'g');
    }
 
-   function afficherCalorieRepas(calorieRepas){
-      // console.log('jaffiche les calories par repas')
+   function calculFinalNutriment(){
+      console.log('fin de journé: calcul nutri final');
+      let somme = nutriJournee.glucides + nutriJournee.lipides + nutriJournee.proteines + nutriJournee.sucres;
+      
+      let ratioGlucide = (nutriJournee.glucides/somme)*100;
+      let ratioLipide = (nutriJournee.lipides/somme)*100;
+      let ratioProteine = (nutriJournee.proteines/somme)*100;
+      let ratioSucre = (nutriJournee.sucres/somme)*100;
+
+      ratiosNutri = {
+         glucides: ratioGlucide,
+         lipides: ratioLipide,
+         proteines: ratioProteine,
+         sucres: ratioSucre,
+      }
+   }
+
+   function afficherCalorieRepas(calorieRepas, type){
+      divCaloriesRepas[type].textContent = calorieRepas;
+      compteurfunction ++;
+      console.log(compteurfunction);
+      if(compteurfunction==4){
+         console.log('youhu');
+         afficherCaloriesTotales();
+         calculFinalNutriment();
+         afficherNutrimentScore();
+         initVar();
+      }
+   }
+   
+   function afficherCaloriesTotales(){
+      console.log('fin de journée, calories totales');
+      let calorieTotScore = 0;
+      for(let i=0;i<4;i++){
+         type=repas1Jour[i];
+         calorieTotScore += parseFloat(divCaloriesRepas[type].textContent);
+      }
+      document.getElementById('caloriesTotScore').textContent = calorieTotScore;
    }
    
    function afficherNutrimentScore(){
-      
+      console.log('FIN DE JOURNEE AFFICHE NUTRI');
+      // console.log(ratiosNutri);
+      document.getElementById('gluJournee').style.width=(ratiosNutri.glucides).toFixed(0)+'%';
+      document.getElementById('gluJournee').textContent=ratiosNutri.glucides.toFixed(2)+'%';
+
+      document.getElementById('protJournee').style.width=(ratiosNutri.proteines).toFixed(0)+'%';
+      document.getElementById('protJournee').textContent=ratiosNutri.proteines.toFixed(2)+'%';
+
+      document.getElementById('lipJournee').style.width=(ratiosNutri.lipides).toFixed(0)+'%';
+      document.getElementById('lipJournee').textContent=ratiosNutri.lipides.toFixed(2)+'%';
+
+      document.getElementById('sucreJournee').style.width=(ratiosNutri.sucres).toFixed(0)+'%';
+      document.getElementById('sucreJournee').textContent=ratiosNutri.sucres.toFixed(2)+'%';
+
+      document.getElementById('selJournee').textContent=nutriJournee.sel.toFixed(2);
    }
 
+   function initVar(){
+      console.log("FIN DE JOURNEE, INITIALISATION VARIABLES");
+
+      nutriJournee.glucides = 0;
+      nutriJournee.lipides = 0;
+      nutriJournee.proteines = 0;
+      nutriJournee.sucres = 0;
+      nutriJournee.sel = 0;
+
+      ratiosNutri.glucides = 0;
+      ratiosNutri.lipides = 0;
+      ratiosNutri.proteines = 0;
+      ratiosNutri.sucres = 0;
+      ratiosNutri.sel = 0;
+
+      compteurfunction = 0;
+      console.log("verification de l'initialisation");
+      console.log('nutrijournee');
+      console.log(nutriJournee);
+      console.log("ratiosNutri");
+      console.log(ratiosNutri);
+   }
 })
