@@ -191,6 +191,5 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script src="js/profil/profilAjax.js"></script>
+   <script src="js/profil.js"></script>
 </body>
-

@@ -31,8 +31,6 @@ let nbClickConsuler = 0;
 
 /*****************************************************REQUETES AJAX*************************************************/
 $(document).ready(function(){
-   console.log('ajax 2 est ready');
-   document.getElementById("caloriesTotScore").textContent="";
    afficherNutriObjectif();
       
    //Quand form Repas a consulter envoyé
@@ -91,15 +89,11 @@ $(document).ready(function(){
             document.getElementById('messageErreur').style.display="block";
             initProgress();
             console.error(error);
-
-            //Mettre les barres de nutri out
-
          }
       })
    }
 
    function getRepasAlimentByIDRepas(id_repas,type){
-      console.log('idrepas='+id_repas);
       $.ajax({
          url:'http://localhost/IDAW/projet/backend/aliment_repas.php',
          type: 'GET',
@@ -203,13 +197,9 @@ $(document).ready(function(){
    }
 
    function calculFinalNutriment(){
-      console.log('la somme avant  est '+ somme);
       somme = 0
-      console.log('la somme init  est '+ somme);
-
       somme = nutriJournee.glucides + nutriJournee.lipides + nutriJournee.proteines + nutriJournee.sucres;
-      console.log('la somme apres  est '+ somme);
-      
+
       let ratioGlucide = (nutriJournee.glucides/somme)*100;
       let ratioLipide = (nutriJournee.lipides/somme)*100;
       let ratioProteine = (nutriJournee.proteines/somme)*100;
@@ -319,7 +309,6 @@ $(document).ready(function(){
             coefSport = 1.9;
             break;
       }
-      // console.log(coefSport);
    
       MB = (coefPoids*utilisateur[0].poids + coefTaille*(utilisateur[0].taille/100) - (coefAge*utilisateur[0].age) + bonus)*coefSport;
       
@@ -332,17 +321,16 @@ $(document).ready(function(){
       let calTot = parseInt(document.getElementById('caloriesTotScore').textContent);
 
       let dif = MB-calTot;
-      console.log(dif);
 
       let table = document.getElementById('tableCalorie');
       let badgeCal = document.getElementById('caloriesTotScore');
+
       let previousTableStyle=table.classList.value;
       let previousBadgeCalStyle=badgeCal.classList.value;
+
       previousTableStyle = previousTableStyle.replace("table ", "").trim();
       previousBadgeCalStyle = previousBadgeCalStyle.replace("badge ", "").trim();
       
-      console.log(previousBadgeCalStyle);
-
       if(nbClickConsuler>1){
          table.classList.remove(previousTableStyle);
          badgeCal.classList.remove(previousBadgeCalStyle);
@@ -372,22 +360,17 @@ $(document).ready(function(){
 
       let diffSel =selObj-selJournee;
       diffSel = diffSel.toFixed(2);
-      console.log(diffSel);
 
       if(diffSel<-0.30){//danger
-         console.log('sel en danger');
          document.getElementById("selJournee").classList.add("badge-danger");
       } else if(diffSel>=-0.30 && diffSel<0){//warning
-         console.log('sel en vigilance');
          document.getElementById("selJournee").classList.add("badge-warning");
       } else { //success
-         console.log('sel en sucess');
          document.getElementById("selJournee").classList.add("badge-success");
       }
    }
    
    function afficherNutriObjectif(){
-      console.log("j'affiche les nutri");
       document.getElementById('gluObj').style.width = '40%';
       document.getElementById('gluObj').textContent = '40%';
 
@@ -401,6 +384,5 @@ $(document).ready(function(){
       document.getElementById('sucreObj').textContent = '10%';
 
       document.getElementById('selObj').textContent="2.3g"
-   
    }
 })

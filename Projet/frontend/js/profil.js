@@ -62,12 +62,9 @@ let IMC = [
    "Obesité"
 ];
 
-
 /*****************************************************REQUETES AJAX*************************************************/
 
-$(document).ready(function(){
-   console.log("profil ajax is ready");
-   
+$(document).ready(function(){   
    // Recuperation des utilisateurs
    $.ajax({
       url:'http://localhost/IDAW/Projet/backend/utilisateurs.php',
@@ -168,7 +165,6 @@ function afficherFormulaire(utilisateur) {
 
    genreSelect.style.display="block";
    genreSelect.value=utilisateur[0]['sexe'];
-   // document.getElementById(utilisateur[0]['sexe']).selected=true;
 
    ageInput.style.display="block";
    ageInput.value=utilisateur[0]['age'];
@@ -237,13 +233,6 @@ function faireIMC(){
 };
 
 function calculObjectif(utilisateur) {
-   // console.log("je calcul les objectifs");
-   // console.log(utilisateur[0].sexe);
-   // console.log(utilisateur[0].poids);
-   // console.log(utilisateur[0].taille/100);
-   // console.log(utilisateur[0].age);
-   // console.log(utilisateur[0].sport);
-
    //Calcul métabolisme
    let coefPoids, coefTaille, coefAge, coefSport, bonus, MB;
 
@@ -276,7 +265,6 @@ function calculObjectif(utilisateur) {
          coefSport = 1.9;
          break;
    }
-   console.log(coefSport);
 
    MB = (coefPoids*utilisateur[0].poids + coefTaille*(utilisateur[0].taille/100) - (coefAge*utilisateur[0].age) + bonus)*coefSport;
    
@@ -289,5 +277,4 @@ function afficherNutriObjectif(){
    document.getElementById('objProt').textContent = 'Protéines: 20%';
    document.getElementById('objLip').textContent = 'Lipides: 20%';
    document.getElementById('objSucre').textContent = 'Sucres: 10%';
-
 }

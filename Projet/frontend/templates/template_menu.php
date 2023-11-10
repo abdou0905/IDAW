@@ -4,12 +4,8 @@
       'index'=>"Accueil",
       'profil'=>"Profil",
       'aliments'=>"Aliments",
-      // 'journal'=>"Journal",
       'repas' =>"Repas",
-      'quotidien' => "Stat Quotidien",
-      'hebdomadaire' => "Stat Hebdomadaire",
-      'mensuel' => "Stat Mensuel",
-
+      'journal'=>"Journal",
     );
 
     echo'<nav class="navbar navbar-expand-lg navbar-light bg-light">

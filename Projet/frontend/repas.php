@@ -72,10 +72,6 @@
                         <div class="card-body" id="cardBodyNewAlimentRepas">
                            <div class="row justify-content-center">
                               <div class="col-5">
-                                 <!-- <div class="form-group">
-                                    <label for="dateAjoutAliment">Date Repas</label>
-                                    <input type="date" id="dateAjoutAliment" class="form-control">
-                                 </div> -->
                                  <div class="form-group">
                                     <label for="categorie">Categorie Aliment</label>
                                     <select id="categorie" class="form-control">
@@ -92,15 +88,6 @@
                                  </div>
                               </div>
                               <div class="col-5">
-                                 <!-- <div class="form-group">
-                                    <label for="type">Type de Repas</label>
-                                    <select id="type" class="form-control">
-                                       <option value="petitDejeuner">Petit Déjeuner</option>
-                                       <option value="dejeuner">Déjeuner</option>
-                                       <option value="gouter">Gouter</option>
-                                       <option value="diner">Diner</option>
-                                    </select>
-                                 </div> -->
                                  <div class="form-group">
                                     <label for="alimentsAjoutSelect">Aliment</label>
                                     <select id="alimentsAjoutSelect" class="form-control">
@@ -169,7 +156,6 @@
                                  <option value="gouter">Gouter</option>
                                  <option value="diner">Diner</option>
                               </select>
-                              <!-- <small class="form-text text-muted">kcal pour 100g</small> -->
                            </div>
                         </div>
                         <div class="card-footer" id="footerNouveauRepas">
@@ -181,28 +167,11 @@
             </div>
          </div>
       </div>
-      <!-- <div class="row justify-content-center pt-4 m-1 pb-5">
-         <div class="col-10 p-2">
-            <div class="card">
-               <div class="card-header text-center" style="background:#343a40">
-                  <div class="btn btn-dark p-2 text-center w-100" id="btnModification">
-                     <h5>Modifier Repas</h5>
-                  </div>          
-               </div>
-               <div class="card-body" id="cardBodyModifier">
-                  <p>Form modifier repas</p>
-               </div>
-               <div class="card-footer" id="footerModifier">
-                  <button type ="submit" id="btnSauvegarder" class="btn btn-dark">SAUVEGARDER</button>         
-               </div>               
-            </div>
-         </div>
-      </div> -->
    </main>
    <?php
       require_once('templates/template_footer.php')
    ?>
 </body>
-<script src="js/repasAjax.js"></script>
+<script src="js/repas.js"></script>
 
 

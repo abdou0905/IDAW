@@ -6,20 +6,6 @@
       require_once('templates/template_menu.php');
       renderMenuToHTML('aliments');
    ?>
-   <?php
-      // require('../backend/aliments.php');
-      // $legumes = json_decode(getAlimentsByCategorie($pdo,'legume'),true);
-      // $fruits = json_decode(getAlimentsByCategorie($pdo,'fruit'),true);
-      // $feculents = json_decode(getAlimentsByCategorie($pdo,'feculent'),true);
-      // $proteines = json_decode(getAlimentsByCategorie($pdo,'proteine'),true);
-      // $laitiers = json_decode(getAlimentsByCategorie($pdo,'produit laitier'),true);
-      // $boissons = json_decode(getAlimentsByCategorie($pdo,'boisson'),true);
-      // $snackSales = json_decode(getAlimentsByCategorie($pdo,'snack sale'),true);
-      // $snackSucres = json_decode(getAlimentsByCategorie($pdo,'snack sucre'),true);
-
-      // $aliments = [$legumes, $fruits, $feculents, $proteines, $laitiers, $boissons, $snackSucres, $snackSales];
-
-   ?>
    <main>
       <div class="row text-center pt-0">
          <div class="col-12">
@@ -31,21 +17,6 @@
             </div>
          </div>
       </div>
-      <!-- <div class="row justify-content-center pt-3">
-         <div class="col-8">
-            <div class="row justify-content-center text-italic p-3">
-               <h3><em>La Rubrique Aliments? C'est par ici !</em></h3>
-            </div>   
-            <div class="row m-0 text-center" style="font-size: 20px;">
-               <p class="fs-14">
-                  La Rubrique Aliments présents tous les aliments disponibles sur notre application i Manger Mieux ! <br>
-                  Vous retrouverez également tous les apports nutrionnels utilisés <br>
-                  par nos experts pour étudier votre profil de consomation alimentaire. <br>
-                  Votre aliments preferé ne figure pas dans notre liste? Ajoutez le directement en renseignant ses informations !
-               </p>
-            </div>
-         </div>
-      </div> -->
       <div class="row justify-content-center pt-5">
          <div class="col-6">
             <div class="card">
@@ -366,5 +337,5 @@
    <?php
       require_once('templates/template_footer.php')
    ?>
-   <script src="js/alimentsAjax.js"></script>
+   <script src="js/aliments.js"></script>
 </body>

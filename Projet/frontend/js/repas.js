@@ -20,7 +20,6 @@ let footerModifier = document.getElementById("footerModifier");
 
 /*****************************************************REQUETES AJAX*************************************************/
 $(document).ready(function(){
-   console.log("repas ajax is ready");
    cacherFormulaireAjoutRepas();
    cacherFormulaireAjoutAliments();
    cacherFormulaireSupprimerRepas();
@@ -55,7 +54,7 @@ $(document).ready(function(){
          ];
       },
       error: function(error) {
-            console.error(error);
+         console.error(error);
       }
    },)
 
@@ -138,7 +137,6 @@ $(document).ready(function(){
    //Envoie du formulaire Ajout Repas
    $('#formNewRepas').submit(function(event){
       //bloquer le formulaire
-      console.log('je souhaite ajouter un repas');
       event.preventDefault();
 
       //preparation des données
@@ -166,7 +164,6 @@ $(document).ready(function(){
    $('#formNewAlimentRepas').submit(function(event){
       //bloquer le formulaire
       event.preventDefault();
-      console.log('je souhaite ajouter un aliment au repas');
 
       //preparation des données
       let id_aliment = $('#alimentsAjoutSelect').val();
@@ -191,7 +188,6 @@ $(document).ready(function(){
       $('#formAlimentASupprimer').submit(function(event){
       //bloquer le formulaire
       event.preventDefault();
-      console.log('je souhaite supprimer un aliment au repas');
       
       //preparation des données
       let id_aliment = $('#alimentASupprimer').val();
@@ -203,7 +199,6 @@ $(document).ready(function(){
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte},
          success: function() {         
             cacherFormulaireSupprimerRepas();
-            // window.location.href = 'repas.php';
             $('#btnConsulter').click();
          },
          error: function(error) {
@@ -272,7 +267,6 @@ function gestionApparitionFormulaireSuppression(){
 }
 
 function remplirSelectAliment(alimentsParCategorie){
-   console.log("je vais remplir les aliments !");
    let categorieSelect = document.getElementById("categorie");
    let alimentsSelect = document.getElementById("alimentsAjoutSelect");
        

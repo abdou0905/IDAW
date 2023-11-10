@@ -13,16 +13,12 @@ let btnSubmit = document.getElementById("btnSubmit");
 /*****************************************************REQUETES AJAX*************************************************/
 
 $(document).ready(function(){
-   console.log("aliment ajax is ready");
-
    // Recuperation des aliments
    $.ajax({
       url:'http://localhost/IDAW/Projet/backend/aliments.php',
       type: 'GET',
       success: function(response) {         
-         // console.log(response);
          aliments = JSON.parse(response);
-         // console.log(aliments);
          aliments = [
             JSON.parse(aliments.legume),
             JSON.parse(aliments.fruit),
@@ -52,7 +48,6 @@ $(document).ready(function(){
    $('#formAjoutAliment').submit(function(event){
       //bloquer le formulaire
       event.preventDefault();
-      console.log('je souhaite ajouter un aliment');
 
       //preparation des données
       let categorie = $('#categorie').val();
@@ -115,7 +110,6 @@ function afficherAliment(aliments){
          let tdSucre=document.createElement('td');
          tdSucre.textContent=aliment['sucre'];
          tdSucre.classList.add("p-0", "col-2");
-   
          
          tr.appendChild(tdDesignation);
          tr.appendChild(tdCalorie);
@@ -125,9 +119,6 @@ function afficherAliment(aliments){
          tr.appendChild(tdSel);
          tr.appendChild(tdSucre);
          tbodies[compteur].appendChild(tr);
-         
-         // console.log(tbodies[compteur]);      
-         // console.log(aliment['designation']);
       })
       compteur++;
    });
