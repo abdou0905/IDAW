@@ -1,3 +1,30 @@
+//////////////////////////////////////////////////AVANT DE COMMENCER A UTILISER IMANGERMIEUX/////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////
+1 INITIALISATION DE LA BASE DE DONNEES
+//////////////////////////////////////////////////
+
+Il faut executer une fois le fichier backend/init_db.php au début de votre utilisation.
+
+Cela va:
+   -créer toute la base de données (sql/create_db.sql)
+   -insérer des donnéesà la base (sql/data.sql)
+
+Remarque concernant les données:
+   -1- un seul utilisateur
+   -2- de nombreux aliments dans toutes les catégories
+   -3- les repas crées vont du 10-11-2023 au 16-11-2023
+   -4- des aliments ont été inclus dans tous les repas crées (du 10-11-2023 au 16-11-2023)
+
+//////////////////////////////////////////////////
+2 CONFIGURATION URL
+//////////////////////////////////////////////////
+
+Rendez vous dans frontend/js/confiURL.js
+Remplacer la valeur de la variable url par celle de votre environnement en local.
+
+//////////////////////////////////////////////////DOCUMENTATION API/////////////////////////////////////////////////////
+
 //////////////////
 API UTILISATEURS
 //////////////////
