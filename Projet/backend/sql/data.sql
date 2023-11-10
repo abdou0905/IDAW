@@ -1,14 +1,21 @@
---
--- Déchargement des données de la table `utilisateur`
---
-
-INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, `sexe`, `sport`) VALUES
-('Patarot', 'Adele', 'ap@imt.fr', 22, 157, 60, 'H', 3);
-
-
+-- --------------------------------------------------------
 --
 -- Données de la table `aliments`
 --
+-- --------------------------------------------------------
+
+INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `age`, `taille`, `poids`, `sexe`, `sport`) VALUES
+('Patarot', 'Adele', 'ap@imt.fr', 22, 157, 60, 'F', 3);
+
+-- --------------------------------------------------------
+--
+-- Données de la table `aliments`
+--
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+-- Insertion des LEGUMES
+-- --------------------------------------------------------
 INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('carotte', 'legume', '41.0', '0.9', '10.1', '0.2', '0.5', '4.7'),
 ('brocoli', 'legume', '34.0', '2.8', '7.0', '0.4', '0.7', '1.7'),
@@ -44,8 +51,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('salade iceberg', 'legume', '14.0', '0.9', '3.0', '0.1', '0.0', '0.0'),
 ('radis noir', 'legume', '16.0', '0.7', '3.4', '0.2', '0.1', '0.0'),
 ('blette', 'legume', '21.0', '2.0', '3.0', '0.3', '0.0', '0.0'),
-('chicorée', 'legume', '23.0', '1.0', '5.0', '0.2', '0.0', '0.0'),
+('chicorée', 'legume', '23.0', '1.0', '5.0', '0.2', '0.0', '0.0');
 
+-- --------------------------------------------------------
+-- Insertion des FRUITS
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('pomme', 'fruit', '52.0', '0.3', '14.0', '0.2', '0.0', '10.4'),
 ('banane', 'fruit', '89.0', '1.1', '22.0', '0.3', '0.0', '12.2'),
 ('fraise', 'fruit', '32.0', '0.7', '7.7', '0.3', '0.0', '4.9'),
@@ -61,7 +72,6 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('mangue', 'fruit', '60.0', '0.8', '14.0', '0.6', '0.0', '14.3'),
 ('peche', 'fruit', '39.0', '0.9', '9.5', '0.3', '0.0', '8.2'),
 ('grenade', 'fruit', '83.0', '1.7', '18.0', '0.7', '0.0', '9.2'),
-
 ('myrtille', 'fruit', '57.0', '0.7', '14.0', '0.2', '0.0', '9.2'),
 ('mandarine', 'fruit', '53.0', '1.0', '13.3', '0.3', '0.0', '9.2'),
 ('cassis', 'fruit', '43.0', '1.0', '9.0', '0.4', '0.0', '9.0'),
@@ -76,9 +86,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('raisin sec', 'fruit', '299.0', '3.1', '79.2', '0.5', '0.0', '59.2'),
 ('datte', 'fruit', '282.0', '2.5', '75.0', '0.4', '0.0', '63.3'),
 ('melon', 'fruit', '34.0', '0.9', '8.0', '0.2', '0.0', '8.0'),
-('tomate', 'fruit', '18.0', '0.9', '3.9', '0.2', '0.0', '2.6'),
+('tomate', 'fruit', '18.0', '0.9', '3.9', '0.2', '0.0', '2.6');
 
-
+-- --------------------------------------------------------
+-- Insertion des FECULENTS
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('riz', 'feculent', '130.0', '2.7', '28.7', '0.3', '0.0', '0.1'),
 ('pates', 'feculent', '131.0', '5.2', '25.4', '1.1', '0.0', '0.4'),
 ('pain', 'feculent', '265.0', '8.4', '49.5', '2.9', '0.8', '3.7'),
@@ -94,7 +107,6 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('pois chiche', 'feculent', '164.0', '8.9', '27.4', '2.6', '0.0', '4.8'),
 ('avoine', 'feculent', '389.0', '16.9', '66.3', '6.9', '0.0', '0.2'),
 ('sarrasin', 'feculent', '343.0', '13.3', '71.5', '3.4', '0.0', '0.1'),
-
 ('pain burger', 'feculent', '265.0', '8.4', '49.5', '2.9', '0.8', '3.7'),
 ('wrap', 'feculent', '200.0', '4.0', '35.0', '3.0', '0.6', '1.0'),
 ('pain pita', 'feculent', '275.0', '9.0', '46.0', '2.5', '0.6', '3.0'),
@@ -114,8 +126,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('pommes de terre rissolées', 'feculent', '130.0', '2.0', '25.0', '2.0', '0.0', '0.0'),
 ('semoule de maïs', 'feculent', '365.0', '8.0', '76.0', '1.4', '0.0', '0.2'),
 ('graines de couscous', 'feculent', '176.0', '6.0', '37.0', '0.4', '0.0', '0.0'),
-('nouilles de riz', 'feculent', '192.0', '0.4', '45.0', '0.2', '0.0', '0.0'),
+('nouilles de riz', 'feculent', '192.0', '0.4', '45.0', '0.2', '0.0', '0.0');
 
+-- --------------------------------------------------------
+-- Insertion des PROTEINES
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('poulet', 'proteine', '165.0', '31.0', '0.0', '3.6', '0.3', '0.0'),
 ('boeuf', 'proteine', '250.0', '26.0', '0.0', '17.0', '0.1', '0.0'),
 ('saumon', 'proteine', '206.0', '22.0', '0.0', '13.4', '0.1', '0.0'),
@@ -125,7 +141,6 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('haricot noir', 'proteine', '339.0', '21.6', '63.0', '1.1', '0.0', '2.3'),
 ('oeuf', 'proteine', '143.0', '13.0', '1.1', '9.9', '0.4', '1.1'),
 ('porc', 'proteine', '143.0', '20.0', '0.0', '6.0', '0.0', '0.0'),
-
 ('poulet grillé', 'proteine', '165.0', '31.0', '0.0', '3.6', '0.3', '0.0'),
 ('boeuf haché maigre', 'proteine', '250.0', '26.0', '0.0', '17.0', '0.1', '0.0'),
 ('saumon grillé', 'proteine', '206.0', '22.0', '0.0', '13.4', '0.1', '0.0'),
@@ -136,7 +151,6 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('omelette aux fines herbes', 'proteine', '143.0', '13.0', '1.1', '9.9', '0.4', '1.1'),
 ('filet de porc grillé', 'proteine', '143.0', '20.0', '0.0', '6.0', '0.0', '0.0'),
 ('escalope de dinde', 'proteine', '135.0', '29.0', '0.0', '1.0', '0.2', '0.0'),
-
 ('jambon cru', 'proteine', '250.0', '26.0', '0.0', '17.0', '2.0', '0.0'),
 ('saucisson sec', 'proteine', '450.0', '23.0', '1.0', '38.0', '5.0', '0.0'),
 ('chorizo', 'proteine', '455.0', '22.0', '2.0', '38.0', '6.0', '0.0'),
@@ -147,8 +161,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('pastrami', 'proteine', '133.0', '15.0', '0.0', '8.0', '2.0', '0.0'),
 ('kacki', 'proteine', '320.0', '15.0', '3.0', '28.0', '1.0', '0.0'),
 ('steak haché', 'proteine', '250.0', '24.0', '0.0', '17.0', '2.0', '0.0'),
-('cordon bleu', 'proteine', '320.0', '18.0', '10.0', '21.0', '1.0', '0.0'),
+('cordon bleu', 'proteine', '320.0', '18.0', '10.0', '21.0', '1.0', '0.0');
 
+-- --------------------------------------------------------
+-- Insertion des PRODUITS LAITIERS
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('lait', 'produitLaitier', '42.0', '3.4', '4.7', '1.0', '0.1', '5.1'),
 ('yaourt', 'produitLaitier', '61.0', '4.0', '5.0', '3.6', '0.1', '4.7'),
 ('fromage', 'produitLaitier', '356.0', '25.0', '2.0', '28.8', '1.4', '0.0'),
@@ -179,9 +197,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('Yaourt Danette au caramel', 'produitLaitier', '180.0', '3.0', '27.0', '6.5', '0.2', '24.0'),
 ('Yaourt Danette au chocolat', 'produitLaitier', '170.0', '3.5', '24.0', '6.0', '0.1', '21.0'),
 ('Yaourt Danette à la vanille', 'produitLaitier', '160.0', '3.0', '23.0', '6.5', '0.2', '20.0'),
-('Yaourt Danette au café', 'produitLaitier', '150.0', '3.5', '20.0', '6.0', '0.3', '18.0'),
+('Yaourt Danette au café', 'produitLaitier', '150.0', '3.5', '20.0', '6.0', '0.3', '18.0');
 
-
+-- --------------------------------------------------------
+-- Insertion des BOISSON
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('cafe', 'boisson', '2.0', '0.1', '0.3', '0.0', '0.0', '0.0'),
 ('the', 'boisson', '1.0', '0.1', '0.3', '0.0', '0.0', '0.0'),
 ('jus d\'orange', 'boisson', '43.0', '0.7', '8.2', '0.2', '0.0', '8.2'),
@@ -195,7 +216,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('energy drink', 'boisson', '45.0', '0.0', '11.0', '0.0', '0.0', '10.5'),
 ('limonade', 'boisson', '41.0', '0.0', '11.0', '0.0', '0.0', '10.6'),
 ('chocolat chaud', 'boisson', '192.0', '4.9', '27.8', '7.2', '0.1', '25.1'),
-('sirop a l\'eau', 'boisson', '60.0', '0.0', '16.0', '0.0', '0.0', '16.0'),
+('sirop a l\'eau', 'boisson', '60.0', '0.0', '16.0', '0.0', '0.0', '16.0');
+
+-- --------------------------------------------------------
+-- Insertion des SNACKS SALES
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('chips', 'snackSale', '536.0', '6.6', '48.9', '34.9', '1.1', '0.5'),
 ('cacahuetes', 'snackSale', '567.0', '25.8', '9.9', '49.7', '0.6', '3.1'),
 ('popcorn', 'snackSale', '375.0', '9.1', '78.5', '4.3', '0.1', '0.1'),
@@ -209,7 +235,12 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('frites', 'snackSale', '365.0', '3.4', '63.0', '15.0', '0.7', '0.4'),
 ('saucisses cocktail', 'snackSale', '305.0', '7.0', '0.9', '30.0', '1.2', '0.5'),
 ('pringles', 'snackSale', '524.0', '4.2', '50.6', '34.0', '1.0', '0.5'),
-('fruits secs', 'snackSale', '349.0', '6.9', '52.3', '14.1', '0.0', '31.0'),
+('fruits secs', 'snackSale', '349.0', '6.9', '52.3', '14.1', '0.0', '31.0');
+
+-- --------------------------------------------------------
+-- Insertion des SNACKS SUCRES
+-- --------------------------------------------------------
+INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glucide`, `lipide`, `sel`, `sucre`) VALUES
 ('chocolat', 'snackSucre', '546.0', '5.4', '59.0', '31.0', '0.0', '55.0'),
 ('bonbons', 'snackSucre', '394.0', '0.9', '97.6', '0.2', '0.2', '69.0'),
 ('biscuits', 'snackSucre', '479.0', '6.1', '66.0', '21.0', '0.6', '34.0'),
@@ -226,264 +257,239 @@ INSERT INTO `aliments` (`designation`, `categorie`, `calories`, `proteine`, `glu
 ('cereales', 'snackSucre', '379.0', '7.5', '82.0', '1.5', '0.8', '30.0'),
 ('pâte à tartiner', 'snackSucre', '541.0', '6.2', '56.0', '30.0', '0.0', '55.0');
 
-
-
+-- --------------------------------------------------------
 --
--- Déchargement des données de la table `aliments`
+-- Données de la table `repas`
 --
+-- --------------------------------------------------------
 
 INSERT INTO `repas` (`date`, `type`) VALUES
-('2023-11-01', 'petitDejeuner'),
-('2023-11-01', 'dejeuner'),
-('2023-11-01', 'gouter'),
-('2023-11-01', 'diner'),
-('2023-11-02', 'petitDejeuner'),
-('2023-11-02', 'dejeuner'),
-('2023-11-02', 'gouter'),
-('2023-11-02', 'diner'),
-('2023-11-03', 'petitDejeuner'),
-('2023-11-03', 'dejeuner'),
-('2023-11-03', 'gouter'),
-('2023-11-03', 'diner'),
-('2023-11-04', 'petitDejeuner'),
-('2023-11-04', 'dejeuner'),
-('2023-11-04', 'gouter'),
-('2023-11-04', 'diner'),
-('2023-11-05', 'petitDejeuner'),
-('2023-11-05', 'dejeuner'),
-('2023-11-05', 'gouter'),
-('2023-11-05', 'diner'),
-('2023-11-06', 'petitDejeuner'),
-('2023-11-06', 'dejeuner'),
-('2023-11-06', 'gouter'),
-('2023-11-06', 'diner'),
-('2023-11-07', 'petitDejeuner'),
-('2023-11-07', 'dejeuner'),
-('2023-11-07', 'gouter'),
-('2023-11-07', 'diner');
+('2023-11-10', 'petitDejeuner'),
+('2023-11-10', 'dejeuner'),
+('2023-11-10', 'gouter'),
+('2023-11-10', 'diner'),
+('2023-11-11', 'petitDejeuner'),
+('2023-11-11', 'dejeuner'),
+('2023-11-11', 'gouter'),
+('2023-11-11', 'diner'),
+('2023-11-12', 'petitDejeuner'),
+('2023-11-12', 'dejeuner'),
+('2023-11-12', 'gouter'),
+('2023-11-12', 'diner'),
+('2023-11-13', 'petitDejeuner'),
+('2023-11-13', 'dejeuner'),
+('2023-11-13', 'gouter'),
+('2023-11-13', 'diner'),
+('2023-11-14', 'petitDejeuner'),
+('2023-11-14', 'dejeuner'),
+('2023-11-14', 'gouter'),
+('2023-11-14', 'diner'),
+('2023-11-15', 'petitDejeuner'),
+('2023-11-15', 'dejeuner'),
+('2023-11-15', 'gouter'),
+('2023-11-15', 'diner'),
+('2023-11-16', 'petitDejeuner'),
+('2023-11-16', 'dejeuner'),
+('2023-11-16', 'gouter'),
+('2023-11-16', 'diner');
 
+-- --------------------------------------------------------
 --
--- Déchargement des données de la table `repas_aliment`
+-- Données de la table `repas_aliments`
 --
+-- --------------------------------------------------------
 -- Petit déjeuner (ID repas 1)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite) VALUES
--- 1 boisson (ID 163-176)
 (163, 1, 250),
--- 1 fruit (ID 37-66)
 (37, 1, 150),
--- 1 produit laitier (ID 132-162)
 (132, 1, 200);
 
 -- Déjeuner (ID repas 2)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite) VALUES
--- 1 féculent (ID 67-101)
 (67, 2, 200),
--- 1 légume (ID 1-36)
 (1, 2, 100),
--- 1 protéine (ID 102-131)
 (102, 2, 150),
--- 1 boisson (ID 163-176)
 (163, 2, 300);
 
 -- Goûter (ID repas 3)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 snack sucré ou snack salé (ID 177-205)
--- Remplacez l'ID par un ID correspondant à un snack sucré ou salé
 (177, 3, 50);
 
 -- Dîner (ID repas 4)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 féculent (ID 67-101)
-(75, 4, 200), -- Par exemple, des pâtes
--- 1 légume (ID 1-36)
-(15, 4, 150), -- Par exemple, des brocolis
--- 1 protéine (ID 102-131)
-(110, 4, 200), -- Par exemple, du poulet
--- 1 boisson (ID 163-176)
-(167, 4, 250); -- Par exemple, de l'eau
-
+(75, 4, 200),
+(15, 4, 150),
+(110, 4, 200),
+(167, 4, 250);
 
 -- Petit déjeuner (ID repas 5)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 boisson (ID 163-176)
-(164, 5, 250), -- Exemple : jus d'orange
--- 1 fruit (ID 37-66)
-(42, 5, 150), -- Exemple : une pomme
--- 1 produit laitier (ID 132-162)
-(160, 5, 200); -- Exemple : yaourt
+(164, 5, 250),
+(42, 5, 150),
+(160, 5, 200);
 
 -- Déjeuner (ID repas 6)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 féculent (ID 67-101)
-(90, 6, 200), -- Exemple : riz
--- 1 légume (ID 1-36)
-(30, 6, 100), -- Exemple : carottes
--- 1 protéine (ID 102-131)
-(120, 6, 150), -- Exemple : saumon
--- 1 boisson (ID 163-176)
-(167, 6, 300); -- Exemple : eau gazeuse
+(90, 6, 200),
+(30, 6, 100),
+(120, 6, 150),
+(167, 6, 300);
 
 -- Goûter (ID repas 7)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 snack sucré ou snack salé (ID 177-205)
-(195, 7, 50); -- Exemple : 
+(195, 7, 50); 
 
 -- Dîner (ID repas 8)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
--- 1 féculent (ID 67-101)
-(70, 8, 200), -- Exemple : purée de pommes de terre
--- 1 légume (ID 1-36)
-(25, 8, 150), -- Exemple : haricots verts
--- 1 protéine (ID 102-131)
-(109, 8, 200), -- Exemple : bœuf grillé
--- 1 boisson (ID 163-176)
-(165, 8, 250); -- Exemple : vin rouge
+(70, 8, 200), 
+(25, 8, 150),
+(109, 8, 200),
+(165, 8, 250);
 
 -- Petit déjeuner (ID repas 9)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(164, 9, 250), -- Exemple : jus d'orange
-(46, 9, 150), -- Exemple : abricot
-(145, 9, 200); -- Exemple : yaourt aux fruits
+(164, 9, 250),
+(46, 9, 150),
+(145, 9, 200);
 
 -- Déjeuner (ID repas 10)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(72, 10, 200), -- Exemple : pâtes
-(6, 10, 100), -- Exemple : salade
-(128, 10, 150), -- Exemple : poulet grillé
-(170, 10, 300); -- Exemple : eau
+(72, 10, 200),
+(6, 10, 100),
+(128, 10, 150), 
+(170, 10, 300);
 
 -- Goûter (ID repas 11)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(198, 11, 50); -- Exemple : barre chocolatée
+(198, 11, 50);
 
 -- Dîner (ID repas 12)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(73, 12, 200), -- Exemple : riz
-(21, 12, 100), -- Exemple : brocoli
-(113, 12, 150), -- Exemple : saumon grillé
-(165, 12, 250); -- Exemple : eau gazeuse
+(73, 12, 200),
+(21, 12, 100), 
+(113, 12, 150), 
+(165, 12, 250);
 
 -- Petit déjeuner (ID repas 13)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(165, 13, 250), -- Exemple : café
-(50, 13, 150); -- Exemple : banane
--- (151, 13, 200); -- Exemple : yaourt aux fruits
+(165, 13, 250),
+(50, 13, 150),
+(79,13,80);
 
 -- Déjeuner (ID repas 14)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(71, 14, 200), -- Exemple : pommes de terre
-(5, 14, 100), -- Exemple : haricots verts
-(127, 14, 150), -- Exemple : steak
-(170, 14, 300); -- Exemple : eau
+(71, 14, 200),
+(5, 14, 100), 
+(127, 14, 150);
 
 -- Goûter (ID repas 15)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(191, 15, 50); -- Exemple : biscuit au chocolat
+(191, 15, 50);
 
 -- Dîner (ID repas 16)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(76, 16, 200), -- Exemple : quinoa
-(12, 16, 100), -- Exemple : carottes
-(116, 16, 150), -- Exemple : saumon grillé
-(163, 16, 250); -- Exemple : eau
+(76, 16, 200),
+(12, 16, 100),
+(116, 16, 150),
+(163, 16, 250);
 
 -- Petit déjeuner (ID repas 17)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(166, 17, 250), -- Exemple : thé
-(57, 17, 150), -- Exemple : orange
-(154, 17, 200); -- Exemple : fromage blanc
+(166, 17, 250),
+(57, 17, 150),
+(154, 17, 200);
 
 -- Déjeuner (ID repas 18)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(78, 18, 200), -- Exemple : pâtes
-(8, 18, 100), -- Exemple : courgettes
-(129, 18, 150), -- Exemple : escalope de dinde
-(173, 18, 300); -- Exemple : soda
+(78, 18, 200),
+(8, 18, 100),
+(129, 18, 150),
+(173, 18, 300);
 
 -- Goûter (ID repas 19)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(197, 19, 50); -- Exemple : muffin
+(197, 19, 50);
 
 -- Dîner (ID repas 20)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(80, 20, 200), -- Exemple : riz brun
-(18, 20, 100), -- Exemple : asperges
-(122, 20, 150), -- Exemple : saumon poché
-(175, 20, 250); -- Exemple : jus de fruits
+(80, 20, 200),
+(18, 20, 100),
+(122, 20, 150),
+(175, 20, 250);
 
 -- Petit déjeuner (ID repas 21)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(168, 21, 250), -- Exemple : café au lait
-(62, 21, 150), -- Exemple : pomme
-(158, 21, 200); -- Exemple : yaourt nature
+(168, 21, 250),
+(62, 21, 150),
+(158, 21, 200);
 
 -- Déjeuner (ID repas 22)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(85, 22, 200), -- Exemple : couscous
-(22, 22, 100), -- Exemple : haricots
-(123, 22, 150), -- Exemple : kebab
-(176, 22, 300); -- Exemple : soda
+(85, 22, 200),
+(22, 22, 100),
+(123, 22, 150),
+(176, 22, 300);
 
 -- Goûter (ID repas 23)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(199, 23, 50); -- Exemple : barre de céréales
+(199, 23, 50);
 
 -- Dîner (ID repas 24)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(87, 24, 200), -- Exemple : lasagnes
-(29, 24, 100), -- Exemple : épinards
-(114, 24, 150), -- Exemple : poisson grillé
-(168, 24, 250); -- Exemple : café au lait
+(87, 24, 200),
+(29, 24, 100),
+(114, 24, 150),
+(168, 24, 250);
 
 -- Petit déjeuner (ID repas 25)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(170, 25, 250), -- Exemple : eau
-(68, 25, 150), -- Exemple : raisin
-(162, 25, 200); -- Exemple : yaourt aux fruits
+(170, 25, 250),
+(68, 25, 150),
+(162, 25, 200);
 
 -- Déjeuner (ID repas 26)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(93, 26, 200), -- Exemple : quinoa
-(36, 26, 100), -- Exemple : chou-fleur
-(125, 26, 150), -- Exemple : steak haché
-(164, 26, 300); -- Exemple : jus d'orange
+(93, 26, 200),
+(36, 26, 100),
+(125, 26, 150), 
+(164, 26, 300);
 
 -- Goûter (ID repas 27)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(194, 27, 50); -- Exemple : cookies
+(194, 27, 50);
 
 -- Dîner (ID repas 28)
 INSERT INTO repas_aliment (id_aliment, id_repas, quantite)
 VALUES
-(94, 28, 200), -- Exemple : riz complet
-(41, 28, 100), -- Exemple : patate douce
-(119, 28, 150), -- Exemple : steak de saumon
-(171, 28, 250); -- Exemple : soda
+(94, 28, 200),
+(41, 28, 100),
+(119, 28, 150),
+(171, 28, 250);
 
 
 

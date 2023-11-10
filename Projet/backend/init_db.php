@@ -10,5 +10,5 @@
    $pdo->exec($data_sql);
 
    // Fermeture de la connexion avec le pdo
-   // $pdo = null;
+   $pdo = null;
 ?>
