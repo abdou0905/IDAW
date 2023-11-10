@@ -82,8 +82,8 @@
                                        <option value="3">Protéine</option>
                                        <option value="4">Produit Laitier</option>
                                        <option value="5">Boisson</option>
-                                       <option value="6">Snack Sucré</option>
-                                       <option value="7">Snack Salé</option>
+                                       <option value="6">Snack Salé</option>
+                                       <option value="7">Snack Sucré</option>
                                     </select>
                                  </div>
                               </div>
