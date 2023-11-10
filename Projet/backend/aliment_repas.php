@@ -7,6 +7,7 @@
 
    /*****************************************************FONCTIONS*************************************************/
 
+   /*****************ADD ALIMENT TO REPAS BY ID_REPAS*************/
    function ajouterAlimentRepas($pdo, $id_repas, $id_aliment, $quantite) {
 
       //Verification de l'existence du lien repas-aliment
@@ -50,6 +51,7 @@
       }
    }
 
+   /*****************DELETE ALIMENT TO REPAS BY ID_REPAS AND ID_ALIMENT*************/
    function supprimerAlimentRepas($pdo, $id_repas, $id_aliment) {
       //suppression de l'entite repas_aliment si existe
       $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas_aliment WHERE id_repas = ? AND id_aliment = ?');
@@ -76,12 +78,11 @@
       }
    }
    
-   function getAlimentsFromRepasByRepasID($pdo, $id_repas) {
-      
+   /*****************GET ALIMENTS FROM REPAS BY REPAS ID*************/
+   function getAlimentsFromRepasByRepasID($pdo, $id_repas) {   
       $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
       $sql_existance->execute([$id_repas]);
       $exist = $sql_existance->fetchColumn();
-
       
       if($exist == 0){ //Le repas n'existe pas
          http_response_code(500);
@@ -104,6 +105,8 @@
    }
    
    /*****************************************************REQUETES*************************************************/
+   
+   /*****************ADD ALIMENT TO REPAS BY ID_REPAS*************/
    if($methode ==="POST") {      
       if(isset($_POST['id_repas']) && isset($_POST['id_aliment']) && isset($_POST['quantite'])) {
          
@@ -118,6 +121,7 @@
       }
    }
 
+   /*****************DELETE ALIMENT TO REPAS BY ID_REPAS AND ID_ALIMENT*************/
    if($methode === "DELETE") {
       //Recuperation des données de la requete
       parse_str(file_get_contents("php://input"), $_DELETE);
@@ -131,7 +135,8 @@
          return json_encode(['Erreur Données']);
       }
    }
-
+   
+   /*****************GET ALIMENTS FROM REPAS BY REPAS ID*************/
    if ($methode === "GET") {
       //Recuperation des aliments de 1 repas
       if(isset($_GET['id_repas'])){

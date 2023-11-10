@@ -6,6 +6,8 @@
    $methode=$_SERVER['REQUEST_METHOD'];
 
    /*****************************************************FONCTIONS*************************************************/
+   
+   /*****************ADD REPAS*************/
    function ajouterRepas($pdo, $date, $type) {
       //Verification de la redondance
       $sql_redondance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE date = ? AND type = ?');
@@ -22,15 +24,14 @@
             return json_encode(['Erreur SQL']);
          } else {
             http_response_code(201);
-            echo(json_encode(['Repas cree avec succes']));
             return json_encode(['Repas cree avec succes']);
          }
       } else {
-         echo(json_encode(['Repas deja existant']));
          return json_encode(['Repas deja existant']);
       }
    }
 
+   /*****************DELETE REPAS*************/
    function supprimerRepas($pdo, $id) {
       //verification de l'existence de l'id dans les repas existants
       $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
@@ -59,42 +60,15 @@
                return json_encode(['Erreur SQL']);
             } else {
                http_response_code(200);
-               echo(json_encode(['Repas supprime avec succes']));
                return json_encode(['Repas supprime avec succes']);
             }
          }
       } else {
-         echo(json_encode(['Repas non existant']));
          return json_encode(['Repas non existant']);
       }
    }
 
-   // function getRepasById($pdo, $id_repas){
-   //    $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE id_repas = ?');
-   //    $sql_existance->execute([$id_repas]);
-   //    $exist = $sql_existance->fetchColumn();
-
-      
-   //    if($exist == 0){ //Le repas n'existe pas
-   //       http_response_code(500);
-   //       echo(json_encode(['Le repas nexiste pas']));
-   //       return json_encode(['Le repas nexiste pas']);
-   //    } else {
-   //       $sql = $pdo->prepare('SELECT * FROM repas WHERE id_repas = ?');
-   //       $sucess=$sql->execute([$id_repas]);      
-
-   //       if($sucess === false ) { //Erreur
-   //          http_response_code(500);
-   //          return json_encode(['Erreur SQL']);
-   //       } else {
-   //          http_response_code(200);
-   //          $repas = $sql->fetch(PDO::FETCH_OBJ);
-   //          print_r($repas);
-   //          return json_encode($repas);
-   //       }
-   //    }
-   // }
-
+   /*****************GET REPAS BY DATE AND TYPE*************/
    function getRepasByDateType($pdo, $date, $type) {
       $sql_existance = $pdo->prepare('SELECT COUNT(*) FROM repas WHERE date = ? AND type = ?');
       $sql_existance->execute([$date,$type]);
@@ -102,7 +76,6 @@
 
       if($exist == 0){ //Le repas n'existe pas
          http_response_code(500);
-         echo(json_encode(['Le repas nexiste pas']));
          return json_encode(['Le repas nexiste pas']);
       } else {
          $sql = $pdo->prepare('SELECT * FROM repas WHERE date = ? AND type = ?');
@@ -118,8 +91,9 @@
       }
    }
       
-
    /*****************************************************REQUETES*************************************************/
+   
+   /*****************ADD REPAS*************/
    if($methode ==="POST") {      
       if(isset($_POST['date']) && isset($_POST['type'])) {
          $date = $_POST['date'];
@@ -131,6 +105,7 @@
       }
    }
 
+   /*****************DELETE REPAS*************/
    if($methode === "DELETE") {
       //Recuperation des données de la requete
       parse_str(file_get_contents("php://input"), $_DELETE);
@@ -144,16 +119,7 @@
       }
    }
 
-   // if($methode === "GET") {
-   //    if(isset($_GET['id_repas'])){
-   //       $id_repas = $_GET['id_repas'];
-   //       return getRepasById($pdo, $id_repas);
-   //    } else {
-   //       http_response_code(500);
-   //       return json_encode(['Erreur Données']);
-   //    }
-   // }
-   
+   /*****************GET REPAS BY DATE AND TYPE*************/
    if($methode === "GET") {
       if(isset($_GET['date']) && isset($_GET['type'])){
          $date = $_GET['date'];

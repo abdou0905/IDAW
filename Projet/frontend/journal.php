@@ -25,7 +25,7 @@
                   </form>
                </h1>
                <div class="row" id="messageErreur">
-                  <p class="ft-red">Veuillez choisir une journée contenant des repas</p>
+                  <p class="ft-red">Veuillez choisir une journée contenant les 4 repas de la journée</p>
                </div>
             </div>
          </div>
