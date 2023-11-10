@@ -130,6 +130,8 @@ $(document).ready(function(){
          error: function(error) {
             console.error(error);
             cleanBodyRepas(0);
+            cleanDeleteForm();
+            cleanFormAjout();
          }
       },)
    })
@@ -176,6 +178,7 @@ $(document).ready(function(){
          data: {id_aliment:id_aliment, id_repas:id_repas_consulte, quantite:quantite},
          success: function() {         
             cacherFormulaireAjoutAliments();
+            cleanFormAjout();
             $('#btnConsulter').click();
          },
          error: function(error) {
@@ -200,6 +203,7 @@ $(document).ready(function(){
          success: function() {         
             cacherFormulaireSupprimerRepas();
             $('#btnConsulter').click();
+            cleanDeleteForm();
          },
          error: function(error) {
             console.error(error);
@@ -265,6 +269,11 @@ function gestionApparitionFormulaireSuppression(){
       cacherFormulaireSupprimerRepas();
    }
 }
+function cleanFormAjout() {
+   document.getElementById("alimentsAjoutSelect").innerHTML = "";
+   document.getElementById('categorie').value="none";
+   document.getElementById('quantite').value="";
+}
 
 function remplirSelectAliment(alimentsParCategorie){
    let categorieSelect = document.getElementById("categorie");
@@ -280,6 +289,10 @@ function remplirSelectAliment(alimentsParCategorie){
       option.textContent = aliment['designation'];
       alimentsSelect.appendChild(option);
    });
+}
+
+function cleanDeleteForm(){
+   document.getElementById("alimentASupprimer").innerHTML = "";
 }
 
 function remplirSelectAlimentASupprimer(alimentsDuRepas){

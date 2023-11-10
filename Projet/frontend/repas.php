@@ -75,7 +75,7 @@
                                  <div class="form-group">
                                     <label for="categorie">Categorie Aliment</label>
                                     <select id="categorie" class="form-control">
-                                       <option></option>
+                                       <option value="none"></option>
                                        <option value="0">Légume</option>
                                        <option value="1">Fruit</option>
                                        <option value="2">Féculent</option>
